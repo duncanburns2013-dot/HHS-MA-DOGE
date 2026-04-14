@@ -5166,6 +5166,21 @@ function FraudTargetsSection() {
       React.createElement("h2", { style: { fontFamily: F.h, fontSize: 32, color: X.white, margin: "4px 0" } }, "491 Targets · $15.6 Billion Flagged"),
       React.createElement("div", { style: { fontSize: 12, color: X.sub } }, "Multi-entity addresses · Same-person control · Identical billing codes · Source: T-MSIS + NPPES cross-reference")
     ),
+    React.createElement("div", { style: { background: "#0a0818", border: "1px solid #1a1535", borderRadius: 8, padding: 16, marginBottom: 24 } },
+      React.createElement("div", { style: { fontFamily: F.m, fontSize: 10, color: "#818cf8", letterSpacing: 2, marginBottom: 10 } }, "WHY ARE THESE FLAGGED?"),
+      React.createElement("div", { style: { fontSize: 12, color: X.sub, lineHeight: 1.8 } },
+        "These 491 addresses were flagged by cross-referencing ", React.createElement("span", { style: { color: X.white } }, "6.47 million T-MSIS claims"), " against the ", React.createElement("span", { style: { color: X.white } }, "NPPES provider registry"), ". The algorithm flags addresses where:"
+      ),
+      React.createElement("div", { style: { marginTop: 10, marginLeft: 12, fontSize: 12, color: X.sub, lineHeight: 2 } },
+        React.createElement("div", null, React.createElement("span", { style: { color: X.red, fontWeight: 700 } }, "1. "), React.createElement("span", { style: { color: X.white } }, "Same person controls multiple entities"), " — One individual listed as authorized official on 2+ NPIs at the same address. In legitimate operations (hospitals), different departments have different officials. When one person runs everything, it enables self-dealing."),
+        React.createElement("div", null, React.createElement("span", { style: { color: X.red, fontWeight: 700 } }, "2. "), React.createElement("span", { style: { color: X.white } }, "Multiple entities billing identical codes"), " — Two or more entities at one address billing the same procedure codes. This pattern was the signature of the $100M Arbor Homecare fraud (2017) and the Maine T1019 ghost company network (2025)."),
+        React.createElement("div", null, React.createElement("span", { style: { color: X.red, fontWeight: 700 } }, "3. "), React.createElement("span", { style: { color: X.white } }, "Disproportionate billing volume"), " — Addresses where total Medicaid billing exceeds $1M+ with minimal staff or entity diversity. BSD Home Care (P1, $22.6M) has a CEO phone number with a New York 845 area code."),
+        React.createElement("div", null, React.createElement("span", { style: { color: X.red, fontWeight: 700 } }, "4. "), React.createElement("span", { style: { color: X.white } }, "Cluster addresses"), " — 5+ entities operating from one location. Lawrence has three cluster addresses totaling $162M. The 140 High St, Springfield address has 23 entities.")
+      ),
+      React.createElement("div", { style: { marginTop: 12, fontSize: 11, color: X.dim, fontStyle: "italic", borderTop: "1px solid #1a1535", paddingTop: 10 } },
+        "These are ", React.createElement("span", { style: { color: "#f59e0b" } }, "red flags for investigation"), ", not proof of fraud. Some flagged addresses are legitimate (hospitals, medical plazas). The MA AG Medicaid Fraud Division has 45 staff investigating a system processing tens of billions annually — this tool is designed to help prioritize where to look."
+      )
+    ),
     React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginBottom: 24 } },
       [["491", "Fraud Targets", X.red], ["$1.17B", "P1 Highest (32)", "#ff6b35"], ["$15.6B", "Total Flagged", X.red], ["49", "Elder/Home Care", "#4ade80"]].map(([v, l, c], i) =>
         React.createElement("div", { key: i, style: { background: `${X.bg}`, border: `1px solid ${X.border}`, borderRadius: 8, padding: 14, textAlign: "center" } },
