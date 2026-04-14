@@ -1887,6 +1887,9 @@ function Nav({
     id: "cost",
     l: "🏠 COST"
   }, {
+    id: "fraudtargets",
+    l: "🎯 FRAUD TARGETS"
+  }, {
     id: "sources",
     l: "📄 SOURCES"
   }];
@@ -5081,6 +5084,177 @@ function SourcesSection() {
     }
   }, "github.com/duncanburns2013-dot")));
 }
+
+function FraudTargetsSection() {
+  const [expanded, setExpanded] = useState({});
+  const [filter, setFilter] = useState("all");
+  const toggle = (i) => setExpanded(p => ({...p, [i]: !p[i]}));
+  const fmt = (n) => n >= 1e9 ? "$" + (n/1e9).toFixed(2) + "B" : n >= 1e6 ? "$" + (n/1e6).toFixed(1) + "M" : n >= 1e3 ? "$" + (n/1e3).toFixed(0) + "K" : "$" + n;
+
+  const SUMMARY = [
+    { level: "P1 - HIGHEST", count: 32, total: 1171003724, color: "#ff0040" },
+    { level: "P2 - HIGH", count: 23, total: 309283108, color: "#ff6b35" },
+    { level: "P3 - MEDIUM-HIGH", count: 286, total: 2400487132, color: "#f59e0b" },
+    { level: "P4 - MEDIUM", count: 53, total: 1054586379, color: "#86efac" },
+    { level: "P5 - REVIEW", count: 97, total: 10693693108, color: "#64748b" },
+  ];
+
+  const P1 = [
+    { addr: "300 COMMERCIAL ST STE 19", city: "MALDEN", total: 247817344, ent: 3, name: "MYSTIC VALLEY ELDER SERVICES", person: "SEAN HUBACZ", type: "elder", codes: "S5170, G0156" },
+    { addr: "2315 WASHINGTON ST", city: "ROXBURY", total: 207251049, ent: 3, name: "CENTRAL BOSTON ELDER SERVICES", person: "EVENS BONTEMPS", type: "elder", codes: "H0045, G0156" },
+    { addr: "144 MAIN ST", city: "BROCKTON", total: 157920857, ent: 3, name: "OLD COLONY ELDERLY SERVICES", person: "DIANA DIGIORGI", type: "elder", codes: "T1021, G0156" },
+    { addr: "25 MAIN ST", city: "WEYMOUTH", total: 124683308, ent: 2, name: "BREWSTER AMBULANCE SERVICE", person: "ROBERT JAMES", type: "transport", codes: "A0427, A0429" },
+    { addr: "61 MEDFORD ST", city: "SOMERVILLE", total: 118686097, ent: 4, name: "SOMERVILLE CAMBRIDGE ELDER SVCS", person: "JOHN O'NEILL", type: "elder", codes: "S5140, G0156" },
+    { addr: "1646 PURCHASE ST", city: "NEW BEDFORD", total: 87349662, ent: 2, name: "COASTLINE ELDERLY SERVICES", person: "MARK SANTOS", type: "elder", codes: "G0156, S5170" },
+    { addr: "303 BEECH ST", city: "HOLYOKE", total: 64995250, ent: 4, name: "RIVER VALLEY COUNSELING CENTER", person: "JENNIFER SALCINES", type: "behavioral", codes: "90834" },
+    { addr: "900 MEMORIAL AVE", city: "W SPRINGFIELD", total: 38446663, ent: 2, name: "TOTAL WELLNESS CENTERS, LLC", person: "EAMON DEVER", type: "behavioral", codes: "90837, H0015" },
+    { addr: "112 TURNPIKE RD STE 101", city: "WESTBOROUGH", total: 22564234, ent: 2, name: "BSD HOME CARE MANAGEMENT LLC", person: "NY 845 AREA CODE", type: "homecare", codes: "T1019, S5125" },
+    { addr: "425 LAKE AVE N STE 102", city: "WORCESTER", total: 15976635, ent: 2, name: "CITY HOME CARE, LLC", person: "", type: "homecare", codes: "T1019, S5125" },
+    { addr: "2343 PURCHASE ST", city: "NEW BEDFORD", total: 14355330, ent: 2, name: "ALL CARE HOMECARE, LLC", person: "", type: "homecare", codes: "T1019" },
+    { addr: "1013 MAIN ST", city: "WORCESTER", total: 12514129, ent: 2, name: "EMERGENCY MEDICAL TRANSPORT", person: "", type: "transport", codes: "A0427" },
+    { addr: "37 BIRCH ST", city: "MILFORD", total: 12273869, ent: 2, name: "SALMON HOME CARE, LLC", person: "", type: "homecare", codes: "T1019" },
+    { addr: "4 STONY HILL RD", city: "WILBRAHAM", total: 11525576, ent: 2, name: "EXCEL HOME CARE SERVICES", person: "", type: "homecare", codes: "T1019, S5125" },
+    { addr: "439 S UNION ST UNIT 2104", city: "LAWRENCE", total: 6779062, ent: 2, name: "FERRERAS COUNSELING LLC", person: "", type: "behavioral", codes: "90837" },
+    { addr: "200 CORDWAINER DR", city: "NORWELL", total: 5468206, ent: 3, name: "SOUTH SHORE CTR FOR WELLNESS", person: "KENNETH ROOD", type: "behavioral", codes: "90837" },
+  ];
+
+  const CLUSTERS = [
+    { addr: "600 TECHNOLOGY CENTER DR", city: "STOUGHTON", entities: 7, total: 6620437058, priority: "P5", note: "Tempus Unlimited — fiscal intermediary", subs: [
+      { name: "TEMPUS UNLIMITED, INC.", amt: 5571605313, person: "LARRY SPENCER (CEO)" },
+      { name: "TEMPUS UNLIMITED, INC.", amt: 554866274, person: "LARRY SPENCER (CEO)" },
+      { name: "TEMPUS UNLIMITED, INC.", amt: 290808661, person: "LARRY SPENCER (CEO)" },
+    ]},
+    { addr: "360 MERRIMACK ST", city: "LAWRENCE", entities: 13, total: 114070143, priority: "P4", note: "Elder Services + FCP + eye doctors", subs: [
+      { name: "ELDER SVCS MERRIMACK VALLEY", amt: 86287325, person: "ROSANNE DISTEFANO" },
+      { name: "FCP, INC", amt: 21211297, person: "BARBARA WILSON" },
+      { name: "TALLMAN EYE ASSOCIATES", amt: 3702345, person: "CYNTHIA DEANGELIS" },
+    ]},
+    { addr: "147 PELHAM ST", city: "METHUEN", entities: 4, total: 105319411, priority: "P4", note: "Comfort Home Care — $104M one address", subs: [
+      { name: "COMFORT HOME CARE LLC", amt: 103808965, person: "BRANDON HOWES" },
+      { name: "GREATER LAWRENCE FAMILY HEALTH", amt: 1505843, person: "KARIN BERNARD" },
+    ]},
+    { addr: "599 CANAL ST", city: "LAWRENCE", entities: 12, total: 35756138, priority: "P4", note: "Intl Health Solutions + LIFOD + 10 others", subs: [
+      { name: "INTERNATIONAL HEALTH SOLUTIONS", amt: 17519747, person: "RITA NORTON" },
+      { name: "LIFOD HOME HEALTH CARE LLC", amt: 15360775, person: "KARIUKI KIMUNGU" },
+      { name: "PATRICIO DHIMITRI", amt: 782700, person: "" },
+    ]},
+    { addr: "140 HIGH ST", city: "SPRINGFIELD", entities: 23, total: 5883175, priority: "P2", note: "23 entities at one address", subs: [
+      { name: "JOHN O'REILLY", amt: 917324, person: "" },
+      { name: "HEALTHPOINT HOMECARE SVCS", amt: 821369, person: "FREDRICK ODHIAMBO" },
+      { name: "MATTHEW SADOF", amt: 621356, person: "" },
+    ]},
+    { addr: "15 UNION ST", city: "LAWRENCE", entities: 5, total: 13878893, priority: "P2", note: "A Quality Home Care + 4 individual billers", subs: [
+      { name: "A QUALITY HOME CARE INC", amt: 13443660, person: "ELIZABETH KAARA (CEO)" },
+      { name: "GERALDO PAGAN", amt: 316577, person: "" },
+      { name: "JENNIFER POWELL", amt: 73104, person: "" },
+    ]},
+  ];
+
+  const typeColors = {
+    elder: { bg: "#1a0808", text: "#ff6b6b", label: "ELDER/ASAP" },
+    homecare: { bg: "#0a1a08", text: "#4ade80", label: "HOME CARE" },
+    behavioral: { bg: "#0a0820", text: "#818cf8", label: "BEHAVIORAL" },
+    transport: { bg: "#1a1808", text: "#fbbf24", label: "TRANSPORT" },
+  };
+
+  const filtered = filter === "all" ? P1 : P1.filter(t => t.type === filter);
+  const maxSummary = Math.max(...SUMMARY.map(s => s.total));
+
+  return React.createElement("div", { style: { padding: "20px 24px", maxWidth: 960, margin: "0 auto" } },
+    React.createElement("div", { style: { marginBottom: 24 } },
+      React.createElement("div", { style: { fontFamily: F.m, fontSize: 10, color: X.red, letterSpacing: 3 } }, "FRAUD DETECTION ANALYSIS"),
+      React.createElement("h2", { style: { fontFamily: F.h, fontSize: 32, color: X.white, margin: "4px 0" } }, "491 Targets · $15.6 Billion Flagged"),
+      React.createElement("div", { style: { fontSize: 12, color: X.sub } }, "Multi-entity addresses · Same-person control · Identical billing codes · Source: T-MSIS + NPPES cross-reference")
+    ),
+    React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginBottom: 24 } },
+      [["491", "Fraud Targets", X.red], ["$1.17B", "P1 Highest (32)", "#ff6b35"], ["$15.6B", "Total Flagged", X.red], ["49", "Elder/Home Care", "#4ade80"]].map(([v, l, c], i) =>
+        React.createElement("div", { key: i, style: { background: `${X.bg}`, border: `1px solid ${X.border}`, borderRadius: 8, padding: 14, textAlign: "center" } },
+          React.createElement("div", { style: { fontFamily: F.m, fontSize: 22, color: c, fontWeight: 700 } }, v),
+          React.createElement("div", { style: { fontSize: 10, color: X.sub, fontFamily: F.m, marginTop: 4 } }, l)
+        )
+      )
+    ),
+    React.createElement("div", { style: { background: X.bg, border: `1px solid ${X.border}`, borderRadius: 8, padding: 16, marginBottom: 24 } },
+      React.createElement("div", { style: { fontFamily: F.m, fontSize: 10, color: X.red, letterSpacing: 2, marginBottom: 12 } }, "PRIORITY BREAKDOWN"),
+      SUMMARY.map((s, i) => React.createElement("div", { key: i, style: { marginBottom: 8 } },
+        React.createElement("div", { style: { display: "flex", justifyContent: "space-between", fontSize: 11, color: X.sub, marginBottom: 3 } },
+          React.createElement("span", null, s.level + " (" + s.count + ")"),
+          React.createElement("span", { style: { fontFamily: F.m, color: s.color } }, fmt(s.total))
+        ),
+        React.createElement("div", { style: { height: 6, background: X.border, borderRadius: 3, overflow: "hidden" } },
+          React.createElement("div", { style: { height: "100%", width: (s.total / maxSummary * 100) + "%", background: s.color, borderRadius: 3 } })
+        )
+      ))
+    ),
+    React.createElement("div", { style: { fontFamily: F.m, fontSize: 10, color: X.red, letterSpacing: 2, marginBottom: 8 } }, "P1 — HIGHEST PRIORITY TARGETS"),
+    React.createElement("div", { style: { display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 12 } },
+      ["all", "elder", "homecare", "behavioral", "transport"].map(t => React.createElement("button", {
+        key: t, onClick: () => setFilter(t),
+        style: { padding: "4px 10px", fontSize: 10, fontFamily: F.m, letterSpacing: 1,
+          background: filter === t ? (t === "all" ? X.red : typeColors[t]?.text || X.red) + "22" : "transparent",
+          color: filter === t ? (t === "all" ? X.red : typeColors[t]?.text || X.red) : X.dim,
+          border: `1px solid ${filter === t ? (t === "all" ? X.red : typeColors[t]?.text || X.red) + "44" : X.border}`,
+          borderRadius: 4, cursor: "pointer", textTransform: "uppercase"
+        }
+      }, t === "all" ? "ALL (" + P1.length + ")" : (typeColors[t]?.label || t) + " (" + P1.filter(x => x.type === t).length + ")"))
+    ),
+    filtered.map((t, i) => {
+      const tc = typeColors[t.type] || { text: X.sub };
+      const isOpen = expanded["p1_" + i];
+      return React.createElement("div", { key: i, onClick: () => toggle("p1_" + i),
+        style: { background: isOpen ? `${tc.text}08` : "transparent", border: `1px solid ${isOpen ? tc.text + "33" : X.border}`, borderRadius: 8, padding: "10px 14px", marginBottom: 4, cursor: "pointer" }
+      },
+        React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center" } },
+          React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8 } },
+            React.createElement("span", { style: { fontSize: 9, padding: "2px 6px", borderRadius: 3, background: tc.text + "22", color: tc.text, fontFamily: F.m, border: `1px solid ${tc.text}33` } }, t.ent + " NPIs"),
+            React.createElement("span", { style: { fontFamily: F.m, fontSize: 12, color: X.white, fontWeight: 700 } }, t.name.substring(0, 35)),
+            React.createElement("span", { style: { fontSize: 11, color: X.sub } }, t.city)
+          ),
+          React.createElement("span", { style: { fontFamily: F.m, fontSize: 14, color: t.total > 100000000 ? X.red : t.total > 10000000 ? "#f59e0b" : X.sub, fontWeight: 700 } }, fmt(t.total))
+        ),
+        isOpen ? React.createElement("div", { style: { marginTop: 8, paddingLeft: 22, fontSize: 11, color: X.sub, lineHeight: 1.8 } },
+          React.createElement("div", null, "Address: ", t.addr, ", ", t.city),
+          t.person ? React.createElement("div", null, "Controller: ", React.createElement("span", { style: { color: X.white } }, t.person)) : null,
+          React.createElement("div", null, "Top codes: ", React.createElement("span", { style: { fontFamily: F.m, color: "#22d3ee" } }, t.codes)),
+          React.createElement("div", { style: { fontSize: 10, color: X.red, marginTop: 4, fontWeight: 600 } }, "Same person controls all entities · Billing identical codes")
+        ) : null
+      );
+    }),
+    React.createElement("div", { style: { fontFamily: F.m, fontSize: 10, color: X.red, letterSpacing: 2, marginTop: 24, marginBottom: 8 } }, "MULTI-ENTITY CLUSTER ADDRESSES"),
+    React.createElement("div", { style: { fontSize: 12, color: X.sub, marginBottom: 12 } }, "Click to see who\u2019s at each address"),
+    CLUSTERS.map((c, i) => {
+      const isOpen = expanded["cl_" + i];
+      return React.createElement("div", { key: i,
+        style: { background: isOpen ? `${X.red}08` : "transparent", border: `1px solid ${isOpen ? X.red + "33" : X.border}`, borderRadius: 8, marginBottom: 6, overflow: "hidden" }
+      },
+        React.createElement("div", { onClick: () => toggle("cl_" + i), style: { padding: "10px 14px", cursor: "pointer" } },
+          React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center" } },
+            React.createElement("div", { style: { display: "flex", alignItems: "center", gap: 8 } },
+              React.createElement("span", { style: { fontFamily: F.m, fontSize: 10, padding: "2px 6px", borderRadius: 3, background: X.red + "22", color: X.red, border: `1px solid ${X.red}33` } }, c.entities + " NPIs"),
+              React.createElement("span", { style: { fontSize: 9, padding: "1px 5px", borderRadius: 2, background: X.dim + "44", color: X.sub, fontFamily: F.m } }, c.priority),
+              React.createElement("span", { style: { fontFamily: F.m, fontSize: 12, color: X.white, fontWeight: 700 } }, c.addr),
+              React.createElement("span", { style: { fontSize: 11, color: X.sub } }, c.city)
+            ),
+            React.createElement("span", { style: { fontFamily: F.m, fontSize: 14, color: c.total > 100000000 ? X.red : c.total > 10000000 ? "#f59e0b" : X.sub, fontWeight: 700 } }, fmt(c.total))
+          ),
+          React.createElement("div", { style: { fontSize: 11, color: X.dim, marginTop: 4 } }, c.note)
+        ),
+        isOpen ? React.createElement("div", { style: { padding: "0 14px 12px", borderTop: `1px solid ${X.border}` } },
+          React.createElement("div", { style: { fontFamily: F.m, fontSize: 9, color: X.dim, letterSpacing: 1, padding: "8px 0 4px", textTransform: "uppercase" } }, "Entities at this address:"),
+          c.subs.map((s, j) => React.createElement("div", { key: j, style: { display: "flex", justifyContent: "space-between", padding: "5px 0", borderBottom: `1px solid ${X.border}22` } },
+            React.createElement("div", null,
+              React.createElement("span", { style: { fontSize: 12, color: j === 0 ? X.white : X.sub, fontWeight: j === 0 ? 700 : 400 } }, s.name),
+              s.person ? React.createElement("span", { style: { fontSize: 10, color: X.dim, marginLeft: 8 } }, s.person) : null
+            ),
+            React.createElement("span", { style: { fontFamily: F.m, fontSize: 12, color: s.amt > 50000000 ? X.red : s.amt > 1000000 ? "#f59e0b" : X.sub, fontWeight: 600 } }, fmt(s.amt))
+          )),
+          c.entities > 3 ? React.createElement("div", { style: { fontSize: 10, color: X.dim, fontStyle: "italic", marginTop: 6, fontFamily: F.m } }, "+ " + (c.entities - 3) + " more entities at this address") : null
+        ) : null
+      );
+    })
+  );
+}
+
 function App() {
   const [entered, setEntered] = useState(false);
   const [tab, setTab] = useState("providers");
@@ -5097,6 +5271,7 @@ function App() {
     payplay: PayPlaySection,
     compare: CompareSection,
     cost: CostSection,
+    fraudtargets: FraudTargetsSection,
     sources: SourcesSection
   }[tab] || ProvidersSection;
   return /*#__PURE__*/React.createElement("div", {
