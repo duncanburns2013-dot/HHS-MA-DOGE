@@ -5178,12 +5178,111 @@ function FraudTargetsSection() {
   const filtered = filter === "all" ? P1 : P1.filter(t => t.type === filter);
   const maxSummary = Math.max(...SUMMARY.map(s => s.total));
 
-  return React.createElement("div", { style: { padding: "20px 24px", maxWidth: 960, margin: "0 auto" } },
+  return React.createElement("div", { style: { padding: "20px 24px", maxWidth: 1200, margin: "0 auto" } },
     React.createElement("div", { style: { marginBottom: 24 } },
       React.createElement("div", { style: { fontFamily: F.m, fontSize: 10, color: X.red, letterSpacing: 3 } }, "FRAUD DETECTION ANALYSIS"),
       React.createElement("h2", { style: { fontFamily: F.h, fontSize: 32, color: X.white, margin: "4px 0" } }, "491 Targets · $15.6 Billion Flagged"),
       React.createElement("div", { style: { fontSize: 12, color: X.sub } }, "Multi-entity addresses · Same-person control · Identical billing codes · Source: T-MSIS + NPPES cross-reference")
     ),
+    // ===== ANALYTICAL VIEW — WHERE ELSE FRAUD MAY BE =====
+    React.createElement("div", { style: { background: `linear-gradient(135deg, #1a0820, #0a0818)`, border: `2px solid ${X.amber}55`, borderRadius: 12, padding: 22, marginBottom: 28 } },
+      React.createElement("div", { style: { fontFamily: F.m, fontSize: 10, color: X.amber, letterSpacing: 4, marginBottom: 6 } }, "ANALYTICAL VIEW"),
+      React.createElement("h2", { style: { fontFamily: F.h, fontSize: 26, color: X.white, margin: "0 0 4px" } }, "Where Else Fraud May Be"),
+      React.createElement("div", { style: { fontSize: 12, color: X.sub, marginBottom: 18 } }, "Five observations from the existing data — categories and concentrations the current 491-target list does not cover."),
+      // Observation 1: Tempus $6.62B
+      React.createElement("div", { style: { background: "#0a1408", border: `1px solid ${X.red}55`, borderLeft: `4px solid ${X.red}`, borderRadius: 8, padding: 16, marginBottom: 12 } },
+        React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 8, marginBottom: 6 } },
+          React.createElement("div", { style: { fontFamily: F.m, fontSize: 10, color: X.red, letterSpacing: 2 } }, "01 · THE LARGEST UNFLAGGED NUMBER"),
+          React.createElement("div", { style: { fontFamily: F.m, fontSize: 24, color: X.red, fontWeight: 700 } }, "$6.62B")
+        ),
+        React.createElement("div", { style: { fontFamily: F.h, fontSize: 19, color: X.white, marginBottom: 8 } }, "Tempus Unlimited · 7 NPIs · 1 CEO · 1 Address"),
+        React.createElement("div", { style: { fontSize: 13, color: X.sub, lineHeight: 1.7 } },
+          "Currently classified ", React.createElement("span", { style: { color: X.amber, fontWeight: 700 } }, "P5 — REVIEW"), " with the note ",
+          React.createElement("span", { style: { fontStyle: "italic" } }, "“fiscal intermediary”"),
+          ". But: 600 Technology Center Dr, Stoughton holds ", React.createElement("span", { style: { color: X.white, fontWeight: 700 } }, "7 separate NPI entries"),
+          " under one CEO (Larry Spencer) billing T1019 — the single largest dollar number in this dataset, larger than the next five P1 entries combined. ",
+          React.createElement("span", { style: { color: X.amber } }, "HHS OIG is actively auditing fiscal intermediaries for EVV (Electronic Visit Verification) completeness."),
+          " The legitimate explanation for one entity does not explain seven sub-entries totaling $5.57B + $554M + $290M."
+        )
+      ),
+      // Observation 2: T1019 bottleneck
+      React.createElement("div", { style: { background: "#0a1810", border: `1px solid ${X.green}44`, borderLeft: `4px solid ${X.green}`, borderRadius: 8, padding: 16, marginBottom: 12 } },
+        React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 8, marginBottom: 6 } },
+          React.createElement("div", { style: { fontFamily: F.m, fontSize: 10, color: X.green, letterSpacing: 2 } }, "02 · THE ONE CODE THAT CONNECTS THEM"),
+          React.createElement("div", { style: { fontFamily: F.m, fontSize: 24, color: X.green, fontWeight: 700 } }, "T1019")
+        ),
+        React.createElement("div", { style: { fontFamily: F.h, fontSize: 19, color: X.white, marginBottom: 8 } }, "Personal Care · The Fraud Bottleneck Code"),
+        React.createElement("div", { style: { fontSize: 13, color: X.sub, lineHeight: 1.7 } },
+          "T1019 (personal care, per 15 minutes) appears in the billing code list for ",
+          React.createElement("span", { style: { color: X.white, fontWeight: 700 } }, "7 of 16 P1 entries"),
+          ": Central Boston Elder, BSD Home Care, City Home Care, All Care, Salmon, Excel, Coastline. It is also the dominant code at Tempus ($6.62B). ",
+          React.createElement("span", { style: { color: X.green } }, "T1019 is the only code in the dataset where MA bills BELOW national average (0.78×) per the Key Findings table"),
+          " — but BSD Home Care ($22.6M, NY 845 area code controller) and the Tempus stack still bill in the billions. Cross-reference: which T1019 providers fail an EVV audit?"
+        )
+      ),
+      // Observation 3: Lawrence corridor
+      React.createElement("div", { style: { background: "#1a0808", border: `1px solid ${X.orange}44`, borderLeft: `4px solid ${X.orange}`, borderRadius: 8, padding: 16, marginBottom: 12 } },
+        React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 8, marginBottom: 6 } },
+          React.createElement("div", { style: { fontFamily: F.m, fontSize: 10, color: X.orange, letterSpacing: 2 } }, "03 · GEOGRAPHIC CONCENTRATION"),
+          React.createElement("div", { style: { fontFamily: F.m, fontSize: 24, color: X.orange, fontWeight: 700 } }, "Lawrence")
+        ),
+        React.createElement("div", { style: { fontFamily: F.h, fontSize: 19, color: X.white, marginBottom: 8 } }, "Three multi-entity cluster addresses in one city"),
+        React.createElement("div", { style: { fontSize: 13, color: X.sub, lineHeight: 1.7, marginBottom: 8 } },
+          "Half of the cluster addresses on this page are in the Lawrence/Methuen corridor:"
+        ),
+        React.createElement("div", { style: { fontFamily: F.m, fontSize: 12, color: X.text, lineHeight: 1.9, marginLeft: 12 } },
+          React.createElement("div", null, "• 360 Merrimack St — 13 entities — $114.07M"),
+          React.createElement("div", null, "• 599 Canal St — 12 entities — $35.76M"),
+          React.createElement("div", null, "• 15 Union St — 5 entities — $13.88M"),
+          React.createElement("div", null, "• 439 S Union St (P1) — $6.78M"),
+          React.createElement("div", null, "• 147 Pelham St, Methuen (P4) — $105.32M"),
+        ),
+        React.createElement("div", { style: { fontSize: 13, color: X.sub, lineHeight: 1.7, marginTop: 8 } },
+          React.createElement("span", { style: { color: X.orange, fontWeight: 600 } }, "$275M+ concentrated in one Merrimack Valley corridor."),
+          " This is the structural signature of regional claims-mill clustering. State Auditor BSI and DOJ NE Strike Force can both work geographically — a corridor-focused referral is more tractable than a 491-target list."
+        )
+      ),
+      // Observation 4: Categories not yet examined
+      React.createElement("div", { style: { background: "#0a0820", border: `1px solid ${X.purple}44`, borderLeft: `4px solid ${X.purple}`, borderRadius: 8, padding: 16, marginBottom: 12 } },
+        React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 8, marginBottom: 6 } },
+          React.createElement("div", { style: { fontFamily: F.m, fontSize: 10, color: X.purple, letterSpacing: 2 } }, "04 · UNEXAMINED CATEGORIES"),
+          React.createElement("div", { style: { fontFamily: F.m, fontSize: 24, color: X.purple, fontWeight: 700 } }, "5 gaps")
+        ),
+        React.createElement("div", { style: { fontFamily: F.h, fontSize: 19, color: X.white, marginBottom: 10 } }, "High-fraud-risk codes not in the 491-target list"),
+        React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 10 } },
+          [
+            { code: "E-codes", name: "DME / Durable Medical Equipment", note: "Historically high-fraud (power wheelchair, oxygen). Zero entries in current dataset." },
+            { code: "Q5xxx", name: "Hospice", note: "OIG flags hospice as a top fraud category nationally. Not analyzed in MA dataset." },
+            { code: "99441–43 / G2010", name: "Telehealth / virtual check-in", note: "Active OIG report (2026): “CMS could strengthen safeguards.” Spiked post-COVID, never recalibrated." },
+            { code: "Decedent file", name: "Deceased-beneficiary billing", note: "OIG found hundreds of millions in 2021. MA does no SSA cross-check (per Key Findings table)." },
+            { code: "H0xxx", name: "Behavioral health intensive", note: "Only River Valley + Total Wellness flagged. The $4.4B MA behavioral spend is otherwise unexamined." },
+          ].map((g, i) =>
+            React.createElement("div", { key: i, style: { background: "#080518", border: `1px solid ${X.purple}33`, borderRadius: 6, padding: 12 } },
+              React.createElement("div", { style: { fontFamily: F.m, fontSize: 10, color: X.purple, marginBottom: 4 } }, g.code),
+              React.createElement("div", { style: { fontSize: 13, color: X.white, fontWeight: 700, marginBottom: 4 } }, g.name),
+              React.createElement("div", { style: { fontSize: 11, color: X.sub, lineHeight: 1.5 } }, g.note)
+            )
+          )
+        )
+      ),
+      // Observation 5: Anomalous ratios
+      React.createElement("div", { style: { background: "#080518", border: `1px solid ${X.cyan}44`, borderLeft: `4px solid ${X.cyan}`, borderRadius: 8, padding: 16 } },
+        React.createElement("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 8, marginBottom: 6 } },
+          React.createElement("div", { style: { fontFamily: F.m, fontSize: 10, color: X.cyan, letterSpacing: 2 } }, "05 · ANOMALOUS DENSITY"),
+          React.createElement("div", { style: { fontFamily: F.m, fontSize: 24, color: X.cyan, fontWeight: 700 } }, "23 ÷ $5.9M")
+        ),
+        React.createElement("div", { style: { fontFamily: F.h, fontSize: 19, color: X.white, marginBottom: 8 } }, "140 High St, Springfield · The Anti-Pattern"),
+        React.createElement("div", { style: { fontSize: 13, color: X.sub, lineHeight: 1.7 } },
+          React.createElement("span", { style: { color: X.white, fontWeight: 700 } }, "23 entities billing only $5.9M"),
+          " — the inverse of the Comfort Home Care signature (4 entities, $105M). The other clusters show ",
+          React.createElement("span", { style: { color: X.cyan } }, "few entities billing huge volume"),
+          ". This one shows ",
+          React.createElement("span", { style: { color: X.cyan } }, "many entities billing small volumes"),
+          ". That ratio is characteristic of small-claim mill operations: many small entities to stay below per-entity audit thresholds, billing different individual providers. Worth a separate look — the volume is low but the structural sign is different from everything else in this list."
+        )
+      )
+    ),
+    // ===== END ANALYTICAL VIEW =====
     React.createElement("div", { style: { background: "#0a0818", border: "1px solid #1a1535", borderRadius: 8, padding: 16, marginBottom: 24 } },
       React.createElement("div", { style: { fontFamily: F.m, fontSize: 10, color: "#818cf8", letterSpacing: 2, marginBottom: 10 } }, "WHY ARE THESE FLAGGED?"),
       React.createElement("div", { style: { fontSize: 12, color: X.sub, lineHeight: 1.8 } },
