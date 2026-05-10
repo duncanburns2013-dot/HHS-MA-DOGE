@@ -12,6 +12,18 @@
 
 ---
 
+## 🆕 What's New — May 2026
+
+- **HHS DOGE Medicaid Provider Spending dataset (Feb 2026)** — the largest public Medicaid claims aggregation ever released. 10 GB, 227M+ rows, provider × HCPCS × month, 2018–2024. Ingest script: [`data/fraud-detection/ingest_hhs_doge_provider_spending.py`](data/fraud-detection/ingest_hhs_doge_provider_spending.py)
+- **Enforcement layer** — new [`enforcement/`](enforcement/) folder cross-references this investigation against:
+  - [2026 MA AG indictments](enforcement/2026-MA-INDICTMENTS.md) (Waltham NEMT $770K, $7.8M home-health/lab/physician kickback ring, UHS $15M+ settlement)
+  - [State Auditor BSI FY25](enforcement/STATE-AUDITOR-BSI-FY25.md) — $11.95M public-benefit fraud identified + March 2026 follow-up
+  - [HHS OIG MFCU FY2025](enforcement/HHS-OIG-MFCU-FY25.md) — $2B recoveries, 1,185 convictions, active OIG focus on EVV data
+  - [DOJ routing](enforcement/DOJ-ROUTING.md) — how to reach the **New England Strike Force** (USAO-MA + FBI + HHS-OIG + MA MFCU) instead of mainline DOJ
+- **Full changelog:** [`NEW-DATA-2026.md`](NEW-DATA-2026.md)
+
+---
+
 ## What This Is
 
 A data-driven investigation into Massachusetts Medicaid (MassHealth) spending using federal CMS T-MSIS data, state CTHRU vendor payments, OCPF campaign finance records, and lobbying registrations. Every number sourced from public records.
@@ -60,10 +72,13 @@ The dashboard is a single React component (JSX) designed to run in any React env
 | Source | Description |
 |--------|-------------|
 | **CMS T-MSIS** | Provider-level Medicaid claims (6.47M rows) |
+| **HHS DOGE Provider Spending** *(NEW — Feb 2026)* | Provider × HCPCS × month, 2018–2024, 227M rows — opendata.hhs.gov |
+| **CMS T-MSIS TAF 2023 + 2024** *(NEW — 2026)* | Refreshed annual analytic files |
 | **NPPES** | National Provider Identifier registry |
 | **LEIE** | OIG List of Excluded Individuals/Entities |
 | **DOL OLMS** | Union LM-2 financial filings |
-| **OIG MFCU** | State fraud unit staffing & recovery reports |
+| **HHS OIG MFCU FY2025** *(NEW — 2026)* | $2B Medicaid recoveries, 1,185 convictions |
+| **DOJ Health Care Fraud Unit — NE Strike Force** *(NEW)* | MA-specific federal enforcement |
 
 ### State
 | Source | Description |
@@ -72,6 +87,7 @@ The dashboard is a single React component (JSX) designed to run in any React env
 | **OCPF** | Office of Campaign & Political Finance (31,000+ records) |
 | **SOS Lobbyist Registry** | Lobbying registrations & expenditures |
 | **State Auditor** | Ch.257 audits, MassHealth findings |
+| **MA State Auditor BSI FY25** *(NEW — 2026)* | $11.95M public-benefit fraud cases incl. MassHealth |
 | **MA SOS Corps Division** | Corporate filings (e.g., Caregiver Homes) |
 
 ### Financial
