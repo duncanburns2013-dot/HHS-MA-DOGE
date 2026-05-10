@@ -5314,7 +5314,7 @@ function EnforcementSection() {
     { title: "$14.6B National HCF Takedown", who: "324 defendants · 50 federal districts", charge: "MA MFCU participated in investigations", source: "DOJ", url: "https://www.justice.gov/opa/pr/national-health-care-fraud-takedown-results-324-defendants-charged-connection-over-146" },
   ];
 
-  return C("div", { style: { padding: "20px 24px", maxWidth: 1200, margin: "0 auto" } },
+  return C("div", { style: { padding: "20px 24px", maxWidth: 1280, margin: "0 auto" } },
     // Header banner image (politicians / social card)
     C("div", { style: { marginBottom: 20, borderRadius: 10, overflow: "hidden", border: `1px solid ${X.border}`, boxShadow: `0 0 40px ${X.red}22` } },
       C("img", { src: "social_card.png", alt: "Massachusetts DOGE Analysis - Healey, Mariano, Spilka, Campbell", style: { width: "100%", display: "block" } })
@@ -5355,7 +5355,7 @@ function EnforcementSection() {
     ),
     // Indictments grid
     C("div", { style: { fontFamily: F.m, fontSize: 10, color: X.red, letterSpacing: 3, marginBottom: 10 } }, "2026 MA INDICTMENTS · STRUCTURAL OVERLAP WITH THIS REPO"),
-    C("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 12, marginBottom: 28 } },
+    C("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))", gap: 12, marginBottom: 28 } },
       indictments.map((ind, i) =>
         C("a", { key: i, href: ind.url, target: "_blank", style: { textDecoration: "none" } },
           C("div", { className: "hC", style: { background: "#1a0808", border: `1px solid ${X.red}33`, borderRadius: 8, padding: 14, height: "100%", cursor: "pointer" } },
