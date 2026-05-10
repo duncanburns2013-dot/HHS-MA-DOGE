@@ -45,6 +45,10 @@ Entities analyzed:
 | IRS Form 990 | Nonprofit financials & exec comp | projects.propublica.org/nonprofits |
 | MA CTHRU | State vendor payments | cthru.data.socrata.com |
 | CMS T-MSIS | Medicaid billing data | data.medicaid.gov |
+| **HHS DOGE Medicaid Provider Spending** *(Feb 2026, NEW)* | Provider × HCPCS × month, 2018–2024 | opendata.hhs.gov/datasets/medicaid-provider-spending/ |
+| **CMS T-MSIS TAF 2023 + 2024** *(2026, NEW)* | Refreshed annual analytic files | medicaid.gov/medicaid/data-systems/macbis |
+| **MA State Auditor BSI FY25** *(2026, NEW)* | $11.95M public-benefit fraud cases | mass.gov/orgs/office-of-the-state-auditor |
+| **HHS OIG MFCU FY2025 report** *(2026, NEW)* | $2B Medicaid recoveries, 1,185 convictions | oig.hhs.gov |
 | Boston Herald | No-bid contract reporting | bostonherald.com |
 | Fall River Reporter | Migrant shelter investigation | fallriverreporter.com |
 
@@ -83,6 +87,8 @@ HHS-MA-DOGE/
 ## Status
 
 🔴 **Active investigation** — Additional entities pending analysis. Dashboard consolidation planned.
+
+**5/10/2026 update:** Added `enforcement/` layer (DiZoglio BSI FY25, HHS OIG MFCU FY25, recent MA AG indictments, DOJ New England Strike Force routing) and an ingest script for the new HHS DOGE Medicaid Provider Spending dataset (10 GB, 227M rows, provider × HCPCS × month). See `NEW-DATA-2026.md` for the changelog.
 
 ## License
 
