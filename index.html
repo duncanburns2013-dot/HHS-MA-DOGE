@@ -5314,7 +5314,11 @@ function EnforcementSection() {
     { title: "$14.6B National HCF Takedown", who: "324 defendants · 50 federal districts", charge: "MA MFCU participated in investigations", source: "DOJ", url: "https://www.justice.gov/opa/pr/national-health-care-fraud-takedown-results-324-defendants-charged-connection-over-146" },
   ];
 
-  return C("div", { style: { padding: "20px 24px", maxWidth: 1000, margin: "0 auto" } },
+  return C("div", { style: { padding: "20px 24px", maxWidth: 1200, margin: "0 auto" } },
+    // Header banner image (politicians / social card)
+    C("div", { style: { marginBottom: 20, borderRadius: 10, overflow: "hidden", border: `1px solid ${X.border}`, boxShadow: `0 0 40px ${X.red}22` } },
+      C("img", { src: "social_card.png", alt: "Massachusetts DOGE Analysis - Healey, Mariano, Spilka, Campbell", style: { width: "100%", display: "block" } })
+    ),
     // Update banner
     C("div", { style: { background: `linear-gradient(90deg, ${X.red}22, transparent)`, border: `1px solid ${X.red}66`, borderLeft: `4px solid ${X.red}`, borderRadius: 8, padding: "14px 18px", marginBottom: 24 } },
       C("div", { style: { fontFamily: F.m, fontSize: 10, color: X.red, letterSpacing: 4, fontWeight: 700 } }, "MAY 2026 UPDATE"),
