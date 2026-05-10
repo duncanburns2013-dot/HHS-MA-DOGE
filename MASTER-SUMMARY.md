@@ -1,6 +1,7 @@
 # HHS-MA-DOGE INVESTIGATION — MASTER SUMMARY
 
-Updated: 3/10/2026
+Updated: 5/10/2026 (data sources + enforcement layer refresh — see [`NEW-DATA-2026.md`](NEW-DATA-2026.md))
+Original: 3/10/2026
 
 ---
 
@@ -23,12 +24,19 @@ This structure is replicated across all 28 Area Agencies on Aging, which collect
 |--------|-----------------|--------|
 | **101 CMR 350.04** | G0156 rate = $10.18/15 min | mass.gov/regulations |
 | **CMS T-MSIS** | Medicaid claims by provider & code | data.medicaid.gov |
+| **HHS DOGE Provider Spending** *(NEW Feb 2026)* | Provider × HCPCS × month, 2018–2024, 227M rows | opendata.hhs.gov/datasets/medicaid-provider-spending/ |
+| **CMS T-MSIS TAF 2023 + 2024** *(NEW 2026)* | Refreshed annual analytic files | medicaid.gov/medicaid/data-systems/macbis |
 | **CTHRU** | State payments by vendor & agency | cthru.data.socrata.com |
 | **IRS Form 990** | Nonprofit expenses, exec comp | propublica.org/nonprofits |
 | **MA OCPF** | Campaign donations by employer | ocpf.us |
 | **MA SOS** | Lobbyist registrations & spending | sec.state.ma.us |
 | **BLS OES** | Occupational wages by state | bls.gov/oes |
 | **957 CMR 6.00** | LLC cost reports (via CHIA PRR) | chiamass.gov |
+| **MA State Auditor BSI** *(NEW — FY25 + Mar 2026)* | Public-benefit fraud cases incl. MassHealth | mass.gov/orgs/office-of-the-state-auditor |
+| **HHS OIG MFCU FY2025 report** *(NEW)* | $2B recoveries, 1,185 convictions | oig.hhs.gov/reports/all/2026 |
+| **DOJ Health Care Fraud Unit — NE Strike Force** *(NEW)* | MA-specific federal enforcement | justice.gov |
+
+**Referral routing:** Original fraud spreadsheet was sent to mainline DOJ (~5/10/2026, no response). The targeted federal channel is the **DOJ Health Care Fraud Unit — New England Strike Force** (USAO-MA + FBI + HHS-OIG + MA MFCU). See [`enforcement/DOJ-ROUTING.md`](enforcement/DOJ-ROUTING.md).
 
 ---
 
