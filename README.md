@@ -2,7 +2,11 @@
 
 **Massachusetts Medicaid & Healthcare Political Influence Investigation**
 
+### 🔗 [VIEW THE LIVE DASHBOARD](https://duncanburns2013-dot.github.io/HHS-MA-DOGE/)
+
 Public records research into the intersection of Massachusetts healthcare/Medicaid spending, lobbying registrations, campaign finance (OCPF), and nonprofit executive compensation (IRS 990).
+
+The interactive dashboard lives in [`index.html`](index.html) (deployed to GitHub Pages from the `gh-pages` branch). It opens on the **🆕 MAY 2026 ENFORCEMENT** tab — see the [`enforcement/`](enforcement/) folder and [`NEW-DATA-2026.md`](NEW-DATA-2026.md) for the underlying material.
 
 ---
 
