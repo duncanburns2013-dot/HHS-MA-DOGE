@@ -1767,6 +1767,21 @@ function Hero({
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       display: "inline-block",
+      padding: "6px 18px",
+      marginBottom: 12,
+      border: `1px solid ${X.cyan}60`,
+      background: `${X.cyan}15`,
+      borderRadius: 20,
+      fontFamily: F.m,
+      fontSize: 10,
+      letterSpacing: 3,
+      color: X.cyan,
+      fontWeight: 700,
+      animation: show ? "fadeUp .8s ease-out .15s both" : "none"
+    }
+  }, "\u25CF MAY 2026 UPDATE \u00B7 ENFORCEMENT LAYER LIVE"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "inline-block",
       padding: "6px 22px",
       marginBottom: 24,
       border: `1px solid ${X.red}50`,
@@ -1860,6 +1875,9 @@ function Nav({
   setTab
 }) {
   const tabs = [{
+    id: "enforcement",
+    l: "🆕 MAY 2026"
+  }, {
     id: "providers",
     l: "🏥 PROVIDERS"
   }, {
@@ -5281,13 +5299,139 @@ function FraudTargetsSection() {
   );
 }
 
+function EnforcementSection() {
+  const C = React.createElement;
+  const card = (bg, border, children, extraStyle) => C("div", { style: { background: bg, border: `1px solid ${border}`, borderRadius: 8, padding: 16, ...extraStyle } }, children);
+  const heroStat = (value, label, color) => C("div", { style: { background: "#0a0818", border: `1px solid ${color}33`, borderRadius: 8, padding: "18px 14px", textAlign: "center" } },
+    C("div", { style: { fontFamily: F.m, fontSize: 26, color, fontWeight: 700, letterSpacing: 1 } }, value),
+    C("div", { style: { fontSize: 10, color: X.sub, fontFamily: F.m, marginTop: 6, letterSpacing: 1.2, lineHeight: 1.4 } }, label)
+  );
+
+  const indictments = [
+    { title: "$7.8M MassHealth kickback ring", who: "Home-health agencies + lab + physician", charge: "False Claims · Larceny · Kickbacks", source: "MA AG", url: "https://www.mass.gov/news/home-health-agencies-laboratory-and-physician-indicted-for-masshealth-fraud-and-kickback-schemes-involving-over-78-million-in-false-claims" },
+    { title: "$770K MassHealth transport fraud", who: "Waltham non-emergency medical transport", charge: "Money laundering · ~16,000 phantom rides", source: "MA AG", url: "https://www.mass.gov/news/ags-office-secures-indictments-against-waltham-based-non-emergency-medical-transportation-provider-and-former-owner-over-money-laundering-and-medicaid-fraud-scheme" },
+    { title: "$15M+ UHS whistleblower settlement", who: "Universal Health Services (behavioral health)", charge: "False Claims Act resolution", source: "MA AG", url: "https://www.mass.gov/news/universal-health-services-to-pay-massachusetts-more-than-15-million-to-resolve-whistleblower-false-claims-cases" },
+    { title: "$14.6B National HCF Takedown", who: "324 defendants · 50 federal districts", charge: "MA MFCU participated in investigations", source: "DOJ", url: "https://www.justice.gov/opa/pr/national-health-care-fraud-takedown-results-324-defendants-charged-connection-over-146" },
+  ];
+
+  return C("div", { style: { padding: "20px 24px", maxWidth: 1000, margin: "0 auto" } },
+    // Update banner
+    C("div", { style: { background: `linear-gradient(90deg, ${X.red}22, transparent)`, border: `1px solid ${X.red}66`, borderLeft: `4px solid ${X.red}`, borderRadius: 8, padding: "14px 18px", marginBottom: 24 } },
+      C("div", { style: { fontFamily: F.m, fontSize: 10, color: X.red, letterSpacing: 4, fontWeight: 700 } }, "MAY 2026 UPDATE"),
+      C("div", { style: { fontFamily: F.h, fontSize: 28, color: X.white, marginTop: 4, letterSpacing: 0.5 } }, "The Government Caught Up."),
+      C("div", { style: { fontSize: 13, color: X.sub, marginTop: 6, lineHeight: 1.6 } },
+        "HHS released the largest public Medicaid claims dataset in history (Feb 2026). The MA State Auditor and HHS OIG identified billions in fraud recoveries this fiscal year. DOJ stood up a New England Strike Force specifically for Massachusetts healthcare fraud. Here's what's new — and where this investigation routes from here."
+      )
+    ),
+    // Hero stat grid
+    C("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))", gap: 12, marginBottom: 28 } },
+      heroStat("$14.6B", "Alleged fraud · 324 defendants · DOJ National Takedown", X.red),
+      heroStat("$11.95M", "MA Auditor BSI FY25 · 4,179 fraud cases identified", X.orange),
+      heroStat("$2.0B", "HHS OIG MFCU FY2025 · 1,185 convictions nationally", X.amber),
+      heroStat("227M rows", "HHS DOGE Medicaid spending · 2018–2024 · provider × HCPCS × month", X.green),
+    ),
+    // HHS DOGE dataset hero card
+    C("div", { style: { background: "#0a1408", border: `1px solid ${X.green}44`, borderRadius: 10, padding: 20, marginBottom: 24 } },
+      C("div", { style: { fontFamily: F.m, fontSize: 10, color: X.green, letterSpacing: 3, marginBottom: 6 } }, "NEW DATA · RELEASED FEB 13, 2026"),
+      C("div", { style: { fontFamily: F.h, fontSize: 22, color: X.white, marginBottom: 10 } }, "HHS DOGE Medicaid Provider Spending"),
+      C("div", { style: { fontSize: 13, color: X.sub, lineHeight: 1.7, marginBottom: 14 } },
+        "The largest public Medicaid claims aggregation HHS has ever released. ",
+        C("span", { style: { color: X.white, fontWeight: 600 } }, "10.32 GB. 227M+ rows. Provider × HCPCS × month."),
+        " Covers FFS + managed care + CHIP for 2018–2024. This is exactly the granularity needed to verify the markup math and surface monthly billing ramps for every flagged NPI in this investigation."
+      ),
+      C("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px,1fr))", gap: 10, marginBottom: 14 } },
+        ["Total program spend ~$849B (2023)", "~90M enrollees", "Aggregated by NPI", "Monthly resolution"].map((t, i) =>
+          C("div", { key: i, style: { background: "#0a1810", border: `1px solid ${X.green}22`, borderRadius: 6, padding: "8px 10px", fontSize: 11, color: X.text, fontFamily: F.m } }, "✓ " + t)
+        )
+      ),
+      C("div", { style: { display: "flex", gap: 10, flexWrap: "wrap" } },
+        C("a", { href: "https://opendata.hhs.gov/datasets/medicaid-provider-spending/", target: "_blank", style: { background: X.green, color: "#0a1408", padding: "8px 14px", borderRadius: 6, fontFamily: F.m, fontSize: 11, fontWeight: 700, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "↗ opendata.hhs.gov"),
+        C("a", { href: "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/data/fraud-detection/ingest_hhs_doge_provider_spending.py", target: "_blank", style: { border: `1px solid ${X.green}66`, color: X.green, padding: "8px 14px", borderRadius: 6, fontFamily: F.m, fontSize: 11, fontWeight: 600, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "Ingest Script")
+      )
+    ),
+    // Indictments grid
+    C("div", { style: { fontFamily: F.m, fontSize: 10, color: X.red, letterSpacing: 3, marginBottom: 10 } }, "2026 MA INDICTMENTS · STRUCTURAL OVERLAP WITH THIS REPO"),
+    C("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 12, marginBottom: 28 } },
+      indictments.map((ind, i) =>
+        C("a", { key: i, href: ind.url, target: "_blank", style: { textDecoration: "none" } },
+          C("div", { className: "hC", style: { background: "#1a0808", border: `1px solid ${X.red}33`, borderRadius: 8, padding: 14, height: "100%", cursor: "pointer" } },
+            C("div", { style: { fontFamily: F.m, fontSize: 9, color: X.red, letterSpacing: 1.5, marginBottom: 6 } }, ind.source + " · 2026"),
+            C("div", { style: { fontSize: 14, color: X.white, fontWeight: 700, marginBottom: 6, lineHeight: 1.3 } }, ind.title),
+            C("div", { style: { fontSize: 11, color: X.sub, marginBottom: 8 } }, ind.who),
+            C("div", { style: { fontSize: 10, color: X.dim, fontFamily: F.m, fontStyle: "italic" } }, ind.charge)
+          )
+        )
+      )
+    ),
+    // Two-column: BSI + OIG
+    C("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px,1fr))", gap: 14, marginBottom: 24 } },
+      C("div", { style: { background: "#1a1408", border: `1px solid ${X.amber}44`, borderRadius: 8, padding: 16 } },
+        C("div", { style: { fontFamily: F.m, fontSize: 10, color: X.amber, letterSpacing: 2, marginBottom: 6 } }, "MA STATE AUDITOR · BSI FY25"),
+        C("div", { style: { fontFamily: F.h, fontSize: 19, color: X.white, marginBottom: 8 } }, "DiZoglio's Bureau of Special Investigations"),
+        C("div", { style: { fontSize: 12, color: X.sub, lineHeight: 1.7, marginBottom: 10 } },
+          C("div", null, "• ", C("span", { style: { color: X.white, fontWeight: 700 } }, "$11.95M"), " in public-benefit fraud identified"),
+          C("div", null, "• ", C("span", { style: { color: X.white, fontWeight: 700 } }, "4,179"), " fraud investigations completed"),
+          C("div", null, "• ", C("span", { style: { color: X.white, fontWeight: 700 } }, "$1.3M+"), " in MassHealth specifically"),
+          C("div", null, "• ", C("span", { style: { color: X.white, fontWeight: 700 } }, "$4.4M+"), " additional in March 2026 release")
+        ),
+        C("a", { href: "https://www.mass.gov/news/auditor-dizoglios-bureau-of-special-investigations-identifies-nearly-12-million-in-public-benefit-fraud-in-fy25", target: "_blank", style: { color: X.amber, fontFamily: F.m, fontSize: 11, textDecoration: "none", letterSpacing: 1 } }, "↗ mass.gov BSI release")
+      ),
+      C("div", { style: { background: "#0a0818", border: `1px solid ${X.purple}44`, borderRadius: 8, padding: 16 } },
+        C("div", { style: { fontFamily: F.m, fontSize: 10, color: X.purple, letterSpacing: 2, marginBottom: 6 } }, "HHS OIG · MFCU FY2025"),
+        C("div", { style: { fontFamily: F.h, fontSize: 19, color: X.white, marginBottom: 8 } }, "Medicaid Fraud Control Units · National"),
+        C("div", { style: { fontSize: 12, color: X.sub, lineHeight: 1.7, marginBottom: 10 } },
+          C("div", null, "• ", C("span", { style: { color: X.white, fontWeight: 700 } }, "$2.0B"), " combined recoveries (criminal + civil)"),
+          C("div", null, "• ", C("span", { style: { color: X.white, fontWeight: 700 } }, "1,185"), " convictions FY25"),
+          C("div", null, "• ", C("span", { style: { color: X.white, fontWeight: 700 } }, "53"), " state MFCUs (MA Medicaid Fraud Division)"),
+          C("div", null, "• Active OIG focus: ", C("span", { style: { color: X.white, fontWeight: 600 } }, "EVV completeness, deceased-beneficiary payments"))
+        ),
+        C("a", { href: "https://oig.hhs.gov/reports/all/2026/medicaid-fraud-control-units-annual-report-fiscal-year-2025/", target: "_blank", style: { color: X.purple, fontFamily: F.m, fontSize: 11, textDecoration: "none", letterSpacing: 1 } }, "↗ oig.hhs.gov FY25 report")
+      )
+    ),
+    // DOJ Strike Force CTA
+    C("div", { style: { background: `linear-gradient(135deg, #1a0820, #0a0818)`, border: `2px solid ${X.cyan}66`, borderRadius: 12, padding: 24, marginBottom: 24 } },
+      C("div", { style: { fontFamily: F.m, fontSize: 10, color: X.cyan, letterSpacing: 4, marginBottom: 8 } }, "REFERRAL ROUTING"),
+      C("div", { style: { fontFamily: F.h, fontSize: 26, color: X.white, marginBottom: 6 } }, "DOJ Health Care Fraud Unit"),
+      C("div", { style: { fontFamily: F.h, fontSize: 22, color: X.cyan, marginBottom: 12 } }, "→ New England Strike Force"),
+      C("div", { style: { fontSize: 13, color: X.sub, lineHeight: 1.7, marginBottom: 14 } },
+        "DOJ stood up a Health Care Fraud Unit specifically targeting Massachusetts. Lead: ",
+        C("span", { style: { color: X.white, fontWeight: 700 } }, "Asst. Chief Kevin Lowell"),
+        ". Coordinates with USAO-MA, FBI, HHS-OIG, FDA, and the MA Medicaid Fraud Control Unit. ",
+        C("span", { style: { color: X.cyan } }, "This is the right channel for an MA MassHealth fraud package — not mainline DOJ.")
+      ),
+      C("div", { style: { display: "flex", gap: 10, flexWrap: "wrap" } },
+        C("a", { href: "https://www.justice.gov/opa/pr/justice-department-expands-health-care-fraud-unit-target-health-care-fraud-massachusetts", target: "_blank", style: { background: X.cyan, color: "#0a0818", padding: "10px 16px", borderRadius: 6, fontFamily: F.m, fontSize: 11, fontWeight: 700, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "↗ DOJ Announcement"),
+        C("a", { href: "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/enforcement/DOJ-ROUTING.md", target: "_blank", style: { border: `1px solid ${X.cyan}66`, color: X.cyan, padding: "10px 16px", borderRadius: 6, fontFamily: F.m, fontSize: 11, fontWeight: 600, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "Routing Guide"),
+        C("a", { href: "https://oig.hhs.gov/fraud/report-fraud", target: "_blank", style: { border: `1px solid ${X.cyan}66`, color: X.cyan, padding: "10px 16px", borderRadius: 6, fontFamily: F.m, fontSize: 11, fontWeight: 600, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "OIG Hotline")
+      )
+    ),
+    // Repo links footer
+    C("div", { style: { background: X.s1, border: `1px solid ${X.border}`, borderRadius: 8, padding: 16, fontSize: 11, color: X.sub, lineHeight: 2 } },
+      C("div", { style: { fontFamily: F.m, fontSize: 10, color: X.dim, letterSpacing: 2, marginBottom: 8 } }, "FULL ENFORCEMENT LAYER · github.com/duncanburns2013-dot/HHS-MA-DOGE"),
+      [
+        ["NEW-DATA-2026.md", "Full changelog of the May 2026 refresh", "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/NEW-DATA-2026.md"],
+        ["enforcement/2026-MA-INDICTMENTS.md", "All MA indictments + structural overlap notes", "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/enforcement/2026-MA-INDICTMENTS.md"],
+        ["enforcement/STATE-AUDITOR-BSI-FY25.md", "DiZoglio BSI FY25 + March 2026 follow-up", "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/enforcement/STATE-AUDITOR-BSI-FY25.md"],
+        ["enforcement/HHS-OIG-MFCU-FY25.md", "OIG MFCU report + active focus areas", "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/enforcement/HHS-OIG-MFCU-FY25.md"],
+        ["enforcement/DOJ-ROUTING.md", "How to route the fraud package federally", "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/enforcement/DOJ-ROUTING.md"],
+      ].map(([file, desc, url], i) =>
+        C("div", { key: i },
+          C("a", { href: url, target: "_blank", style: { color: X.cyan, fontFamily: F.m, fontSize: 11, textDecoration: "none" } }, file),
+          " — " + desc
+        )
+      )
+    )
+  );
+}
+
 function App() {
   const [entered, setEntered] = useState(false);
-  const [tab, setTab] = useState("providers");
+  const [tab, setTab] = useState("enforcement");
   if (!entered) return /*#__PURE__*/React.createElement(Hero, {
     onEnter: () => setEntered(true)
   });
   const C = {
+    enforcement: EnforcementSection,
     providers: ProvidersSection,
     codes: CodesSection,
     dds: DDSSection,
@@ -5299,7 +5443,7 @@ function App() {
     cost: CostSection,
     fraudtargets: FraudTargetsSection,
     sources: SourcesSection
-  }[tab] || ProvidersSection;
+  }[tab] || EnforcementSection;
   return /*#__PURE__*/React.createElement("div", {
     style: {
       background: `linear-gradient(180deg,${X.bg},#071020,${X.bg})`,
