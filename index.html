@@ -17,6 +17,14 @@
 <meta name="twitter:image" content="https://raw.githubusercontent.com/duncanburns2013-dot/HHS-MA-DOGE/main/social_card.png">
 <meta name="twitter:creator" content="@DuncanBurnsMA">
 <style>*{margin:0;padding:0;box-sizing:border-box}body{background:#0a1628;color:#eef2ff;overflow-x:hidden}#root{min-height:100vh}#loader{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:'IBM Plex Mono',monospace}#loader .sp{width:40px;height:40px;border:3px solid #1e3a60;border-top-color:#ff0040;border-radius:50%;animation:spin 1s linear infinite}#loader .tx{color:#ff0040;font-size:14px;margin-top:16px;letter-spacing:3px}#loader .err{color:#ff6644;font-size:12px;margin-top:20px;max-width:500px;text-align:center;line-height:1.6;display:none}@keyframes spin{to{transform:rotate(360deg)}}
+.tab-hot { animation: tabPulse 2.4s ease-in-out infinite; }
+@keyframes tabPulse { 0%,100% { filter: drop-shadow(0 0 0 transparent); } 50% { filter: drop-shadow(0 0 10px #ff004088); } }
+
+@media (max-width: 1000px) {
+  .sfi-bombshell-headline { font-size: 32px !important; }
+  .sfi-officials-grid { grid-template-columns: 1fr !important; }
+}
+
 @media (max-width: 760px) {
   .sfi-bombshell-card { padding: 22px 18px !important; }
   .sfi-bombshell-headline { font-size: 26px !important; line-height: 1.2 !important; }
@@ -25,6 +33,8 @@
   .sfi-bombshell-card-row > div:first-child { font-size: 15px !important; }
   .sfi-bombshell-ctas a { font-size: 12px !important; padding: 10px 14px !important; flex: 1 1 calc(50% - 5px) !important; text-align: center; }
   .sfi-bombshell-foot { font-size: 12px !important; }
+  .sfi-facts-grid { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+  .sfi-facts-grid > div { padding: 14px 12px !important; }
 }</style>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -1884,6 +1894,10 @@ function Nav({
   setTab
 }) {
   const tabs = [{
+    id: "sfi",
+    l: "🔥 SFI · TEMPUS",
+    hot: true
+  }, {
     id: "enforcement",
     l: "🆕 MAY 2026"
   }, {
@@ -1946,8 +1960,9 @@ function Nav({
   }, "MA-DOGE"), tabs.map(t => /*#__PURE__*/React.createElement("button", {
     key: t.id,
     onClick: () => setTab(t.id),
+    className: t.hot ? "tab-hot" : undefined,
     style: {
-      background: tab === t.id ? `${X.red}15` : "transparent",
+      background: tab === t.id ? `${X.red}15` : (t.hot ? `${X.red}10` : "transparent"),
       borderBottom: tab === t.id ? `3px solid ${X.red}` : "3px solid transparent",
       border: "none",
       borderTop: "none",
@@ -1957,10 +1972,12 @@ function Nav({
       cursor: "pointer",
       fontFamily: F.m,
       fontSize: 12,
+      fontWeight: t.hot ? 700 : 500,
       letterSpacing: 1.5,
-      color: tab === t.id ? X.red : X.sub,
+      color: tab === t.id ? X.red : (t.hot ? X.red : X.sub),
       whiteSpace: "nowrap",
-      transition: "all .2s"
+      transition: "all .2s",
+      textShadow: t.hot && tab !== t.id ? `0 0 12px ${X.red}88` : "none"
     }
   }, t.l)));
 }
@@ -5407,6 +5424,128 @@ function FraudTargetsSection() {
   );
 }
 
+function SfiSection() {
+  const C = React.createElement;
+  const officials = [
+    { name: "Hon. James G. Reardon Jr.", role: "Associate Justice, MA Superior Court — Worcester County Presiding Justice (nominated by Gov. Baker 2016)", years: ["2019","2020","2021","2022","2023","2024","2025"], src: "https://www.mass.gov/news/governor-baker-nominates-three-to-the-massachusetts-superior-court" },
+    { name: "James A. Barrett", role: "Deputy Commissioner of Depository Institutions Supervision, MA Division of Banks (most-likely identity match)", years: ["2019","2020","2021","2022","2023","2024"], src: "https://www.mass.gov/news/massachusetts-division-of-banks-appoints-deputy-commissioner-and-general-counsel-0" },
+    { name: "Ralph V. Sacramone", role: "Executive Director, MA Alcoholic Beverages Control Commission (under State Treasurer)", years: ["2021","2022","2023","2024","2025"], src: "https://www.mass.gov/info-details/alcoholic-beverages-control-commission-staff-directory-abcc" },
+    { name: "Rep. John J. Marsi Jr. (R)", role: "MA House of Representatives — 6th Worcester District (Charlton, Dudley, Southbridge, Spencer Pct 1); special-elected March 5, 2024", years: ["2023","2024","2025"], src: "https://malegislature.gov/Legislators/Profile/JJM1/District" },
+    { name: "Jeffrey T. Travers", role: "Deputy CIO, Executive Office of the MA Trial Court (soft-confirm — cross-domain account possible)", years: ["2023","2024","2025"], src: "https://rocketreach.co/jeff-travers-email_82831322" },
+    { name: "Matthew P. Rinella", role: "Director, Accounting & Financial Reporting, MassDOT Finance / Office of the CFO", years: ["2019","2020"], src: "https://rocketreach.co/massdot-management_b5d20011f42e3b8a" },
+    { name: "Dr. Carmen Z. Gomez, PhD", role: "Deputy Commissioner of Pretrial Services, MA Probation Service / Trial Court (27-year MPS tenure)", years: ["2022"], src: "https://www.mass.gov/news/carmen-gomez-is-appointed-deputy-commissioner-of-pretrial-services-for-the-massachusetts-probation-service" },
+    { name: "Teri Williams Valentine", role: "Former Director Special Ed Planning & Policy, MA DESE (2002–~2017); now Senior Program Associate, WestEd", years: ["2019"], src: "https://www.wested.org/personnel/teri-williams-valentine/" },
+  ];
+
+  const facts = [
+    ["Total filings examined", "29,729", "every MA SFI filer 2019–2025"],
+    ["Disclosures naming Tempus", "28", "across 8 filers, all years"],
+    ["Independent re-verification", "28 / 28", "live PDF text re-read"],
+    ["Tempus FY2024 net surplus", "$2.57M", "ProPublica 990 · EIN 04-2239746"],
+    ["MA PCA program spend FY2024", "$1.75B", "GBH News · fastest-growing line"],
+    ["Tempus NPIs at 600 Tech Center Dr", "7 (NPPES: 10)", "all authorized by CEO L. Spencer"],
+  ];
+
+  return C("div", { style: { padding: "20px 24px", maxWidth: 1280, margin: "0 auto" } },
+    // Hero
+    C("div", { className: "sfi-bombshell-card", style: { background: `linear-gradient(135deg, ${X.red}33 0%, #1a0510 40%, #0d0508 100%)`, border: `2px solid ${X.red}`, borderRadius: 14, padding: "36px 38px", marginBottom: 28, boxShadow: `0 0 80px ${X.red}55, inset 0 0 80px ${X.red}11` } },
+      C("div", { style: { display: "flex", alignItems: "center", gap: 12, marginBottom: 22, flexWrap: "wrap" } },
+        C("div", { style: { fontFamily: F.m, fontSize: 13, color: X.red, letterSpacing: 5, fontWeight: 800, background: `${X.red}22`, padding: "8px 14px", borderRadius: 4 } }, "🔥 BOMBSHELL · 2026-05-27"),
+        C("div", { style: { fontFamily: F.m, fontSize: 12, color: X.amber, letterSpacing: 2, fontWeight: 700 } }, "LOCKED v1 · 28/28 VERIFIED")
+      ),
+      C("div", { className: "sfi-bombshell-headline", style: { fontFamily: F.h, fontSize: 48, color: X.white, marginBottom: 22, letterSpacing: -0.8, lineHeight: 1.1, fontWeight: 800 } },
+        "8 MA State Officials Disclosed Spouses Paid By Tempus Unlimited"
+      ),
+      C("div", { className: "sfi-bombshell-sub", style: { fontSize: 19, color: X.sub, lineHeight: 1.7, marginBottom: 28, maxWidth: 940 } },
+        "29,729 redacted MA Statement-of-Financial-Interest filings (2019–2025) were just released. Eight officials — across the ",
+        C("span", { style: { color: X.white, fontWeight: 700 } }, "Judiciary, the House, MassDOT, DESE, the Probation Service, the Treasury (via ABCC), and a state banking regulator"),
+        " — disclosed in their own SFIs that a spouse or household dependent receives income through the MassHealth Personal Care Attendant program, with ",
+        C("span", { style: { color: X.red, fontWeight: 800 } }, "Tempus Unlimited, Inc."),
+        " as the sole statewide Fiscal Intermediary. 28 individual disclosures, every one re-verified by live PDF re-read."
+      ),
+      // CTAs
+      C("div", { className: "sfi-bombshell-ctas", style: { display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 18 } },
+        C("a", { href: "https://duncanburns2013-dot.github.io/The-Peoples-Audit/?section=sfi", target: "_blank", style: { background: X.red, color: X.white, padding: "14px 22px", borderRadius: 6, fontFamily: F.m, fontSize: 14, fontWeight: 800, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "↗ Live SFI Explorer"),
+        C("a", { href: "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/enforcement/SFI-CROSSREF.md", target: "_blank", style: { border: `2px solid ${X.red}`, color: X.red, padding: "14px 22px", borderRadius: 6, fontFamily: F.m, fontSize: 14, fontWeight: 700, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "Full Cross-Ref Doc"),
+        C("a", { href: "https://github.com/duncanburns2013-dot/The-Peoples-Audit/blob/main/findings/PRESS-BRIEF-SFI-TEMPUS.md", target: "_blank", style: { border: `2px solid ${X.red}`, color: X.red, padding: "14px 22px", borderRadius: 6, fontFamily: F.m, fontSize: 14, fontWeight: 700, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "Press Brief"),
+        C("a", { href: "https://github.com/duncanburns2013-dot/The-Peoples-Audit/blob/main/data/sfi/verify/tempus_verified.md", target: "_blank", style: { border: `2px solid ${X.amber}`, color: X.amber, padding: "14px 22px", borderRadius: 6, fontFamily: F.m, fontSize: 14, fontWeight: 700, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "Verification Log (28/28)")
+      )
+    ),
+
+    // The 8 officials grid — bigger, more detailed
+    C("div", { style: { fontFamily: F.m, fontSize: 12, color: X.red, letterSpacing: 4, marginBottom: 16, fontWeight: 700 } }, "THE 8 OFFICIALS · VERIFIED IDENTITIES · OWN DISCLOSURES"),
+    C("div", { className: "sfi-officials-grid", style: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(380px, 1fr))", gap: 14, marginBottom: 32 } },
+      officials.map((o, i) =>
+        C("div", { key: i, style: { background: "linear-gradient(180deg, #15080d, #0d0508)", border: `1px solid ${X.red}55`, borderRadius: 10, padding: "20px 22px" } },
+          C("div", { style: { fontFamily: F.h, fontSize: 20, color: X.white, fontWeight: 700, lineHeight: 1.25, marginBottom: 8 } }, o.name),
+          C("div", { style: { fontSize: 14, color: X.sub, lineHeight: 1.5, marginBottom: 12 } }, o.role),
+          C("div", { style: { display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 12 } },
+            o.years.map(y =>
+              C("span", { key: y, style: { fontFamily: F.m, fontSize: 12, fontWeight: 700, background: X.red, color: X.white, padding: "4px 10px", borderRadius: 4 } }, y)
+            )
+          ),
+          C("a", { href: o.src, target: "_blank", style: { fontFamily: F.m, fontSize: 11, color: X.cyan, textDecoration: "none", letterSpacing: 0.5 } }, "↗ identity source")
+        )
+      )
+    ),
+
+    // Facts strip
+    C("div", { style: { fontFamily: F.m, fontSize: 12, color: X.amber, letterSpacing: 4, marginBottom: 16, fontWeight: 700 } }, "WHAT THE NUMBERS ACTUALLY MEAN"),
+    C("div", { className: "sfi-facts-grid", style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 12, marginBottom: 28 } },
+      facts.map((f, i) =>
+        C("div", { key: i, style: { background: "#0a1018", border: `1px solid ${X.border}`, borderRadius: 10, padding: "18px 20px" } },
+          C("div", { style: { fontSize: 11, color: X.dim, letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 8, fontFamily: F.m } }, f[0]),
+          C("div", { style: { fontFamily: F.m, fontSize: 26, color: X.white, fontWeight: 700, lineHeight: 1.1 } }, f[1]),
+          C("div", { style: { fontSize: 12, color: X.sub, marginTop: 6, lineHeight: 1.4 } }, f[2])
+        )
+      )
+    ),
+
+    // Framing card
+    C("div", { style: { background: "linear-gradient(135deg, #0a1018 0%, #050810 100%)", border: `1px solid ${X.amber}55`, borderLeft: `4px solid ${X.amber}`, borderRadius: 10, padding: "22px 26px", marginBottom: 28 } },
+      C("div", { style: { fontFamily: F.m, fontSize: 11, color: X.amber, letterSpacing: 3, fontWeight: 700, marginBottom: 10 } }, "HOW TO READ THIS"),
+      C("div", { style: { fontFamily: F.h, fontSize: 22, color: X.white, marginBottom: 12, lineHeight: 1.3, fontWeight: 700 } }, "This is a structural household-income finding, not a fraud accusation."),
+      C("div", { style: { fontSize: 15, color: X.sub, lineHeight: 1.7, marginBottom: 10 } },
+        "Tempus is the ", C("strong", { style: { color: X.white } }, "sole statewide MassHealth PCA Fiscal Intermediary"),
+        " by program design — by construction, every PCA paycheck in Massachusetts flows through this one entity. The MassHealth member is the legal employer of record (130 CMR 422); Tempus issues W-2s on the member's behalf as Fiscal/Employer Agent. The $6.62B figure on the rank-1 row of ", C("code", { style: { color: X.cyan, fontFamily: F.m, fontSize: 13 } }, "fraud_flags_summary.csv"),
+        " is cumulative 2018–2024 PCA-program pass-through, not Tempus net revenue (FY2024 surplus = $2.57M)."
+      ),
+      C("div", { style: { fontSize: 15, color: X.sub, lineHeight: 1.7 } },
+        C("strong", { style: { color: X.white } }, "What this does establish:"),
+        " a meaningful cohort of MA state officials across all three branches have household income that depends on the continued funding and policy structure of the PCA program — a $1.75B (FY2024) and fast-growing MassHealth line item. Recusal records and any votes / rulings / regulatory actions touching MassHealth PCA should be reviewed for each named official."
+      )
+    ),
+
+    // Provenance / legal note
+    C("div", { style: { background: X.s1, border: `1px solid ${X.border}`, borderRadius: 8, padding: "16px 20px", fontSize: 13, color: X.sub, lineHeight: 1.7, marginBottom: 24 } },
+      C("div", { style: { fontFamily: F.m, fontSize: 11, color: X.dim, letterSpacing: 2, marginBottom: 8, fontWeight: 700 } }, "PROVENANCE & NOTIFICATION"),
+      "These are the officials' own lawful disclosures, filed under penalty of perjury with the MA State Ethics Commission. ",
+      C("strong", { style: { color: X.white } }, "No wrongdoing by any named official is alleged."),
+      " The 29,729-filing redacted bulk corpus was released by the Commission in 2026 following an approved public-records request. Per ",
+      C("a", { href: "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleIV/Chapter268B", target: "_blank", style: { color: X.cyan, textDecoration: "none" } }, "G.L. c. 268B"),
+      ", every filer whose SFI is released in a public-records request is notified by the Commission's process; the named officials have therefore already been on notice."
+    ),
+
+    // Repo links
+    C("div", { style: { background: X.s1, border: `1px solid ${X.border}`, borderRadius: 8, padding: "16px 20px", fontSize: 13, color: X.sub, lineHeight: 2 } },
+      C("div", { style: { fontFamily: F.m, fontSize: 11, color: X.dim, letterSpacing: 2, marginBottom: 8, fontWeight: 700 } }, "SOURCE FILES · github.com/duncanburns2013-dot"),
+      [
+        ["The-Peoples-Audit/findings/FINDINGS-SFI-LOCKED.md", "Locked v1 findings doc", "https://github.com/duncanburns2013-dot/The-Peoples-Audit/blob/main/findings/FINDINGS-SFI-LOCKED.md"],
+        ["The-Peoples-Audit/findings/PRESS-BRIEF-SFI-TEMPUS.md", "One-page press brief", "https://github.com/duncanburns2013-dot/The-Peoples-Audit/blob/main/findings/PRESS-BRIEF-SFI-TEMPUS.md"],
+        ["The-Peoples-Audit/data/sfi/verify/tempus_verified.md", "Per-row verification log (28/28)", "https://github.com/duncanburns2013-dot/The-Peoples-Audit/blob/main/data/sfi/verify/tempus_verified.md"],
+        ["The-Peoples-Audit/data/sfi/crossref/pass2_doge_entity_in_sfi.csv", "Raw cross-reference output", "https://github.com/duncanburns2013-dot/The-Peoples-Audit/blob/main/data/sfi/crossref/pass2_doge_entity_in_sfi.csv"],
+        ["The-Peoples-Audit/releases", "29,729 raw redacted SFI PDFs (7 GB)", "https://github.com/duncanburns2013-dot/The-Peoples-Audit/releases"],
+        ["HHS-MA-DOGE/enforcement/SFI-CROSSREF.md", "DOGE-side cross-reference doc", "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/enforcement/SFI-CROSSREF.md"],
+      ].map(([file, desc, url], i) =>
+        C("div", { key: i },
+          C("a", { href: url, target: "_blank", style: { color: X.cyan, fontFamily: F.m, fontSize: 12, textDecoration: "none" } }, file),
+          " — " + desc
+        )
+      )
+    )
+  );
+}
+
 function EnforcementSection() {
   const C = React.createElement;
   const card = (bg, border, children, extraStyle) => C("div", { style: { background: bg, border: `1px solid ${border}`, borderRadius: 8, padding: 16, ...extraStyle } }, children);
@@ -5586,11 +5725,12 @@ function EnforcementSection() {
 
 function App() {
   const [entered, setEntered] = useState(false);
-  const [tab, setTab] = useState("enforcement");
+  const [tab, setTab] = useState("sfi");
   if (!entered) return /*#__PURE__*/React.createElement(Hero, {
     onEnter: () => setEntered(true)
   });
   const C = {
+    sfi: SfiSection,
     enforcement: EnforcementSection,
     providers: ProvidersSection,
     codes: CodesSection,
