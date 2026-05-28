@@ -30,9 +30,21 @@ Word-boundary substring scan of every SFI filing's Q7 section (*Spouse Business 
 1. Tempus Unlimited's payroll reaches into the House, the Judiciary, the Treasury, MassDOT, the Department of Education, and the executive branch. The persistence (Reardon every year for seven years; Barrett six straight; Sacramone five straight) is not transient.
 2. The state officials' professional duties relevant to MassHealth, transportation, education, or judicial oversight should be cross-checked against whether they recused themselves from matters touching Tempus.
 
-### 1a. Same building, adjacent entity: Cerebral Palsy of Massachusetts
+### 1a. "Cerebral Palsy of Massachusetts" is Tempus's pre-2017 legal name
 
-Reardon's 2024 Q7 also lists his spouse as an independent contractor for **Cerebral Palsy of Massachusetts** at the **same physical building** ("600 Technology Center Drive, Sroughton [sic], MA 02072"). This is the exact address-sharing pattern this repo's [`fraud_flags_shared_addresses.csv`](https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/fraud_flags_shared_addresses.csv) flags as a fraud signal. Whether the two entities are common-controlled is a MA Secretary-of-State corporate-records question (TODO).
+Reardon's 2024 Q7 also lists his spouse as an independent contractor for **"Cerebral Palsy of Massachusetts"** at the same building. Public-records research (BBB Boston profile, ProPublica Nonprofit Explorer, CauseIQ, MassDevelopment 2014 bond announcement, the company's own history timeline, April 2017 rename announcement signed by CEO Larry Spencer) confirms this is **the same nonprofit, listed under its legacy pre-rename name**:
+
+- **Same EIN: 04-2239746**
+- **Same MA principal office: 600 Technology Center Drive, Stoughton, MA 02072**
+- **Same incorporation date: June 20, 1952**
+- **Same CEO across the rename: Larry Spencer** (FY2024 990 compensation $441,995)
+- **Board approved name change Dec 2016, publicly announced April 10, 2017**
+
+Tempus is the **sole statewide MassHealth PCA Fiscal Intermediary**, FY2024 revenue ~$2.13B per ProPublica 990 (which contextualizes the $6.62B accumulated address-billing concentration in `fraud_flags_summary.csv`).
+
+So Reardon's 2024 SFI lists the same employer twice — once under the post-2017 name (Tempus Unlimited) and once under the pre-2017 name (Cerebral Palsy of Massachusetts). This is **not** a separate affiliated entity. It does mean the SFI spouse-employer field carries some legacy-name inconsistency that affects any text-only name-match approach.
+
+Sources: ProPublica Nonprofit Explorer (EIN 042239746), BBB Boston (Tempus Unlimited Inc., alternate names "Cerebral Palsy of Massachusetts" / "Cerebral Palsy Of Ma"), MassDevelopment 2014 press release re: 600 Technology Center Drive acquisition, [masscp.org](https://www.masscp.org/fiscal-intermediary/report-abuse-fraud-andor-suspicious-activity) (legacy domain still hosts Tempus content), April 2017 rename announcement at [facebook.com/MASSCP](https://www.facebook.com/MASSCP/posts/1640418735988146/) signed by Larry Spencer.
 
 ---
 
@@ -80,7 +92,7 @@ These are starting points for verification only.
 All three passes implemented in [`The-Peoples-Audit/audit-scripts/sfi/04_crossref.py`](https://github.com/duncanburns2013-dot/The-Peoples-Audit/blob/main/audit-scripts/sfi/04_crossref.py).
 
 - **Pass 1.** Normalize both sides to "LASTNAME, FIRSTINITIALONLY," intersect.
-- **Pass 2.** Word-boundary substring scan of top-150 DOGE entity names against each SFI filing's per-question section text. Only Q7 (spouse business employment) yielded headline hits; all 28 were Tempus Unlimited.
+- **Pass 2.** Word-boundary substring scan of all DOGE entity names against each SFI filing's per-question section text. Only Q7 (spouse business employment) yielded headline hits; all Tempus Unlimited matches collapse to a single legal entity that pre-2017 went by "Cerebral Palsy of Massachusetts."
 - **Pass 3.** Build `(street_number, normalized_street_name, ZIP5)` keys from `fraud_flags_shared_addresses.csv`; regex-extract address-shaped strings from SFI real-estate sections (Q13–Q20); intersect.
 
 Pass 2 is the highest-confidence pass because the matches are the officials' **own attested disclosures** of the named entity. Pass 1 and Pass 3 are lower-confidence and require manual verification before any individual claim.
