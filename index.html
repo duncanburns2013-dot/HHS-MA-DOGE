@@ -5418,6 +5418,53 @@ function EnforcementSection() {
     C("div", { style: { marginBottom: 20, borderRadius: 10, overflow: "hidden", border: `1px solid ${X.border}`, boxShadow: `0 0 40px ${X.red}22` } },
       C("img", { src: "social_card.png", alt: "Massachusetts DOGE Analysis - Healey, Mariano, Spilka, Campbell", style: { width: "100%", display: "block" } })
     ),
+    // ── SFI CROSS-REFERENCE — headline finding (LOCKED v1) ─────────────
+    C("div", { style: { background: `linear-gradient(135deg, ${X.red}33 0%, #1a0510 40%, #0d0508 100%)`, border: `2px solid ${X.red}`, borderRadius: 12, padding: "24px 26px", marginBottom: 28, boxShadow: `0 0 60px ${X.red}33, inset 0 0 60px ${X.red}11` } },
+      C("div", { style: { display: "flex", alignItems: "center", gap: 10, marginBottom: 14 } },
+        C("div", { style: { fontFamily: F.m, fontSize: 10, color: X.red, letterSpacing: 4, fontWeight: 700, background: `${X.red}22`, padding: "4px 10px", borderRadius: 4 } }, "🔥 BOMBSHELL · 2026-05-27"),
+        C("div", { style: { fontFamily: F.m, fontSize: 9, color: X.amber, letterSpacing: 2, fontWeight: 600 } }, "LOCKED v1 · 28/28 VERIFIED")
+      ),
+      C("div", { style: { fontFamily: F.h, fontSize: 30, color: X.white, marginBottom: 10, letterSpacing: -0.3, lineHeight: 1.15 } },
+        "8 MA State Officials Disclosed Spouses Paid By Tempus Unlimited"
+      ),
+      C("div", { style: { fontSize: 14, color: X.sub, lineHeight: 1.7, marginBottom: 18, maxWidth: 920 } },
+        "29,729 redacted MA Statement-of-Financial-Interest filings (2019–2025) just released. Eight officials — across the ",
+        C("span", { style: { color: X.white, fontWeight: 600 } }, "Judiciary, the House, MassDOT, DESE, the Probation Service, the Treasury (via ABCC), and a state banking regulator"),
+        " — disclosed in their own SFIs that a spouse or household dependent receives income through the MassHealth Personal Care Attendant program, with ",
+        C("span", { style: { color: X.red, fontWeight: 700 } }, "Tempus Unlimited, Inc."),
+        " as the sole statewide Fiscal Intermediary. 28 individual disclosures, every one re-verified by live PDF re-read. The $6.62B figure on the rank-1 row of fraud_flags_summary.csv is cumulative 2018–2024 PCA-program pass-through — Tempus FY2024 net surplus was only $2.57M."
+      ),
+      // The 8 officials grid
+      C("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(255px, 1fr))", gap: 10, marginBottom: 18 } },
+        [
+          { name: "Hon. James G. Reardon Jr.", role: "Associate Justice, MA Superior Court — Worcester County Presiding", years: "2019 · 2020 · 2021 · 2022 · 2023 · 2024 · 2025" },
+          { name: "James A. Barrett", role: "Deputy Commissioner, MA Division of Banks", years: "2019 · 2020 · 2021 · 2022 · 2023 · 2024" },
+          { name: "Ralph V. Sacramone", role: "Executive Director, MA Alcoholic Beverages Control Commission", years: "2021 · 2022 · 2023 · 2024 · 2025" },
+          { name: "Rep. John J. Marsi Jr. (R)", role: "MA House, 6th Worcester District (special-elected Mar 2024)", years: "2023 · 2024 · 2025" },
+          { name: "Jeffrey T. Travers", role: "Deputy CIO, MA Trial Court (soft-confirm)", years: "2023 · 2024 · 2025" },
+          { name: "Matthew P. Rinella", role: "Director, Accounting & Financial Reporting, MassDOT", years: "2019 · 2020" },
+          { name: "Dr. Carmen Z. Gomez, PhD", role: "Deputy Commissioner Pretrial Services, MA Probation Service", years: "2022" },
+          { name: "Teri Williams Valentine", role: "Former Director Special Ed Planning, MA DESE", years: "2019" },
+        ].map((o, i) =>
+          C("div", { key: i, style: { background: "#15080d", border: `1px solid ${X.red}44`, borderRadius: 8, padding: "10px 12px" } },
+            C("div", { style: { fontFamily: F.h, fontSize: 13, color: X.white, fontWeight: 700, lineHeight: 1.25 } }, o.name),
+            C("div", { style: { fontSize: 10.5, color: X.sub, marginTop: 3, lineHeight: 1.35 } }, o.role),
+            C("div", { style: { fontFamily: F.m, fontSize: 9, color: X.red, marginTop: 5, letterSpacing: 0.5 } }, o.years)
+          )
+        )
+      ),
+      // CTAs
+      C("div", { style: { display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 12 } },
+        C("a", { href: "https://duncanburns2013-dot.github.io/The-Peoples-Audit/", target: "_blank", style: { background: X.red, color: X.white, padding: "10px 16px", borderRadius: 6, fontFamily: F.m, fontSize: 11, fontWeight: 700, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "↗ Live SFI Explorer"),
+        C("a", { href: "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/enforcement/SFI-CROSSREF.md", target: "_blank", style: { border: `1px solid ${X.red}66`, color: X.red, padding: "10px 16px", borderRadius: 6, fontFamily: F.m, fontSize: 11, fontWeight: 600, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "Full Cross-Ref Doc"),
+        C("a", { href: "https://github.com/duncanburns2013-dot/The-Peoples-Audit/blob/main/findings/PRESS-BRIEF-SFI-TEMPUS.md", target: "_blank", style: { border: `1px solid ${X.red}66`, color: X.red, padding: "10px 16px", borderRadius: 6, fontFamily: F.m, fontSize: 11, fontWeight: 600, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "Press Brief"),
+        C("a", { href: "https://github.com/duncanburns2013-dot/The-Peoples-Audit/blob/main/data/sfi/verify/tempus_verified.md", target: "_blank", style: { border: `1px solid ${X.amber}66`, color: X.amber, padding: "10px 16px", borderRadius: 6, fontFamily: F.m, fontSize: 11, fontWeight: 600, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "Verification Log (28/28)"),
+        C("a", { href: "https://github.com/duncanburns2013-dot/The-Peoples-Audit/releases", target: "_blank", style: { border: `1px solid ${X.cyan}66`, color: X.cyan, padding: "10px 16px", borderRadius: 6, fontFamily: F.m, fontSize: 11, fontWeight: 600, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "29,729 Raw PDFs")
+      ),
+      C("div", { style: { fontSize: 10.5, color: X.dim, fontStyle: "italic", lineHeight: 1.55, borderTop: `1px dashed ${X.red}44`, paddingTop: 10 } },
+        "These are the officials' own lawful disclosures, filed under penalty of perjury with the MA State Ethics Commission. No wrongdoing by any named official is alleged. Per G.L. c. 268B, each was notified by the Commission's bulk-release process. The story is structural — a publicly-routed household-income dependency on a fast-growing state program (FY2024 PCA spend ≈ $1.75B)."
+      )
+    ),
     // Update banner
     C("div", { style: { background: `linear-gradient(90deg, ${X.red}22, transparent)`, border: `1px solid ${X.red}66`, borderLeft: `4px solid ${X.red}`, borderRadius: 8, padding: "14px 18px", marginBottom: 24 } },
       C("div", { style: { fontFamily: F.m, fontSize: 10, color: X.red, letterSpacing: 4, fontWeight: 700 } }, "MAY 2026 UPDATE"),
@@ -5512,6 +5559,7 @@ function EnforcementSection() {
     C("div", { style: { background: X.s1, border: `1px solid ${X.border}`, borderRadius: 8, padding: 16, fontSize: 11, color: X.sub, lineHeight: 2 } },
       C("div", { style: { fontFamily: F.m, fontSize: 10, color: X.dim, letterSpacing: 2, marginBottom: 8 } }, "FULL ENFORCEMENT LAYER · github.com/duncanburns2013-dot/HHS-MA-DOGE"),
       [
+        ["enforcement/SFI-CROSSREF.md", "🔥 SFI cross-reference (LOCKED v1) — 8 officials, Tempus PCA pattern, verified", "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/enforcement/SFI-CROSSREF.md"],
         ["NEW-DATA-2026.md", "Full changelog of the May 2026 refresh", "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/NEW-DATA-2026.md"],
         ["enforcement/2026-MA-INDICTMENTS.md", "All MA indictments + structural overlap notes", "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/enforcement/2026-MA-INDICTMENTS.md"],
         ["enforcement/STATE-AUDITOR-BSI-FY25.md", "DiZoglio BSI FY25 + March 2026 follow-up", "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/enforcement/STATE-AUDITOR-BSI-FY25.md"],
