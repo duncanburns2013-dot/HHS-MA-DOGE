@@ -10,7 +10,7 @@ This document records only the matches that come back to data already in this re
 
 ## 1. Tempus Unlimited — 9 state officials with disclosed spousal employment
 
-**Tempus Unlimited, Inc.** sits at **rank 1** in [`fraud_flags_summary.csv`](../fraud_flags_summary.csv): **$6.62B total Medicaid spending** across 7 NPIs all registered to **600 Technology Center Dr, Stoughton, MA 02072** — the highest single-address concentration in the MA dataset. The single authorized official across all 7 NPIs at that address is **LARRY SPENCER, CEO**.
+**Tempus Unlimited, Inc.** sits at **rank 1** in [`fraud_flags_summary.csv`](https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/fraud_flags_summary.csv): **$6.62B total Medicaid spending** across 7 NPIs all registered to **600 Technology Center Dr, Stoughton, MA 02072** — the highest single-address concentration in the MA dataset. The single authorized official across all 7 NPIs at that address is **LARRY SPENCER, CEO**.
 
 Word-boundary substring scan of every SFI filing's Q7 section (*Spouse Business Employment*) found nine MA public officials, across all three branches of state government, who themselves disclosed that their spouse was employed by Tempus Unlimited. Disclosures verified by direct PDF read.
 
@@ -32,13 +32,13 @@ Word-boundary substring scan of every SFI filing's Q7 section (*Spouse Business 
 
 ### 1a. Same building, adjacent entity: Cerebral Palsy of Massachusetts
 
-Reardon's 2024 Q7 also lists his spouse as an independent contractor for **Cerebral Palsy of Massachusetts** at the **same physical building** ("600 Technology Center Drive, Sroughton [sic], MA 02072"). This is the exact address-sharing pattern this repo's [`fraud_flags_shared_addresses.csv`](../fraud_flags_shared_addresses.csv) flags as a fraud signal. Whether the two entities are common-controlled is a MA Secretary-of-State corporate-records question (TODO).
+Reardon's 2024 Q7 also lists his spouse as an independent contractor for **Cerebral Palsy of Massachusetts** at the **same physical building** ("600 Technology Center Drive, Sroughton [sic], MA 02072"). This is the exact address-sharing pattern this repo's [`fraud_flags_shared_addresses.csv`](https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/fraud_flags_shared_addresses.csv) flags as a fraud signal. Whether the two entities are common-controlled is a MA Secretary-of-State corporate-records question (TODO).
 
 ---
 
 ## 2. Real-estate-ownership overlap with flagged Medicaid-billing addresses
 
-60 (filer-year, DOGE-flagged-address) matches where the SFI filer disclosed owning, holding in trust, or transferring real estate at the **same street number + street name + ZIP5** as a Medicaid-billing entity from [`fraud_flags_shared_addresses.csv`](../fraud_flags_shared_addresses.csv).
+60 (filer-year, DOGE-flagged-address) matches where the SFI filer disclosed owning, holding in trust, or transferring real estate at the **same street number + street name + ZIP5** as a Medicaid-billing entity from [`fraud_flags_shared_addresses.csv`](https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/fraud_flags_shared_addresses.csv).
 
 Full table: [`The-Peoples-Audit/data/sfi/crossref/pass3_sfi_addr_in_doge.csv`](https://github.com/duncanburns2013-dot/The-Peoples-Audit/blob/main/data/sfi/crossref/pass3_sfi_addr_in_doge.csv).
 
@@ -58,7 +58,7 @@ Caveats: same street-number+name+ZIP5 does not guarantee the same building (mixe
 
 ## 3. Filer-name vs. DOGE-authorized-official (lower confidence)
 
-65 (filer, year) candidate matches where the SFI filer's normalized "LASTNAME, FIRSTNAME" exactly matches a DOGE [`fraud_flags_shared_officials.csv`](../fraud_flags_shared_officials.csv) authorized-official name.
+65 (filer, year) candidate matches where the SFI filer's normalized "LASTNAME, FIRSTNAME" exactly matches a DOGE [`fraud_flags_shared_officials.csv`](https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/fraud_flags_shared_officials.csv) authorized-official name.
 
 **Most of these are NOT the same person.** The candidate file includes a `name_commonness_in_sfi` column (count of SFI filers sharing the same Last,FirstInitial). For meaningful follow-up, filter to rows where `name_commonness ≤ 2` and **manually compare middle initials, agency, and any available employment history** before treating any individual row as a real match.
 
