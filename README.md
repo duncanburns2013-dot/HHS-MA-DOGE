@@ -14,8 +14,10 @@
 
 ## 🆕 What's New — May 2026
 
+- **🔥 SFI cross-reference (2026-05-27)** — bulk release of all 29,729 MA Statement-of-Financial-Interest filings 2019–2025 was approved and cross-referenced against this repo's flagged entities. **Nine MA public officials across all three branches of state government disclosed in their own SFIs that their spouses are employed at Tempus Unlimited, Inc.** — the $6.62B-spending #1-ranked flagged entity at 600 Technology Center Dr, Stoughton, and the sole statewide MassHealth PCA Fiscal Intermediary. Corporate-records research confirmed that the "Cerebral Palsy of Massachusetts" listing in one filing is Tempus's pre-2017 legacy name, same EIN 04-2239746, same CEO Larry Spencer. Full doc: [`enforcement/SFI-CROSSREF.md`](enforcement/SFI-CROSSREF.md). Underlying corpus + searchable UI: [`duncanburns2013-dot/The-Peoples-Audit`](https://github.com/duncanburns2013-dot/The-Peoples-Audit).
 - **HHS DOGE Medicaid Provider Spending dataset (Feb 2026)** — the largest public Medicaid claims aggregation ever released. 10 GB, 227M+ rows, provider × HCPCS × month, 2018–2024. Ingest script: [`data/fraud-detection/ingest_hhs_doge_provider_spending.py`](data/fraud-detection/ingest_hhs_doge_provider_spending.py)
 - **Enforcement layer** — new [`enforcement/`](enforcement/) folder cross-references this investigation against:
+  - [SFI cross-reference (2026)](enforcement/SFI-CROSSREF.md) — 29,729 MA SFI filings 2019–2025, Tempus spouse-employment pattern, real-estate overlaps
   - [2026 MA AG indictments](enforcement/2026-MA-INDICTMENTS.md) (Waltham NEMT $770K, $7.8M home-health/lab/physician kickback ring, UHS $15M+ settlement)
   - [State Auditor BSI FY25](enforcement/STATE-AUDITOR-BSI-FY25.md) — $11.95M public-benefit fraud identified + March 2026 follow-up
   - [HHS OIG MFCU FY2025](enforcement/HHS-OIG-MFCU-FY25.md) — $2B recoveries, 1,185 convictions, active OIG focus on EVV data
