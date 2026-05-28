@@ -1895,7 +1895,7 @@ function Nav({
 }) {
   const tabs = [{
     id: "sfi",
-    l: "🔥 SFI · TEMPUS",
+    l: "📋 SFI · TEMPUS",
     hot: true
   }, {
     id: "enforcement",
@@ -5448,20 +5448,23 @@ function SfiSection() {
 
   return C("div", { style: { padding: "20px 24px", maxWidth: 1280, margin: "0 auto" } },
     // Hero
-    C("div", { className: "sfi-bombshell-card", style: { background: `linear-gradient(135deg, ${X.red}33 0%, #1a0510 40%, #0d0508 100%)`, border: `2px solid ${X.red}`, borderRadius: 14, padding: "36px 38px", marginBottom: 28, boxShadow: `0 0 80px ${X.red}55, inset 0 0 80px ${X.red}11` } },
+    C("div", { className: "sfi-bombshell-card", style: { background: `linear-gradient(135deg, ${X.red}22 0%, #14060c 40%, #0a0508 100%)`, border: `1px solid ${X.red}88`, borderRadius: 14, padding: "36px 38px", marginBottom: 28, boxShadow: `0 0 40px ${X.red}33` } },
       C("div", { style: { display: "flex", alignItems: "center", gap: 12, marginBottom: 22, flexWrap: "wrap" } },
-        C("div", { style: { fontFamily: F.m, fontSize: 13, color: X.red, letterSpacing: 5, fontWeight: 800, background: `${X.red}22`, padding: "8px 14px", borderRadius: 4 } }, "🔥 BOMBSHELL · 2026-05-27"),
-        C("div", { style: { fontFamily: F.m, fontSize: 12, color: X.amber, letterSpacing: 2, fontWeight: 700 } }, "LOCKED v1 · 28/28 VERIFIED")
+        C("div", { style: { fontFamily: F.m, fontSize: 12, color: X.red, letterSpacing: 4, fontWeight: 700, background: `${X.red}22`, padding: "6px 12px", borderRadius: 4 } }, "MA SFI PUBLIC RECORDS · 2026-05-27"),
+        C("div", { style: { fontFamily: F.m, fontSize: 11, color: X.amber, letterSpacing: 2, fontWeight: 600 } }, "28 / 28 DISCLOSURES RE-VERIFIED FROM PDF")
       ),
-      C("div", { className: "sfi-bombshell-headline", style: { fontFamily: F.h, fontSize: 48, color: X.white, marginBottom: 22, letterSpacing: -0.8, lineHeight: 1.1, fontWeight: 800 } },
-        "8 MA State Officials Disclosed Spouses Paid By Tempus Unlimited"
+      C("div", { className: "sfi-bombshell-headline", style: { fontFamily: F.h, fontSize: 44, color: X.white, marginBottom: 22, letterSpacing: -0.6, lineHeight: 1.15, fontWeight: 700 } },
+        "8 MA Public Officials Disclosed Spouse Income Through Tempus Unlimited"
       ),
-      C("div", { className: "sfi-bombshell-sub", style: { fontSize: 19, color: X.sub, lineHeight: 1.7, marginBottom: 28, maxWidth: 940 } },
-        "29,729 redacted MA Statement-of-Financial-Interest filings (2019–2025) were just released. Eight officials — across the ",
-        C("span", { style: { color: X.white, fontWeight: 700 } }, "Judiciary, the House, MassDOT, DESE, the Probation Service, the Treasury (via ABCC), and a state banking regulator"),
-        " — disclosed in their own SFIs that a spouse or household dependent receives income through the MassHealth Personal Care Attendant program, with ",
-        C("span", { style: { color: X.red, fontWeight: 800 } }, "Tempus Unlimited, Inc."),
-        " as the sole statewide Fiscal Intermediary. 28 individual disclosures, every one re-verified by live PDF re-read."
+      C("div", { className: "sfi-bombshell-sub", style: { fontSize: 18, color: X.sub, lineHeight: 1.7, marginBottom: 16, maxWidth: 940 } },
+        "29,729 redacted MA Statement-of-Financial-Interest filings (2019–2025) released by the State Ethics Commission. A word-boundary substring scan for ",
+        C("span", { style: { color: X.red, fontWeight: 700 } }, '"Tempus"'),
+        " in the Q7 (Spouse Business Employment) section of every filing returned 28 hits across 8 unique filers. Every hit was independently re-verified by direct PDF text re-extraction."
+      ),
+      C("div", { style: { fontSize: 15, color: X.dim, lineHeight: 1.6, marginBottom: 22, maxWidth: 940, fontStyle: "italic" } },
+        "Tempus Unlimited, Inc. is a Massachusetts 501(c)(3) disability-services nonprofit (EIN 04-2239746) that operates as the sole statewide MassHealth Personal Care Attendant Fiscal Intermediary. ",
+        C("span", { style: { color: X.amber, fontWeight: 600, fontStyle: "normal" } }, "Not"),
+        " to be confused with Tempus AI (NASDAQ: TEM), the Chicago-based health-tech company."
       ),
       // CTAs
       C("div", { className: "sfi-bombshell-ctas", style: { display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 18 } },
@@ -5501,29 +5504,28 @@ function SfiSection() {
       )
     ),
 
-    // Framing card
-    C("div", { style: { background: "linear-gradient(135deg, #0a1018 0%, #050810 100%)", border: `1px solid ${X.amber}55`, borderLeft: `4px solid ${X.amber}`, borderRadius: 10, padding: "22px 26px", marginBottom: 28 } },
-      C("div", { style: { fontFamily: F.m, fontSize: 11, color: X.amber, letterSpacing: 3, fontWeight: 700, marginBottom: 10 } }, "HOW TO READ THIS"),
-      C("div", { style: { fontFamily: F.h, fontSize: 22, color: X.white, marginBottom: 12, lineHeight: 1.3, fontWeight: 700 } }, "This is a structural household-income finding, not a fraud accusation."),
-      C("div", { style: { fontSize: 15, color: X.sub, lineHeight: 1.7, marginBottom: 10 } },
-        "Tempus is the ", C("strong", { style: { color: X.white } }, "sole statewide MassHealth PCA Fiscal Intermediary"),
-        " by program design — by construction, every PCA paycheck in Massachusetts flows through this one entity. The MassHealth member is the legal employer of record (130 CMR 422); Tempus issues W-2s on the member's behalf as Fiscal/Employer Agent. The $6.62B figure on the rank-1 row of ", C("code", { style: { color: X.cyan, fontFamily: F.m, fontSize: 13 } }, "fraud_flags_summary.csv"),
-        " is cumulative 2018–2024 PCA-program pass-through, not Tempus net revenue (FY2024 surplus = $2.57M)."
+    // What this is / What this is not
+    C("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 28 } },
+      C("div", { style: { background: "#0a1018", border: `1px solid ${X.green}55`, borderLeft: `4px solid ${X.green}`, borderRadius: 8, padding: "18px 22px" } },
+        C("div", { style: { fontFamily: F.m, fontSize: 11, color: X.green, letterSpacing: 3, fontWeight: 700, marginBottom: 10 } }, "WHAT THIS IS"),
+        C("div", { style: { fontSize: 14, color: X.sub, lineHeight: 1.7 } },
+          "A list of 28 verified disclosures made by 8 named MA public officials on their own annual Statements of Financial Interest 2019–2025. Each disclosure was filed by the official under penalty of perjury with the MA State Ethics Commission per G.L. c. 268B. Every line in the table above is sourced to the official's own SFI PDF, with the literal Q7 excerpt and the per-row verification log."
+        )
       ),
-      C("div", { style: { fontSize: 15, color: X.sub, lineHeight: 1.7 } },
-        C("strong", { style: { color: X.white } }, "What this does establish:"),
-        " a meaningful cohort of MA state officials across all three branches have household income that depends on the continued funding and policy structure of the PCA program — a $1.75B (FY2024) and fast-growing MassHealth line item. Recusal records and any votes / rulings / regulatory actions touching MassHealth PCA should be reviewed for each named official."
+      C("div", { style: { background: "#1a0808", border: `1px solid ${X.red}66`, borderLeft: `4px solid ${X.red}`, borderRadius: 8, padding: "18px 22px" } },
+        C("div", { style: { fontFamily: F.m, fontSize: 11, color: X.red, letterSpacing: 3, fontWeight: 700, marginBottom: 10 } }, "WHAT THIS IS NOT"),
+        C("div", { style: { fontSize: 14, color: X.sub, lineHeight: 1.7 } },
+          "Not an accusation. Not an inference. Not a finding of wrongdoing, conflict-of-interest violation, failure to recuse, failure to disclose, false statement, fraud, or any other legal violation by any named individual or by Tempus Unlimited, Inc. The disclosures cited are the officials' own lawful filings. The evidence speaks for itself."
+        )
       )
     ),
 
     // Provenance / legal note
     C("div", { style: { background: X.s1, border: `1px solid ${X.border}`, borderRadius: 8, padding: "16px 20px", fontSize: 13, color: X.sub, lineHeight: 1.7, marginBottom: 24 } },
       C("div", { style: { fontFamily: F.m, fontSize: 11, color: X.dim, letterSpacing: 2, marginBottom: 8, fontWeight: 700 } }, "PROVENANCE & NOTIFICATION"),
-      "These are the officials' own lawful disclosures, filed under penalty of perjury with the MA State Ethics Commission. ",
-      C("strong", { style: { color: X.white } }, "No wrongdoing by any named official is alleged."),
-      " The 29,729-filing redacted bulk corpus was released by the Commission in 2026 following an approved public-records request. Per ",
+      "29,729 redacted PDFs released by the MA State Ethics Commission. Per ",
       C("a", { href: "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleIV/Chapter268B", target: "_blank", style: { color: X.cyan, textDecoration: "none" } }, "G.L. c. 268B"),
-      ", every filer whose SFI is released in a public-records request is notified by the Commission's process; the named officials have therefore already been on notice."
+      ", every filer whose SFI is released in a public-records request is notified by the Commission's process at the time of release."
     ),
 
     // Repo links
@@ -5566,21 +5568,27 @@ function EnforcementSection() {
     C("div", { style: { marginBottom: 20, borderRadius: 10, overflow: "hidden", border: `1px solid ${X.border}`, boxShadow: `0 0 40px ${X.red}22` } },
       C("img", { src: "social_card.png", alt: "Massachusetts DOGE Analysis - Healey, Mariano, Spilka, Campbell", style: { width: "100%", display: "block" } })
     ),
-    // ── SFI CROSS-REFERENCE — headline finding (LOCKED v1) ─────────────
-    C("div", { className: "sfi-bombshell-card", style: { background: `linear-gradient(135deg, ${X.red}33 0%, #1a0510 40%, #0d0508 100%)`, border: `2px solid ${X.red}`, borderRadius: 14, padding: "32px 34px", marginBottom: 32, boxShadow: `0 0 70px ${X.red}44, inset 0 0 60px ${X.red}11` } },
-      C("div", { style: { display: "flex", alignItems: "center", gap: 12, marginBottom: 18, flexWrap: "wrap" } },
-        C("div", { style: { fontFamily: F.m, fontSize: 12, color: X.red, letterSpacing: 4, fontWeight: 700, background: `${X.red}22`, padding: "6px 12px", borderRadius: 4 } }, "🔥 BOMBSHELL · 2026-05-27"),
-        C("div", { style: { fontFamily: F.m, fontSize: 11, color: X.amber, letterSpacing: 2, fontWeight: 600 } }, "LOCKED v1 · 28/28 VERIFIED")
+    // ── SFI cross-reference teaser (deep-dive view is on the dedicated SFI tab) ──
+    C("div", { className: "sfi-bombshell-card", style: { background: `linear-gradient(135deg, ${X.red}22 0%, #14060c 40%, #0a0508 100%)`, border: `1px solid ${X.red}88`, borderRadius: 14, padding: "28px 32px", marginBottom: 32 } },
+      C("div", { style: { display: "flex", alignItems: "center", gap: 12, marginBottom: 16, flexWrap: "wrap" } },
+        C("div", { style: { fontFamily: F.m, fontSize: 11, color: X.red, letterSpacing: 3, fontWeight: 700, background: `${X.red}22`, padding: "6px 12px", borderRadius: 4 } }, "MA SFI PUBLIC RECORDS · 2026-05-27"),
+        C("div", { style: { fontFamily: F.m, fontSize: 10, color: X.amber, letterSpacing: 2, fontWeight: 600 } }, "28 / 28 RE-VERIFIED FROM PDF")
       ),
-      C("div", { className: "sfi-bombshell-headline", style: { fontFamily: F.h, fontSize: 38, color: X.white, marginBottom: 16, letterSpacing: -0.5, lineHeight: 1.15, fontWeight: 700 } },
-        "8 MA State Officials Disclosed Spouses Paid By Tempus Unlimited"
+      C("div", { className: "sfi-bombshell-headline", style: { fontFamily: F.h, fontSize: 32, color: X.white, marginBottom: 16, letterSpacing: -0.4, lineHeight: 1.2, fontWeight: 700 } },
+        "8 MA Public Officials Disclosed Spouse Income Through Tempus Unlimited"
       ),
-      C("div", { className: "sfi-bombshell-sub", style: { fontSize: 17, color: X.sub, lineHeight: 1.7, marginBottom: 26, maxWidth: 920 } },
-        "29,729 redacted MA Statement-of-Financial-Interest filings (2019–2025) just released. Eight officials — across the ",
-        C("span", { style: { color: X.white, fontWeight: 700 } }, "Judiciary, the House, MassDOT, DESE, the Probation Service, the Treasury (via ABCC), and a state banking regulator"),
-        " — disclosed in their own SFIs that a spouse or household dependent receives income through the MassHealth Personal Care Attendant program, with ",
-        C("span", { style: { color: X.red, fontWeight: 700 } }, "Tempus Unlimited, Inc."),
-        " as the sole statewide Fiscal Intermediary. 28 individual disclosures, every one re-verified by live PDF re-read. The $6.62B figure on the rank-1 row of fraud_flags_summary.csv is cumulative 2018–2024 PCA-program pass-through — Tempus FY2024 net surplus was only $2.57M."
+      C("div", { className: "sfi-bombshell-sub", style: { fontSize: 16, color: X.sub, lineHeight: 1.7, marginBottom: 14, maxWidth: 920 } },
+        "29,729 redacted MA Statement-of-Financial-Interest filings (2019–2025) released by the MA State Ethics Commission. A word-boundary substring scan for ",
+        C("span", { style: { color: X.red, fontWeight: 700 } }, '"Tempus"'),
+        " in the Q7 (Spouse Business Employment) section of every filing returned 28 hits across 8 unique filers, all independently re-verified by direct PDF re-extraction. Tempus Unlimited, Inc. (EIN 04-2239746) is the sole statewide MassHealth Personal Care Attendant Fiscal Intermediary; the $6,620,437,058 figure in fraud_flags_summary.csv is cumulative 2018–2024 PCA-program claims pass-through across 7 NPIs at the same Stoughton address (Tempus FY2024 net surplus per ProPublica 990: $2,572,716)."
+      ),
+      C("div", { style: { fontSize: 13, color: X.dim, fontStyle: "italic", marginBottom: 22, maxWidth: 920 } },
+        "Not to be confused with Tempus AI (NASDAQ: TEM), an unrelated Chicago-based health-tech company."
+      ),
+      C("div", { style: { fontSize: 13, color: X.dim, marginBottom: 18 } },
+        "Full deep-dive on the ",
+        C("strong", { style: { color: X.red, fontStyle: "normal" } }, "📋 SFI · TEMPUS"),
+        " tab above."
       ),
       // The 8 officials grid
       C("div", { className: "sfi-bombshell-grid", style: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(290px, 1fr))", gap: 12, marginBottom: 24 } },
@@ -5609,8 +5617,8 @@ function EnforcementSection() {
         C("a", { href: "https://github.com/duncanburns2013-dot/The-Peoples-Audit/blob/main/data/sfi/verify/tempus_verified.md", target: "_blank", style: { border: `1px solid ${X.amber}66`, color: X.amber, padding: "12px 18px", borderRadius: 6, fontFamily: F.m, fontSize: 13, fontWeight: 600, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "Verification Log (28/28)"),
         C("a", { href: "https://github.com/duncanburns2013-dot/The-Peoples-Audit/releases", target: "_blank", style: { border: `1px solid ${X.cyan}66`, color: X.cyan, padding: "12px 18px", borderRadius: 6, fontFamily: F.m, fontSize: 13, fontWeight: 600, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "29,729 Raw PDFs")
       ),
-      C("div", { className: "sfi-bombshell-foot", style: { fontSize: 13, color: X.dim, fontStyle: "italic", lineHeight: 1.65, borderTop: `1px dashed ${X.red}44`, paddingTop: 14 } },
-        "These are the officials' own lawful disclosures, filed under penalty of perjury with the MA State Ethics Commission. No wrongdoing by any named official is alleged. Per G.L. c. 268B, each was notified by the Commission's bulk-release process. The story is structural — a publicly-routed household-income dependency on a fast-growing state program (FY2024 PCA spend ≈ $1.75B)."
+      C("div", { className: "sfi-bombshell-foot", style: { fontSize: 12, color: X.dim, lineHeight: 1.6, borderTop: `1px dashed ${X.red}44`, paddingTop: 12 } },
+        "The disclosures cited are the officials' own filings under penalty of perjury per G.L. c. 268B. No wrongdoing by any named individual or by Tempus Unlimited, Inc. is alleged. Per G.L. c. 268B, each filer was notified by the Commission's bulk-release process at the time of release."
       )
     ),
     // Update banner
