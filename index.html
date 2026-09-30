@@ -276,8 +276,8 @@ const PROVIDERS = [{
     y: "FY24",
     v: 5572
   }],
-  sig: "Only top provider billing BELOW national average (0.78×). Fiscal intermediary — doesn't provide direct care but processes payments for 40,000+ Personal Care Attendant (PCA) workers. The fact that Tempus operates efficiently at below-market rates proves the system CAN work. Why can't the state agencies do the same?",
-  extra: "Processes $6.4B total. Model: workers choose their own PCAs, Tempus handles payroll/billing. Private-sector efficiency benchmark."
+  sig: "Fiscal intermediary — doesn't provide direct care but processes payments for 40,000+ Personal Care Attendant (PCA) workers. Tempus took 70.3% of MA's T1019 personal care payments in 2020-24. There is no valid rate comparison for T1019: it is billed per 15 minutes and claim lines per person vary by state.",
+  extra: "Processes $6.4B total. Model: workers choose their own PCAs, Tempus handles payroll/billing."
 }, {
   rank: 2,
   name: "DEPT OF DEVELOPMENTAL SERVICES",
@@ -300,8 +300,8 @@ const PROVIDERS = [{
     y: "FY24",
     v: 1350
   }],
-  sig: "DDS NPI #1 of 14. The Department of Developmental Services (DDS) is one state agency — but it uses 14 separate National Provider Identifiers (NPIs) to bill CMS. On T2016 group home services, MA paid $13,948 per beneficiary-month in 2024 vs a state median of $10,099 (1.38×, 13th of 38 states).",
-  extra: "No other state fragments a single department into 14 billing identities. You must manually combine all 14 to see the $8.2B total."
+  sig: "DDS NPI #1. The Department of Developmental Services (DDS) is one state agency. In the HHS provider spending file, 24 NPIs named Commonwealth of Massachusetts billed T2016 group home services: $8.93B in 2018-24. On T2016 group home services, MA paid $13,948 per beneficiary-month in 2024 vs a state median of $10,099 (1.38×, 13th of 38 states).",
+  extra: "Multiple NPIs per state provider site is normal NPPES practice, but it means you must combine all 24 to see the $8.93B T2016 total (2018-24)."
 }, {
   rank: 3,
   name: "COMMONWEALTH OF MASSACHUSETTS",
@@ -349,7 +349,7 @@ const PROVIDERS = [{
     v: 1098
   }],
   sig: "DDS NPI #2. Same Department of Developmental Services, second billing identity. Combined with NPI #1: $2.45B. Same T2016 code. Same group home services. Why two NPIs?",
-  extra: "This fragmentation pattern is unique to Massachusetts. Other states use one NPI per department."
+  extra: "Multiple NPIs per state provider site is normal NPPES practice."
 }, {
   rank: 5,
   name: "STAVROS CTR INDEP LIVING",
@@ -372,7 +372,7 @@ const PROVIDERS = [{
     y: "FY24",
     v: 1037
   }],
-  sig: "Western MA independent living center. Consumer-directed care — individuals choose and manage their own personal care attendants. $1B+ in billing at below-national rates. Like Tempus, shows the private model works.",
+  sig: "Western MA independent living center. Consumer-directed care — individuals choose and manage their own personal care attendants. $1B+ in billing.",
   extra: "Serves Springfield/Pioneer Valley. PCA fiscal intermediary model similar to Tempus."
 }, {
   rank: 6,
@@ -516,8 +516,8 @@ const PROVIDERS = [{
     y: "FY24",
     v: 555
   }],
-  sig: "Second NPI for Tempus. Combined: $6.13B — still billing below national average. Two NPIs for operational reasons (different service lines), not to obscure spending like the DDS fragmentation.",
-  extra: "Combined Tempus billing = $6.13B at 0.78× national. Private sector efficiency."
+  sig: "Second NPI for Tempus. Combined: $6.13B. Two NPIs for operational reasons (different service lines).",
+  extra: "Combined Tempus billing = $6.13B."
 }, {
   rank: 12,
   name: "UMASS MEMORIAL MED CTR",
@@ -588,7 +588,7 @@ const PROVIDERS = [{
     y: "FY24",
     v: 465
   }],
-  sig: "Fourth DDS NPI. $465M. Same department, same rate, same service. Combined #1-4: $3.8B.",
+  sig: "Fourth DDS NPI. $465M. Same department, same T2016 code, same service. Combined #1-4: $3.8B.",
   extra: "Regional area office — but why a separate NPI?"
 }, {
   rank: 15,
@@ -612,8 +612,8 @@ const PROVIDERS = [{
     y: "FY24",
     v: 448
   }],
-  sig: "Fifth DDS NPI. No other state in America uses 5+ billing identities for one department.",
-  extra: "Combined #1-5: $4.24B. Still 9 more DDS NPIs to go."
+  sig: "Fifth DDS NPI.",
+  extra: "Combined #1-5: $4.24B."
 }, {
   rank: 16,
   name: "COMMONWEALTH OF MA #2",
@@ -972,8 +972,8 @@ const PROVIDERS = [{
     y: "FY24",
     v: 298
   }],
-  sig: "TWELFTH DDS NPI. 12 billing identities for 1 department. No other state does this. Combined 12 DDS NPIs: $6.73B.",
-  extra: "Two more Commonwealth NPIs bring the total state billing to $8.2B+ across 14 NPIs."
+  sig: "Twelfth DDS NPI profiled here. The HHS provider spending file lists 24 Commonwealth of Massachusetts NPIs billing T2016: $8.93B in 2018-24.",
+  extra: "The 12 NPIs profiled on this site come from an earlier T-MSIS extract and are not reconciled to the HHS file."
 }];
 const CODES = [{
   code: "T2016",
@@ -985,18 +985,18 @@ const CODES = [{
   natlLabel: "State median",
   basis: "per beneficiary-month, 2024",
   ratio: 1.38,
-  who: "DDS (Dept of Developmental Services) — the state agency running group homes. DDS bills through 12 separate NPIs, fragmenting $6.7B across identities that must be manually combined.",
+  who: "DDS (Dept of Developmental Services) — the state agency running group homes. In the HHS file, 24 NPIs named Commonwealth of Massachusetts billed T2016: $8.93B in 2018-24.",
   sig: "Per beneficiary-month in 2024, Massachusetts paid $13,948 vs a state median of $10,099: 1.38×, 13th of 38 states. MA bills about 1.34 claim lines per person-month; the median state bills about 27 (one per day), so per-line figures are not daily rates. The rate is set under Ch.257, which auto-converts costs to rates with no external review."
 }, {
   code: "T1019",
   paid: 8434,
   plain: "Personal Care (per 15-min unit)",
   what: "Personal Care Attendant (PCA) services — bathing, dressing, meals for homebound individuals. T1019 is a standard HCPCS code billed in 15-minute units nationally (4 units = 1 hour). Every state uses the same 15-min increment per CMS rules.",
-  maAvg: 87,
-  natl: 112,
-  ratio: 0.78,
+  maAvg: null,
+  natl: null,
+  ratio: null,
   who: "Tempus Unlimited ($6.13B combined) — a fiscal intermediary that processes payments for 40,000+ PCAs. Tempus doesn't provide care directly; it handles payroll and billing. Also: Stavros, Public Partnerships.",
-  sig: "Massachusetts pays less than the national average on this code. It is not the only one: on 2024 paid per claim line, MA is also below the state median on 99213, 99214, 90834, T1015 and S5140. Tempus and other fiscal intermediaries run this efficiently because they're private entities — proving the system CAN work when it's not run by the state."
+  sig: "No valid rate comparison: T1019 is billed per 15 minutes, and MA bills 25.6 claim lines per beneficiary-month vs 17.1 for the median state, so per-line amounts are not rates. On the cleanest comparisons, the CPT visit codes, MA is below the state median (99213 0.75×, 99214 0.81×, 90834 0.90×). Tempus Unlimited took 70.3% of MA's $6.57B in T1019 payments in 2020-24."
 }, {
   code: "S5140",
   paid: 3107,
@@ -1058,13 +1058,13 @@ const CODES = [{
 }, {
   code: "H2018",
   paid: 839,
-  plain: "Psychosocial Rehab (full day)",
-  what: "Full-day psychosocial rehabilitation programs for individuals with mental health conditions. Skills training, counseling, community support.",
-  maAvg: 180,
-  natl: 80,
-  ratio: 2.25,
-  who: "DMH (Dept of Mental Health) contractors — the same nonprofit network as DDS. Many organizations hold contracts with both DDS and DMH, creating an interconnected web of billing.",
-  sig: "Massachusetts generates 65% of ALL U.S. claims for this single code. 65% — one state out of fifty. Either MA has a uniquely high need, or this code is being used differently than everywhere else."
+  plain: "Psychosocial Rehab (per diem)",
+  what: "CMS descriptor: psychosocial rehabilitation services, per diem. Rehabilitation programs for individuals with mental health conditions.",
+  maAvg: null,
+  natl: null,
+  ratio: null,
+  who: "Six billing NPIs in MA (2020-24). The largest is Commonwealth of Massachusetts-DMH (24.0%); the top three took 66.0%.",
+  sig: "Massachusetts accounted for 47.8% to 72.0% of state-assignable H2018 claim lines in 2018-24 (59.5% in 2024). No valid rate comparison: MA bills 4.8 lines per beneficiary-month vs 8.9 for the median state, so per-line amounts are not daily rates."
 }, {
   code: "G0156",
   paid: 709,
@@ -1083,7 +1083,7 @@ const CODES = [{
   maAvg: null,
   natl: null,
   ratio: null,
-  who: "DDS day program contractors. Same nonprofit network as S5102 — Seven Hills, Vinfen, Advocates, May Institute.",
+  who: "131 billing NPIs in MA (2020-24). The largest, Douglas A. Thom Clinic, took 12.4%.",
   sig: "No valid state comparison: the code is billed per 15 minutes and the HHS file does not record units per claim line. Ch.257 auto-escalation means every cost increase reported by the nonprofit becomes a rate increase paid by taxpayers."
 }, {
   code: "99213",
@@ -1112,31 +1112,33 @@ const CODES = [{
   paid: 420,
   plain: "Community Psychiatric Support (15 min)",
   what: "Community psychiatric supportive treatment, face-to-face, per 15 minutes. Mental health support in community settings.",
-  maAvg: 45,
-  natl: 18,
-  ratio: 2.5,
+  maAvg: null,
+  natl: null,
+  ratio: null,
   who: "DMH community mental health centers and contracted providers.",
-  sig: "2.5× national rate. Community-based mental health billed at premium rates through the DMH contractor network."
+  sig: "No valid rate comparison: H0036 is not in the HHS state comparison, and it is billed per 15 minutes. The HHS file shows only $0.27M paid to MA-located providers on this code in 2020-24, far below the total shown here; that total needs checking."
 }, {
   code: "T2003",
   paid: 385,
   plain: "Non-Emergency Transport (one way)",
   what: "Non-emergency medical transportation — driving patients to and from medical appointments.",
-  maAvg: 65,
-  natl: 25,
-  ratio: 2.6,
+  maAvg: 37.16,
+  natl: 34.78,
+  natlLabel: "State median",
+  basis: "per trip (claim line), 2024",
+  ratio: 1.07,
   who: "Transportation brokers and providers under MassHealth contract.",
-  sig: "2.6× national rate for driving someone to a doctor's appointment. No-bid contracts common."
+  sig: "Close to other states on rate: MA paid $37.16 per claim line (per trip) in 2024 vs a state median of $34.78 (1.07×, 15th of 33). The flag is volume: MA paid $35.6M in 2020 and $114.9M in 2024, claim lines rose from 1.36M to 3.09M, and billing NPIs stayed flat (181 to 175). MA bills 22 lines per beneficiary-month vs 6.9 for the median state. No-bid contracts common."
 }, {
   code: "T1003",
   paid: 350,
-  plain: "Group Home Support (15 min)",
-  what: "Licensed group home support services in 15-minute increments. Staffing costs for group home workers.",
-  maAvg: 30,
-  natl: 12,
-  ratio: 2.5,
-  who: "DDS group home contractors — primarily the same nonprofits running day programs (Seven Hills, Vinfen, etc).",
-  sig: "2.5× national. Same nonprofits, same Ch.257 rate mechanism, same CEO compensation pattern."
+  plain: "LPN/LVN Nursing (up to 15 min)",
+  what: "CMS descriptor: LPN/LVN services, up to 15 minutes. Licensed practical/vocational nurse services billed in 15-minute units.",
+  maAvg: null,
+  natl: null,
+  ratio: null,
+  who: "13 billing NPIs in MA (2020-24). The largest, Centrus Premier Home Care, took 36.2%; the top three took 56.9%.",
+  sig: "No valid rate comparison: T1003 is not in the HHS state comparison, and it is billed in 15-minute units. The HHS file shows $151.9M paid to MA-located providers on this code in 2020-24."
 }];
 const DDS_NPIS = [{
   id: "DDS #1",
@@ -1209,7 +1211,7 @@ const DDS_NPIS = [{
   paid: 298.4,
   region: "Statewide",
   homes: 10,
-  note: "12th NPI. No other state does this."
+  note: "12th NPI."
 }, {
   id: "CW #1",
   paid: 1143.4,
@@ -1232,8 +1234,8 @@ const CTHRU = [{
   fy25: 613,
   ceo: "$465K",
   cat: "Fiscal Intermediary",
-  context: "Fiscal intermediary — doesn't provide direct care. Processes payments for 40,000+ Personal Care Attendants. Only major vendor billing BELOW national average (0.78×). Proves private-sector efficiency works. Model: workers choose their own PCAs, Tempus handles payroll/billing/compliance.",
-  sig: "If Tempus can process $6.13B at below-market rates, why can't state agencies do the same?"
+  context: "Fiscal intermediary — doesn't provide direct care. Processes payments for 40,000+ Personal Care Attendants. Took 70.3% of MA's T1019 personal care payments in 2020-24; T1019 has no valid cross-state rate comparison. Model: workers choose their own PCAs, Tempus handles payroll/billing/compliance.",
+  sig: "Tempus runs the PCA program as a fiscal intermediary, which is why one entity holds most of the T1019 dollars."
 }, {
   name: "Seven Hills Foundation",
   fy21: 88,
@@ -1649,7 +1651,7 @@ const CH257 = [{
 }, {
   step: 3,
   title: "State Bills CMS",
-  desc: "Claims at self-set rates. CMS pays 50-65% federal match. DDS alone: 14 NPIs billing $8.2B+.",
+  desc: "Claims at self-set rates. CMS pays 50-65% federal match. DDS alone: 24 Commonwealth NPIs billed $8.93B in T2016, 2018-24.",
   icon: "💸",
   color: X.red
 }, {
@@ -1847,7 +1849,7 @@ function Hero({
       color: X.red,
       fontWeight: 700
     }
-  }, "14 state NPIs billing $8B+"), " through one department. ", /*#__PURE__*/React.createElement("span", {
+  }, "24 state NPIs billing $8.9B"), " in group home services (T2016, 2018-24). ", /*#__PURE__*/React.createElement("span", {
     style: {
       color: X.crimson,
       fontWeight: 700
@@ -1996,9 +1998,9 @@ function ProvidersSection() {
     color: X.red
   }), /*#__PURE__*/React.createElement(Stat, {
     value: "$6.13B",
-    label: "Tempus (below avg)",
-    color: X.green,
-    detail: "ONLY entity below national avg"
+    label: "Tempus (PCA intermediary)",
+    color: X.cyan,
+    detail: "70.3% of MA T1019 paid, 2020-24"
   }), /*#__PURE__*/React.createElement(Stat, {
     value: "$2.4B",
     label: "5 Hospitals",
@@ -2273,14 +2275,14 @@ function CodesSection() {
     sub: "$13,948 vs $10,099 per person-month",
     color: X.amber
   }), /*#__PURE__*/React.createElement(Stat, {
-    value: "0.78\xD7",
-    label: "T1019 Personal Care",
-    sub: "Below national avg",
+    value: "0.75\xD7",
+    label: "99213 Office Visit",
+    sub: "$40.14 vs $53.44 state median per line",
     color: X.green
   }), /*#__PURE__*/React.createElement(Stat, {
-    value: "65%",
-    label: "H2018 \u2014 65% of US",
-    sub: "MA = 65% of all US claims",
+    value: "59.5%",
+    label: "H2018 \u2014 MA share of US",
+    sub: "2024, state-assignable claim lines",
     color: X.purple
   })), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2567,9 +2569,9 @@ function DDSSection() {
     fill: X.dim
   }];
   return /*#__PURE__*/React.createElement(Sec, null, /*#__PURE__*/React.createElement(SH, {
-    title: "14 NPIs. One Department. $8.2 Billion.",
+    title: "24 NPIs. One Department. $8.9 Billion.",
     accent: X.red,
-    sub: "The Department of Developmental Services (DDS) fragments billing across 14 separate NPIs (National Provider Identifiers). Click any NPI to explore. No other state does this."
+    sub: "In the HHS provider spending file, 24 NPIs (National Provider Identifiers) named Commonwealth of Massachusetts billed T2016 group home services: $8.93B in 2018-24. The 12 NPIs below come from this site's earlier T-MSIS extract and are not reconciled to that file. Click any NPI to explore."
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
@@ -2580,18 +2582,20 @@ function DDSSection() {
     }
   }, /*#__PURE__*/React.createElement(Stat, {
     value: `$${(total / 1000).toFixed(1)}B`,
-    label: "Total DDS",
-    color: X.red
-  }), /*#__PURE__*/React.createElement(Stat, {
+    label: "12 NPIs Profiled",
+    color: X.red,
+    detail: "All 24 T2016 NPIs in the HHS file: $8.93B, 2018-24"
+  }),/*#__PURE__*/React.createElement(Stat, {
     value: "1.38\xD7",
     label: "vs State Median",
     color: X.amber,
     detail: "T2016, 2024: $13,948 vs $10,099 per beneficiary-month (13th of 38 states)"
   }), /*#__PURE__*/React.createElement(Stat, {
-    value: "14",
+    value: "24",
     label: "NPIs",
-    color: X.amber
-  }), /*#__PURE__*/React.createElement(Stat, {
+    color: X.amber,
+    detail: "Commonwealth NPIs billing T2016, 2018-24 (HHS file)"
+  }),/*#__PURE__*/React.createElement(Stat, {
     value: "$0",
     label: "CMS Challenges",
     color: X.pink,
@@ -2690,7 +2694,7 @@ function DDSSection() {
       letterSpacing: 3,
       marginBottom: 12
     }
-  }, "WHERE $8.2B GOES"), /*#__PURE__*/React.createElement(ResponsiveContainer, {
+  }, "WHERE THE MONEY GOES (SITE ESTIMATE)"),/*#__PURE__*/React.createElement(ResponsiveContainer, {
     width: "100%",
     height: 220
   }, /*#__PURE__*/React.createElement(PieChart, null, /*#__PURE__*/React.createElement(Pie, {
@@ -2734,7 +2738,7 @@ function DDSSection() {
     style: {
       color: X.red
     }
-  }, "Why fragment?"), " You must combine 14 NPIs manually to see $8.2B. Nobody does this unless they're looking.")))), /*#__PURE__*/React.createElement("div", {
+  }, "Why fragment?"), " You must combine 24 NPIs to see the $8.93B T2016 total (2018-24). Multiple NPIs per state provider site is normal NPPES practice, but it makes the total hard to see.")))), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: F.m,
       fontSize: 11,
@@ -3108,7 +3112,6 @@ const ASAPS = [{
   name: "Mystic Valley Elder Services",
   town: "Malden",
   region: "Greater Boston North",
-  g0156: 42.1,
   cthru: 38.2,
   ceo: "Lisa Gurgone",
   comp: "~$200K",
@@ -3119,7 +3122,6 @@ const ASAPS = [{
   name: "Elder Services of Merrimack Valley",
   town: "Lawrence",
   region: "Merrimack Valley",
-  g0156: 35.8,
   cthru: 31.4,
   ceo: "Rosanne DiStefano",
   comp: "~$180K",
@@ -3130,7 +3132,6 @@ const ASAPS = [{
   name: "Springwell (West Suburban Elder Svc)",
   town: "Waltham",
   region: "West Suburban Boston",
-  g0156: 38.5,
   cthru: 29.7,
   ceo: "Unknown",
   comp: "Unknown",
@@ -3140,7 +3141,6 @@ const ASAPS = [{
   name: "Somerville-Cambridge Elder Services",
   town: "Somerville",
   region: "Inner Boston",
-  g0156: 40.2,
   cthru: 33.1,
   ceo: "Unknown",
   comp: "Unknown",
@@ -3150,7 +3150,6 @@ const ASAPS = [{
   name: "South Shore Elder Services",
   town: "Braintree",
   region: "South Shore",
-  g0156: 36.9,
   cthru: 27.8,
   ceo: "Unknown",
   comp: "Unknown",
@@ -3160,7 +3159,6 @@ const ASAPS = [{
   name: "Old Colony Elder Services",
   town: "Brockton",
   region: "Southeast",
-  g0156: 34.7,
   cthru: 25.1,
   ceo: "Unknown",
   comp: "Unknown",
@@ -3170,7 +3168,6 @@ const ASAPS = [{
   name: "Greater Lynn Senior Services",
   town: "Lynn",
   region: "North Shore",
-  g0156: 37.3,
   cthru: 28.9,
   ceo: "Unknown",
   comp: "Unknown",
@@ -3180,7 +3177,6 @@ const ASAPS = [{
   name: "Elder Services of Berkshire County",
   town: "Pittsfield",
   region: "Western MA",
-  g0156: 31.2,
   cthru: 18.4,
   ceo: "Unknown",
   comp: "Unknown",
@@ -3190,7 +3186,6 @@ const ASAPS = [{
   name: "WestMass ElderCare",
   town: "Holyoke",
   region: "Pioneer Valley",
-  g0156: 33.8,
   cthru: 22.6,
   ceo: "Unknown",
   comp: "Unknown",
@@ -3200,7 +3195,6 @@ const ASAPS = [{
   name: "Highland Valley Elder Services",
   town: "Northampton",
   region: "Hampshire County",
-  g0156: 32.1,
   cthru: 19.3,
   ceo: "Unknown",
   comp: "Unknown",
@@ -3210,7 +3204,6 @@ const ASAPS = [{
   name: "Bristol Elder Services",
   town: "Fall River",
   region: "South Coast",
-  g0156: 35.4,
   cthru: 24.7,
   ceo: "Unknown",
   comp: "Unknown",
@@ -3220,7 +3213,6 @@ const ASAPS = [{
   name: "Coastline Elderly Services",
   town: "New Bedford",
   region: "South Coast",
-  g0156: 34.1,
   cthru: 23.5,
   ceo: "Unknown",
   comp: "Unknown",
@@ -3230,7 +3222,6 @@ const ASAPS = [{
   name: "LifePath (Franklin County)",
   town: "Greenfield",
   region: "Franklin County",
-  g0156: 30.8,
   cthru: 16.2,
   ceo: "Unknown",
   comp: "Unknown",
@@ -3240,7 +3231,6 @@ const ASAPS = [{
   name: "AgeSpan (Greater Lawrence)",
   town: "Lawrence",
   region: "Merrimack Valley",
-  g0156: 36.2,
   cthru: 30.1,
   ceo: "Unknown",
   comp: "Unknown",
@@ -3250,7 +3240,6 @@ const ASAPS = [{
   name: "Montachusett Home Care",
   town: "Leominster",
   region: "North Central",
-  g0156: 33.5,
   cthru: 21.8,
   ceo: "Unknown",
   comp: "Unknown",
@@ -3260,7 +3249,6 @@ const ASAPS = [{
   name: "BayPath Elder Services",
   town: "Marlborough",
   region: "MetroWest",
-  g0156: 37.8,
   cthru: 27.2,
   ceo: "Unknown",
   comp: "Unknown",
@@ -3270,7 +3258,6 @@ const ASAPS = [{
   name: "Minuteman Senior Services",
   town: "Burlington",
   region: "Northwest Suburban",
-  g0156: 39.1,
   cthru: 30.8,
   ceo: "Unknown",
   comp: "Unknown",
@@ -3280,7 +3267,6 @@ const ASAPS = [{
   name: "North Shore Elder Services",
   town: "Danvers",
   region: "North Shore",
-  g0156: 36.7,
   cthru: 26.4,
   ceo: "Unknown",
   comp: "Unknown",
@@ -3290,18 +3276,16 @@ const ASAPS = [{
   name: "Ethos (SW Boston Senior Services Inc.)",
   town: "Jamaica Plain",
   region: "Boston",
-  g0156: 43.5,
   cthru: 41.2,
   ceo: "Valerie Frias (CEO) / Nick Favorito (Pres)",
   comp: "Unknown (nonprofit, Ch.180)",
   ocpf: "$60,181 (283 records). Top recipients: Gattozzi ($10.5K), Finegold ($8K), Collins ($3.8K), Walsh ($3K), Healey ($2.7K). CEO Frias donated ~$6.2K personally. LOBBYING: $170,400 via Charles Group Consulting (2021-2025).",
-  sig: "HIGHEST G0156 ratio in entire ASAP network at 43.5x. Legal name is Southwest Boston Senior Services Inc — d/b/a Ethos. $170K in lobbying over 5 years through Charles Group Consulting. 283 OCPF records totaling $60K. CEO and senior staff are the top political donors. Treasurer listed in Providence, RI — out of state.",
+  sig: "Legal name is Southwest Boston Senior Services Inc — d/b/a Ethos. $170K in lobbying over 5 years through Charles Group Consulting. 283 OCPF records totaling $60K. CEO and senior staff are the top political donors. Treasurer listed in Providence, RI — out of state.",
   extra: "Corp ID 237304163. Lobbying: $42K (2021), $30K (2022), $45.6K (2023), $26.4K (2024), $26.4K (2025). Top OCPF donors: Patrice Gattozzi (Program Coordinator, $10.4K), CEO Frias (~$6.2K), Former ED Dale Mitchell (~$4.5K), Director Ann Glora (~$4.2K). Board: 13 directors including officers."
 }, {
   name: "Central Mass Agency on Aging",
   town: "Worcester",
   region: "Central MA",
-  g0156: 35.0,
   cthru: 28.3,
   ceo: "Unknown",
   comp: "Unknown",
@@ -3395,12 +3379,6 @@ function ElderSection() {
       fontSize: 10,
       color: X.t1
     }
-  }, "G0156 RATIO = multiple of an $8 figure driven by other states' $0-paid lines; not a valid rate comparison"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontFamily: F.m,
-      fontSize: 10,
-      color: X.t1
-    }
   }, "CTHRU = state vendor payments (est. $M)")), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: F.m,
@@ -3434,14 +3412,14 @@ function ElderSection() {
       fontSize: 22,
       color: "#ff8800"
     }
-  }, "43.5x THE $8 FIGURE"), /*#__PURE__*/React.createElement("div", {
+  }, "ETHOS"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: F.m,
       fontSize: 10,
       color: X.sub,
       marginBottom: 10
     }
-  }, "Highest G0156 ratio in entire ASAP network"), /*#__PURE__*/React.createElement("div", {
+  }, "Aging Services Access Point, Jamaica Plain"),/*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: F.i,
       fontSize: 12,
@@ -3502,7 +3480,7 @@ function ElderSection() {
       color: X.t1,
       lineHeight: 1.6
     }
-  }, "A single ASAP \u2014 with the highest G0156 billing ratio in the ASAP network \u2014 spent $170K lobbying Beacon Hill over 5 years while its employees donated $60K to politicians. The lobbying costs get counted as operating expenses under Ch.257, which become the Medicaid rate, which gets billed to CMS. The lobbying pays for itself."))), /*#__PURE__*/React.createElement("div", {
+  }, "A single ASAP spent $170K lobbying Beacon Hill over 5 years while its employees donated $60K to politicians. The lobbying costs get counted as operating expenses under Ch.257, which become the Medicaid rate, which gets billed to CMS. The lobbying pays for itself."))), /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: F.m,
       fontSize: 11,
@@ -3534,7 +3512,7 @@ function ElderSection() {
       width: 4,
       height: 36,
       borderRadius: 2,
-      background: a.g0156 >= 40 ? "#ff2244" : a.g0156 >= 35 ? "#ff8800" : "#ffcc00"
+      background: "#ff8800"
     }
   }), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -3554,22 +3532,6 @@ function ElderSection() {
       color: X.sub
     }
   }, a.town, " + ", a.region, " + CEO: ", a.ceo)), /*#__PURE__*/React.createElement("div", {
-    style: {
-      textAlign: "right"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontFamily: F.d,
-      fontSize: 18,
-      color: a.g0156 >= 40 ? X.red : "#ff8800"
-    }
-  }, a.g0156, "x"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontFamily: F.m,
-      fontSize: 9,
-      color: X.sub
-    }
-  }, "G0156 ratio")), /*#__PURE__*/React.createElement("div", {
     style: {
       textAlign: "right",
       minWidth: 60
@@ -3618,7 +3580,7 @@ function ElderSection() {
       color: X.t1,
       lineHeight: 1.7
     }
-  }, /*#__PURE__*/React.createElement("b", null, "CEO:"), " ", a.ceo, " | ", /*#__PURE__*/React.createElement("b", null, "Comp:"), " ", a.comp, /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "OCPF:"), " ", a.ocpf, /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "G0156 ratio:"), " ", a.g0156, "x the $8 figure (not a valid rate comparison; see legend)",/*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "CTHRU vendor payments:"), " ~$", a.cthru, "M")), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("b", null, "CEO:"), " ", a.ceo, " | ", /*#__PURE__*/React.createElement("b", null, "Comp:"), " ", a.comp, /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "OCPF:"), " ", a.ocpf, /*#__PURE__*/React.createElement("br", null),/*#__PURE__*/React.createElement("b", null, "CTHRU vendor payments:"), " ~$", a.cthru, "M")), /*#__PURE__*/React.createElement("div", {
     style: {
       flex: 1,
       minWidth: 250
@@ -3662,65 +3624,12 @@ function ElderSection() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontFamily: F.m,
-      fontSize: 11,
-      color: "#ff8800",
-      letterSpacing: 2,
-      marginBottom: 10
+      fontFamily: F.i,
+      fontSize: 12,
+      color: X.t1,
+      lineHeight: 1.7
     }
-  }, "G0156 BILLING RATIO BY ASAP"), /*#__PURE__*/React.createElement(ResponsiveContainer, {
-    width: "100%",
-    height: 300
-  }, /*#__PURE__*/React.createElement(BarChart, {
-    data: ASAPS.map(a => ({
-      name: a.town,
-      ratio: a.g0156
-    })),
-    margin: {
-      left: 10,
-      right: 10,
-      bottom: 40
-    }
-  }, /*#__PURE__*/React.createElement(CartesianGrid, {
-    strokeDasharray: "3 3",
-    stroke: X.border
-  }), /*#__PURE__*/React.createElement(XAxis, {
-    dataKey: "name",
-    tick: {
-      fontSize: 8,
-      fill: X.sub
-    },
-    angle: -45,
-    textAnchor: "end"
-  }), /*#__PURE__*/React.createElement(YAxis, {
-    tick: {
-      fontSize: 9,
-      fill: X.sub
-    },
-    domain: [0, 50]
-  }), /*#__PURE__*/React.createElement(Tooltip, {
-    contentStyle: {
-      background: X.s1,
-      border: "1px solid " + X.border,
-      fontFamily: F.m,
-      fontSize: 11
-    },
-    formatter: v => v + "x the $8 figure"
-  }), /*#__PURE__*/React.createElement(Bar, {
-    dataKey: "ratio",
-    radius: [3, 3, 0, 0]
-  }, ASAPS.map((a, i) => /*#__PURE__*/React.createElement(Cell, {
-    key: i,
-    fill: a.g0156 >= 40 ? "#ff2244" : a.g0156 >= 35 ? "#ff8800" : "#ffcc00"
-  }))))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontFamily: F.m,
-      fontSize: 9,
-      color: X.sub,
-      textAlign: "center",
-      marginTop: 6
-    }
-  }, "Red = 40x+ | Orange = 35-40x | Yellow = below 35x | The $8 figure reflects other states' $0-paid G0156 lines, not a national rate")), /*#__PURE__*/React.createElement("div", {
+  }, "Per-ASAP G0156 ratios have been removed: they were multiples of an $8 figure driven by other states' $0-paid lines, not a valid rate comparison. For a valid comparison, see the paid-line figure above: on lines with a payment, MA paid $212.70 per G0156 claim line in 2023, 2nd of 16 paying states.")), /*#__PURE__*/React.createElement("div", {
     style: {
       background: X.red + "08",
       border: "1px solid " + X.red + "20",
