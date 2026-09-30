@@ -973,7 +973,7 @@ const PROVIDERS = [{
     v: 298
   }],
   sig: "Twelfth DDS NPI profiled here. The HHS provider spending file lists 24 Commonwealth of Massachusetts NPIs billing T2016: $8.93B in 2018-24.",
-  extra: "The 12 NPIs profiled on this site come from an earlier T-MSIS extract and are not reconciled to the HHS file."
+  extra: "The DDS NPIs profiled on this site come from an earlier T-MSIS extract and are not reconciled to the HHS file."
 }];
 const CODES = [{
   code: "T2016",
@@ -2571,7 +2571,7 @@ function DDSSection() {
   return /*#__PURE__*/React.createElement(Sec, null, /*#__PURE__*/React.createElement(SH, {
     title: "24 NPIs. One Department. $8.9 Billion.",
     accent: X.red,
-    sub: "In the HHS provider spending file, 24 NPIs (National Provider Identifiers) named Commonwealth of Massachusetts billed T2016 group home services: $8.93B in 2018-24. The 12 NPIs below come from this site's earlier T-MSIS extract and are not reconciled to that file. Click any NPI to explore."
+    sub: "In the HHS provider spending file, 24 NPIs (National Provider Identifiers) named Commonwealth of Massachusetts billed T2016 group home services: $8.93B in 2018-24. The 14 NPIs below come from this site's earlier T-MSIS extract and are not reconciled to that file. Click any NPI to explore."
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
@@ -2582,7 +2582,7 @@ function DDSSection() {
     }
   }, /*#__PURE__*/React.createElement(Stat, {
     value: `$${(total / 1000).toFixed(1)}B`,
-    label: "12 NPIs Profiled",
+    label: "14 NPIs Profiled",
     color: X.red,
     detail: "All 24 T2016 NPIs in the HHS file: $8.93B, 2018-24"
   }),/*#__PURE__*/React.createElement(Stat, {
