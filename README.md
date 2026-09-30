@@ -38,14 +38,17 @@ A data-driven investigation into Massachusetts Medicaid (MassHealth) spending us
 
 | Finding | Data |
 |---------|------|
-| **14 NPIs, 1 Department** | DDS (Dept of Developmental Services) uses 14 separate billing identities to bill $8.2B+ — no other state does this |
-| **18.7× National Rate** | MA pays $2,109/day for group homes (T2016). Alabama pays $113/day. Same federal program. |
-| **40× National Rate** | Home health aide visits (G0156): $320/visit vs $8 national average |
-| **0.78× — The Exception** | T1019 Personal Care (Tempus Unlimited) bills BELOW national avg — private sector efficiency |
+| **24 NPIs, 1 Department** | 24 NPIs named Commonwealth of Massachusetts billed T2016 group home services: $8.93B in 2018-24 (HHS provider spending file). Multiple NPIs per state provider site is normal NPPES practice. |
+| **1.38× State Median (T2016)** | Group homes: MA paid $13,948 per beneficiary-month in 2024 vs a state median of $10,099 (13th of 38 states). MA bills about one claim line per person-month, so per-line amounts are not daily rates. |
+| **G0156 Home Health Aide** | Billed per 15 minutes, not per visit. On lines with a payment, MA paid $212.70 per claim line in 2023, 2nd of 16 paying states (NY $267.86). |
+| **9.24× State Median (T1502)** | Medication administration visits, billed mostly by home health agencies: $66.48 per claim line in 2024 vs a state median of $7.20 (3rd of 17 states). A red flag for review. |
+| **T1019 Personal Care** | Tempus Unlimited took 70.3% of MA T1019 payments in 2020-24. No valid cross-state rate comparison: the code is billed per 15 minutes. |
 | **Dead Last in Fraud Detection** | 0.063% recovery rate vs Louisiana 0.90%. 18 investigators for 2.2M recipients. |
 | **Zero Verification** | No IRS cross-check. No SSA cross-check. No interstate database. Healey refused USDA data sharing (Nov 2024). |
 | **Revolving Door** | BMC CEO Walsh → EOHHS Secretary → BMC plan grew 71%. MGB spent $3.25M lobbying → $1.4B MCO (430× ROI). |
 | **Budget Doubled, Wages Didn't** | $28B → $61B budget (+118%). Worker wages: +17%. CEO comp: $500K-$800K. |
+
+Per-line paid amounts are not prices: the HHS file has no units field, and states bill different units per line. Rates above are red flags for review, not proof of overbilling. Massachusetts sets its own rates (101 CMR). State comparisons: HHS Medicaid Provider Spending by HCPCS, 2026-02-09 release (2024 preliminary).
 
 ---
 

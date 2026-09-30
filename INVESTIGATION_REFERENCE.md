@@ -278,23 +278,23 @@ CMS T-MSIS TAF Other Services dataset: data.medicaid.gov
 
 ### Key Findings — MA vs National Average
 
-| Code | Description | MA Rate | National | Ratio |
-|---|---|---|---|---|
-| H2016 | DDS Residential Habilitation | ~$690/unit | ~$35/unit | **19.8×** |
-| H2015 | DDS Day Habilitation | ~$180/unit | ~$30/unit | **6.0×** |
-| H0036 | DMH Community Psychiatric | 65% of ALL US spending | — | monopoly |
-| G0156 | Home Health Aide (Elder) | $85-120/unit | $1.50/unit | **40-80×** |
-| T1019 | Personal Care (PCA) | $3.34/unit | $4.27/unit | **0.78× (below)** |
+> **Corrected 2026-09-30.** The ratios previously in this table (19.8×, 6.0×, 40-80×, 0.78×) could not be reproduced from the HHS Medicaid Provider Spending by HCPCS file (2026-02-09 release; 2024 preliminary). The rows below use that file. Per-line paid amounts are not prices: the file has no units field, and states bill different units per line. Rates are red flags for review, not proof of overbilling. Massachusetts sets its own rates (101 CMR).
 
-### 50-Code Comparison Results
-- 46 of 50 codes: MA above national average
-- 4 codes below (including T1019 — the Maine fraud code)
-- Total MA spending across 50 codes: significantly above national
-- State-operated facility codes: extreme multiples (6-20×)
-- Hospital facility fees: 2-3× national
+| Code | CMS descriptor | MA | Comparison | Ratio |
+|---|---|---|---|---|
+| T2016 | Habilitation, residential, waiver; per diem | $13,948 per beneficiary-month (2024) | State median $10,099 | **1.38×** (13th of 38) |
+| H2015 | Comprehensive community support services, per 15 minutes | — | Units per line not in the data | No valid rate comparison |
+| H2018 | Psychosocial rehabilitation services, per diem | 59.5% of state-assignable US claim lines (2024) | 47.8% to 72.0% across 2018-24 | No valid rate comparison |
+| G0156 | Home health/hospice aide, each 15 minutes | $212.70 per paid claim line (2023) | 2nd of 16 paying states (NY $267.86) | Not 40×: the old baseline came from $0-paid lines |
+| T1502 | Medication administration by health care agency/professional, per visit | $66.48 per claim line (2024) | State median $7.20 | **9.24×** (3rd of 17) |
+| T1019 | Personal care services, per 15 minutes | $99.11 per claim line (2024) | State median $112.22 | No valid rate comparison (units per line vary) |
+
+### Comparison Results (HHS file, 2024)
+- On the cleanest like-for-like comparisons, the CPT visit codes, MA is at or below the state median: 99213 0.75×, 99214 0.81×, 90834 0.90×, 99284 1.01×, 99285 0.98×
+- Like-for-like codes above 1.5× the median: T1502 9.24×, T2023 1.90×. S5102 (adult day care) is 1.46×
 
 ### Elder Services (ASAPs)
-- 27 Area Agencies on Aging (ASAPs) billing G0156 at 40-80× national
+- 27 Area Agencies on Aging (ASAPs) billing G0156 (per 15 minutes); on lines with a payment, MA was 2nd of 16 paying states in 2023
 - Mystic Valley Elder Services, Springwell, BayPath Elder Services among top billers
 - These are quasi-governmental entities with their own Chapter 257-style rate setting
 
@@ -511,8 +511,8 @@ for v, a in sorted(vendors.items(), key=lambda x: -x[1])[:30]:
 | Mechanism | Phantom T1019 personal care claims at 3-6× | Chapter 257 auto rate escalation |
 | Key evidence | Same addresses, LEIE-excluded NPIs, multi-state networks | CTHRU payments, T-MSIS rate ratios |
 | Somali network | Yes — DataRepublican flagged 65,866 NPIs | Different pattern entirely |
-| T1019 in MA | 22% BELOW national average | Not the fraud vector here |
-| DDS residential | N/A | 19.8× national average |
+| T1019 in MA | No valid cross-state rate comparison (billed per 15 minutes) | Not the fraud vector here |
+| DDS residential | N/A | T2016: 1.38× state median per beneficiary-month (2024) |
 | Fix required | Criminal prosecution | Policy/legislative reform |
 | AG response | Active investigation | 0.076% recovery rate |
 | Scale | Millions in fraudulent billing | $8.9B annual premium over national avg |
