@@ -6,7 +6,7 @@
 <title>Massachusetts DOGE Analysis</title>
 <meta property="og:title" content="Massachusetts DOGE Analysis">
 <meta property="og:description" content="6.47M rows. 19,346 providers. $56B in claims. 31,000+ campaign donations traced.">
-<meta property="og:image" content="https://raw.githubusercontent.com/duncanburns2013-dot/HHS-MA-DOGE/main/social_card.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/duncanburns2013-dot/HHS-MA-DOGE/main/social_card.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
@@ -14,13 +14,16 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Massachusetts DOGE Analysis">
 <meta name="twitter:description" content="6.47M rows. $56B in claims. 30 providers named. Dead last in fraud detection.">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/duncanburns2013-dot/HHS-MA-DOGE/main/social_card.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/duncanburns2013-dot/HHS-MA-DOGE/main/social_card.png?v=2">
 <meta name="twitter:creator" content="@DuncanBurnsMA">
-<style>*{margin:0;padding:0;box-sizing:border-box}body{background:#0a1628;color:#eef2ff;overflow-x:hidden}#root{min-height:100vh}#loader{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:'IBM Plex Mono',monospace}#loader .sp{width:40px;height:40px;border:3px solid #1e3a60;border-top-color:#ff0040;border-radius:50%;animation:spin 1s linear infinite}#loader .tx{color:#ff0040;font-size:14px;margin-top:16px;letter-spacing:3px}#loader .err{color:#ff6644;font-size:12px;margin-top:20px;max-width:500px;text-align:center;line-height:1.6;display:none}@keyframes spin{to{transform:rotate(360deg)}}</style>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="https://massachusettsdatahub.com/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="https://massachusettsdatahub.com/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="https://massachusettsdatahub.com/apple-touch-icon.png">
+<style>*{margin:0;padding:0;box-sizing:border-box}body{background:#ffffff;color:#1e293b;font-family:'DM Sans',sans-serif;overflow-x:hidden}#root{min-height:100vh}#loader{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:'IBM Plex Mono',monospace}#loader .sp{width:40px;height:40px;border:3px solid #e2e8f0;border-top-color:#A81733;border-radius:50%;animation:spin 1s linear infinite}#loader .tx{color:#A81733;font-size:14px;margin-top:16px;letter-spacing:3px}#loader .err{color:#C2570C;font-size:12px;margin-top:20px;max-width:500px;text-align:center;line-height:1.6;display:none}@keyframes spin{to{transform:rotate(360deg)}}</style>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 </head>
 <body>
-<div id="root"><div id="loader"><div class="sp"></div><div class="tx">LOADING T-MSIS DATA...</div><div class="err" id="errmsg">This dashboard requires GitHub Pages.<br>Visit: <a href="https://duncanburns2013-dot.github.io/HHS-MA-DOGE/" style="color:#ff0040">duncanburns2013-dot.github.io/HHS-MA-DOGE</a></div></div></div>
+<div id="root"><div id="loader"><div class="sp"></div><div class="tx">LOADING T-MSIS DATA...</div><div class="err" id="errmsg">This dashboard requires GitHub Pages.<br>Visit: <a href="https://duncanburns2013-dot.github.io/HHS-MA-DOGE/" style="color:#A81733">duncanburns2013-dot.github.io/HHS-MA-DOGE</a></div></div></div>
 <script>setTimeout(function(){if(typeof React==='undefined'){document.getElementById('errmsg').style.display='block';document.querySelector('.tx').textContent='CDN BLOCKED'}},8000);</script>
 <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
@@ -52,37 +55,37 @@ const {
   Pie
 } = Recharts;
 const X = {
-  bg: "#0a1628",
-  s1: "#0e1e38",
-  s2: "#132848",
-  s3: "#1a3358",
-  border: "#1e3a60",
-  red: "#ff0040",
-  blue: "#0099ff",
-  green: "#00dd66",
-  purple: "#aa44ff",
-  cyan: "#00e5ff",
-  pink: "#ff3399",
-  lime: "#88ff00",
-  amber: "#ffaa00",
-  orange: "#ff6622",
-  white: "#eef2ff",
-  text: "#d0d8f0",
-  sub: "#a0aed0",
-  dim: "#7888aa",
-  blood: "#880020",
+  bg: "#ffffff",
+  s1: "#ffffff",
+  s2: "#F4F6F5",
+  s3: "#E9EBEA",
+  border: "#e2e8f0",
+  red: "#A81733",
+  blue: "#14558F",
+  green: "#2A6B44",
+  purple: "#7c3aed",
+  cyan: "#0e7490",
+  pink: "#be185d",
+  lime: "#4d7c0f",
+  amber: "#A06F12",
+  orange: "#C2570C",
+  white: "#0F4478",
+  text: "#1e293b",
+  sub: "#475569",
+  dim: "#64748b",
+  blood: "#680A1D",
   darkAmber: "#8b6914",
-  crimson: "#dc143c"
+  crimson: "#8E0B22"
 };
 const F = {
-  d: "'Bebas Neue',Impact,sans-serif",
+  d: "'Instrument Serif',Georgia,serif",
   m: "'IBM Plex Mono','Fira Code',monospace",
-  b: "'Inter','Segoe UI',sans-serif"
+  b: "'DM Sans','Segoe UI',sans-serif"
 };
-const CSS = `@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+const CSS = `@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes glow{0%,100%{box-shadow:0 0 20px #ff004060}50%{box-shadow:0 0 60px #ff004080}}
+@keyframes glow{0%,100%{box-shadow:0 0 0 rgba(220,38,38,0)}50%{box-shadow:0 0 0 rgba(220,38,38,0)}}
 @keyframes scanDown{0%{top:-100%}100%{top:200%}}
 @keyframes gridPulse{0%,100%{opacity:.02}50%{opacity:.06}}
 .hC{transition:all .2s}.hC:hover{transform:translateY(-2px);border-color:${X.red}50!important}
@@ -97,13 +100,13 @@ function Tip({
   if (!active || !payload?.length) return null;
   return /*#__PURE__*/React.createElement("div", {
     style: {
-      background: "#060c1a",
-      border: `1px solid ${X.red}40`,
+      background: "#ffffff",
+      border: `1px solid ${X.border}`,
       padding: "10px 14px",
       borderRadius: 6,
       fontFamily: F.m,
       fontSize: 12,
-      boxShadow: `0 4px 24px rgba(0,0,0,.95)`,
+      boxShadow: `0 6px 24px rgba(15,68,120,.16)`,
       maxWidth: 320
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -144,9 +147,10 @@ function Stat({
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      fontFamily: F.m,
-      fontSize: 24,
-      fontWeight: 700,
+      fontFamily: F.d,
+      fontSize: 34,
+      fontWeight: 400,
+      letterSpacing: -.5,
       color,
       lineHeight: 1
     }
@@ -1364,7 +1368,7 @@ const MCOS = [{
   fy23: 3594,
   fy24: 3973,
   fy25: 4600,
-  color: "#ff2255",
+  color: "#A81733",
   context: "BMC's managed care arm. CEO Kate Walsh left BMC to become Secretary of the Executive Office of Health and Human Services (EOHHS) — the $27 billion state agency that oversees MassHealth, which pays MCOs. During and after Walsh's tenure at EOHHS, BMC HealthNet's share grew from $2.7B to $4.6B — a 71% increase.",
   sig: "The revolving door: Run the hospital → run the state agency that funds the hospital → hospital's MCO share grows 71%. $454K in OCPF campaign donations. Walsh personally appointed by Gov. Baker.",
   trail: "Walsh: BMC CEO ($2.5M) → EOHHS Sec ($200K state salary, $27B oversight) → BMC plan grows 71%"
@@ -1374,7 +1378,7 @@ const MCOS = [{
   fy23: 2248,
   fy24: 1449,
   fy25: 1200,
-  color: "#4488ff",
+  color: "#14558F",
   context: "Lost $1.3 billion in market share (FY22→FY25). Tufts has NO revolving-door connections to state government. No former executives in EOHHS. No significant OCPF donations. Competes purely on merit — and is being systematically squeezed out.",
   sig: "The control group: what happens when you DON'T have government connections. You lose $1.3B in market share to competitors who do.",
   trail: "No government connections → no political leverage → market share: -$1.3B"
@@ -1384,7 +1388,7 @@ const MCOS = [{
   fy23: 0,
   fy24: 1210,
   fy25: 1400,
-  color: "#22dd88",
+  color: "#2A6B44",
   context: "Launched an MCO from $0 to $1.4B in just two years — without any apparent competitive bid process. MGB lobbyist Chris Philbin donated $31K to 47 individual politicians. MGB spent $3.25M total on lobbying. That's $3.25M in → $1.4B out — a 430× return on investment.",
   sig: "No competitive bid. No prior MCO experience. $3.25M lobbying → $1.4B MCO overnight. 430× ROI. The most efficient investment in Massachusetts politics.",
   trail: "$3.25M lobbying + $31K to 47 politicians → $1.4B MCO contract (430× ROI)"
@@ -1394,7 +1398,7 @@ const MCOS = [{
   fy23: 1277,
   fy24: 1072,
   fy25: 950,
-  color: "#cc66ff",
+  color: "#7c3aed",
   context: "Worcester-based. No revolving-door government connections. No significant lobbying or OCPF presence. Like Tufts, competes on merit — and like Tufts, is losing market share to politically connected competitors.",
   sig: "Second control group. No connections = losing share. Fallon down $284M while connected MCOs gained billions.",
   trail: "No political connections → market share shrinking → -$284M since FY22"
@@ -1404,7 +1408,7 @@ const MCOS = [{
   fy23: 1209,
   fy24: 1223,
   fy25: 1250,
-  color: "#ff9922",
+  color: "#C2570C",
   context: "Serves dual-eligible populations (Medicare + Medicaid). Steady, organic growth. CCA focuses on complex, high-need patients — the population nobody else wants. Honest growth through specialization.",
   sig: "The exception: legitimate growth through specialization in dual-eligible populations others avoid.",
   trail: "Dual-eligible focus → steady growth → +$169M via specialization"
@@ -1726,7 +1730,7 @@ function Hero({
       justifyContent: "center",
       alignItems: "center",
       position: "relative",
-      background: `radial-gradient(ellipse at 50% 30%,#1a0010,#120a18 40%,${X.bg} 75%)`,
+      background: "linear-gradient(135deg,#14558F 0%,#0F4478 40%,#14558F 70%,#0F4478 100%)",
       overflow: "hidden",
       cursor: "pointer"
     }
@@ -1734,9 +1738,9 @@ function Hero({
     style: {
       position: "absolute",
       inset: 0,
-      backgroundImage: `linear-gradient(${X.red}15 1px,transparent 1px),linear-gradient(90deg,${X.red}15 1px,transparent 1px)`,
+      backgroundImage: "none",
       backgroundSize: "80px 80px",
-      animation: "gridPulse 5s ease-in-out infinite"
+      animation: "none"
     }
   }), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -1744,8 +1748,8 @@ function Hero({
       left: 0,
       right: 0,
       height: 2,
-      background: `linear-gradient(90deg,transparent,${X.red}80,transparent)`,
-      animation: "scanDown 5s linear infinite",
+      background: "transparent",
+      animation: "none",
       zIndex: 2
     }
   }), /*#__PURE__*/React.createElement("div", {
@@ -1757,7 +1761,7 @@ function Hero({
       justifyContent: "center",
       alignItems: "center",
       gap: 60,
-      opacity: .06,
+      opacity: .05,
       zIndex: 1
     }
   }, pols.map((p, i) => /*#__PURE__*/React.createElement("div", {
@@ -1765,8 +1769,8 @@ function Hero({
     style: {
       fontFamily: F.d,
       fontSize: "clamp(40px,8vw,80px)",
-      color: X.red,
-      letterSpacing: 20,
+      color: "#ffffff",
+      letterSpacing: 6,
       textTransform: "uppercase",
       whiteSpace: "nowrap"
     }
@@ -1778,18 +1782,34 @@ function Hero({
       padding: "0 24px",
       maxWidth: 1000
     }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("a", {
+    href: "https://massachusettsdatahub.com/",
+    onClick: e => e.stopPropagation(),
+    style: {
+      display: "inline-block",
+      marginBottom: 18,
+      padding: "5px 16px",
+      border: "1px solid rgba(255,255,255,.25)",
+      borderRadius: 100,
+      fontFamily: F.m,
+      fontSize: 10,
+      letterSpacing: 3,
+      color: "#CDD3D1",
+      textDecoration: "none",
+      textTransform: "uppercase"
+    }
+  }, "Massachusetts Data Hub"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "inline-block",
       padding: "6px 18px",
       marginBottom: 12,
-      border: `1px solid ${X.cyan}60`,
-      background: `${X.cyan}15`,
+      border: "1px solid rgba(255,255,255,.28)",
+      background: "rgba(255,255,255,.10)",
       borderRadius: 20,
       fontFamily: F.m,
       fontSize: 10,
       letterSpacing: 3,
-      color: X.cyan,
+      color: "#E9EBEA",
       fontWeight: 700,
       animation: show ? "fadeUp .8s ease-out .15s both" : "none"
     }
@@ -1798,13 +1818,13 @@ function Hero({
       display: "inline-block",
       padding: "6px 22px",
       marginBottom: 24,
-      border: `1px solid ${X.red}50`,
-      background: `${X.red}10`,
+      border: "1px solid rgba(255,255,255,.2)",
+      background: "rgba(255,255,255,.06)",
       borderRadius: 20,
       fontFamily: F.m,
       fontSize: 11,
       letterSpacing: 3,
-      color: X.red,
+      color: "#CDD3D1",
       animation: show ? "fadeUp .8s ease-out .3s both" : "none"
     }
   }, "\u25C9 6.47M ROWS \xB7 19,346 PROVIDERS \xB7 $56B IN CLAIMS"), /*#__PURE__*/React.createElement("h1", {
@@ -1812,24 +1832,24 @@ function Hero({
       fontFamily: F.d,
       fontSize: "clamp(44px,9vw,96px)",
       fontWeight: 400,
-      lineHeight: .9,
+      lineHeight: .95,
       margin: 0,
-      color: X.white,
-      letterSpacing: 5,
-      textTransform: "uppercase",
+      color: "#ffffff",
+      letterSpacing: -2,
+      textTransform: "none",
       animation: show ? "fadeUp 1s ease-out .6s both" : "none"
     }
   }, "Massachusetts", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
     style: {
-      color: X.red,
+      color: "#ffb3bd",
       fontSize: "0.6em"
     }
   }, "DOGE Analysis")), /*#__PURE__*/React.createElement("div", {
     style: {
-      fontFamily: F.d,
-      fontSize: "clamp(16px,3vw,32px)",
-      color: X.crimson,
-      letterSpacing: 8,
+      fontFamily: F.m,
+      fontSize: "clamp(12px,1.6vw,16px)",
+      color: "#CDD3D1",
+      letterSpacing: 6,
       marginTop: 8,
       animation: show ? "fadeUp 1s ease-out .9s both" : "none"
     }
@@ -1837,7 +1857,7 @@ function Hero({
     style: {
       fontFamily: F.b,
       fontSize: "clamp(13px,1.6vw,16px)",
-      color: X.text,
+      color: "#E9EBEA",
       marginTop: 20,
       lineHeight: 1.7,
       maxWidth: 640,
@@ -1846,17 +1866,17 @@ function Hero({
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      color: X.red,
+      color: "#ffb3bd",
       fontWeight: 700
     }
   }, "24 state NPIs billing $8.9B"), " in group home services (T2016, 2018-24). ", /*#__PURE__*/React.createElement("span", {
     style: {
-      color: X.crimson,
+      color: "#ffb3bd",
       fontWeight: 700
     }
   }, "30 providers named"), ". ", /*#__PURE__*/React.createElement("span", {
     style: {
-      color: X.amber,
+      color: "#F2C879",
       fontWeight: 700
     }
   }, "31,000+ campaign donations"), " traced."), /*#__PURE__*/React.createElement("div", {
@@ -1864,7 +1884,7 @@ function Hero({
       marginTop: 20,
       fontFamily: F.m,
       fontSize: 11,
-      color: X.dim,
+      color: "#CDD3D1",
       letterSpacing: 2,
       animation: show ? "fadeUp .8s ease-out 1.3s both" : "none"
     }
@@ -1873,14 +1893,15 @@ function Hero({
       marginTop: 24,
       display: "inline-flex",
       padding: "14px 40px",
-      border: `2px solid ${X.red}60`,
-      borderRadius: 6,
+      border: "2px solid #dc2626",
+      borderRadius: 100,
       fontFamily: F.m,
       fontSize: 15,
       letterSpacing: 3,
-      color: X.red,
-      background: `${X.red}08`,
-      animation: show ? "fadeUp .8s ease-out 1.5s both, glow 2s ease-in-out 2.5s infinite" : "none"
+      color: "#ffffff",
+      background: "#dc2626",
+      boxShadow: "0 3px 12px rgba(220,38,38,.35)",
+      animation: show ? "fadeUp .8s ease-out 1.5s both" : "none"
     }
   }, "ENTER \u25B8")));
 }
@@ -1930,7 +1951,7 @@ function Nav({
       position: "sticky",
       top: 0,
       zIndex: 100,
-      background: `${X.bg}ee`,
+      background: "#ffffffee",
       backdropFilter: "blur(16px)",
       borderBottom: `1px solid ${X.border}`,
       display: "flex",
@@ -2831,7 +2852,7 @@ function SpendingSection() {
   const [sel, setSel] = useState(null);
   const [sortBy, setSortBy] = useState("fy25");
   const sorted = [...CTHRU].sort((a, b) => b[sortBy] - a[sortBy]);
-  const colors = [X.red, "#4488ff", X.green, X.purple, X.cyan, X.amber, "#ff6644", "#44ddaa", "#dd44aa", "#88aaff", "#ddaa44", "#44ffaa"];
+  const colors = [X.red, "#14558F", X.green, X.purple, X.cyan, X.amber, "#C2570C", "#0f766e", "#be185d", "#5b8db8", "#8a6d3b", "#4d7c0f"];
   return /*#__PURE__*/React.createElement(Sec, null, /*#__PURE__*/React.createElement(SH, {
     title: "CTHRU: Every Vendor, Every Year",
     accent: X.cyan,
@@ -3297,7 +3318,7 @@ function ElderSection() {
   const totalCthru = ASAPS.reduce((s, a) => s + a.cthru, 0);
   return /*#__PURE__*/React.createElement(Sec, null, /*#__PURE__*/React.createElement(SH, {
     title: "ELDER AFFAIRS \u2014 27 ASAPs, ZERO OVERSIGHT",
-    accent: "#ff8800",
+    accent: "#C2570C",
     sub: "The Executive Office of Elder Affairs oversees 27 Aging Services Access Points (ASAPs) \u2014 Area Agencies on Aging. Each ASAP is an independent nonprofit with its own CEO, board, budget, and billing identity. They bill G0156 (home health aide services, per 15 minutes). No centralized audit. No statewide rate review. Each one sets its own rates through Ch.257 auto-escalation."
   }), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -3311,7 +3332,7 @@ function ElderSection() {
     value: "27",
     label: "ASAPs Statewide",
     sub: "Each billing independently",
-    color: "#ff8800",
+    color: "#C2570C",
     detail: "27 independent nonprofits, 27 CEOs, 27 boards, 27 budgets"
   }), /*#__PURE__*/React.createElement(Stat, {
     value: "$212.70",
@@ -3323,7 +3344,7 @@ function ElderSection() {
     value: "$170K",
     label: "Ethos Lobbying",
     sub: "5 yrs via Charles Group",
-    color: "#ff8800",
+    color: "#C2570C",
     detail: "Highest-billing ASAP spent $170,400 lobbying 2021-2025"
   }), /*#__PURE__*/React.createElement(Stat, {
     value: "6,220+",
@@ -3343,7 +3364,7 @@ function ElderSection() {
     style: {
       fontFamily: F.m,
       fontSize: 10,
-      color: "#ff8800",
+      color: "#C2570C",
       letterSpacing: 2,
       marginBottom: 6
     }
@@ -3370,7 +3391,7 @@ function ElderSection() {
     style: {
       fontFamily: F.m,
       fontSize: 10,
-      color: "#ff8800",
+      color: "#C2570C",
       letterSpacing: 2
     }
   }, "LEGEND:"), /*#__PURE__*/React.createElement("div", {
@@ -3383,7 +3404,7 @@ function ElderSection() {
     style: {
       fontFamily: F.m,
       fontSize: 11,
-      color: "#ff8800",
+      color: "#C2570C",
       letterSpacing: 2,
       marginBottom: 10
     }
@@ -3410,7 +3431,7 @@ function ElderSection() {
     style: {
       fontFamily: F.d,
       fontSize: 22,
-      color: "#ff8800"
+      color: "#C2570C"
     }
   }, "ETHOS"), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -3439,7 +3460,7 @@ function ElderSection() {
     style: {
       fontFamily: F.m,
       fontSize: 10,
-      color: "#ff8800",
+      color: "#C2570C",
       letterSpacing: 2,
       marginBottom: 6
     }
@@ -3454,7 +3475,7 @@ function ElderSection() {
     style: {
       fontFamily: F.m,
       fontSize: 10,
-      color: "#ff8800",
+      color: "#C2570C",
       letterSpacing: 2,
       marginTop: 10,
       marginBottom: 6
@@ -3484,7 +3505,7 @@ function ElderSection() {
     style: {
       fontFamily: F.m,
       fontSize: 11,
-      color: "#ff8800",
+      color: "#C2570C",
       letterSpacing: 2,
       marginBottom: 10
     }
@@ -3493,7 +3514,7 @@ function ElderSection() {
     onClick: () => setSel(sel === i ? null : i),
     style: {
       background: sel === i ? X.s2 : X.s1,
-      border: "1px solid " + (sel === i ? "#ff8800" : X.border),
+      border: "1px solid " + (sel === i ? "#C2570C" : X.border),
       borderRadius: 8,
       marginBottom: 6,
       cursor: "pointer",
@@ -3512,7 +3533,7 @@ function ElderSection() {
       width: 4,
       height: 36,
       borderRadius: 2,
-      background: "#ff8800"
+      background: "#C2570C"
     }
   }), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -3522,7 +3543,7 @@ function ElderSection() {
     style: {
       fontFamily: F.m,
       fontSize: 12,
-      color: "#ff8800",
+      color: "#C2570C",
       letterSpacing: 1
     }
   }, a.name.toUpperCase()), /*#__PURE__*/React.createElement("div", {
@@ -3569,7 +3590,7 @@ function ElderSection() {
     style: {
       fontFamily: F.m,
       fontSize: 10,
-      color: "#ff8800",
+      color: "#C2570C",
       letterSpacing: 2,
       marginBottom: 6
     }
@@ -3596,7 +3617,7 @@ function ElderSection() {
     style: {
       fontFamily: F.m,
       fontSize: 10,
-      color: "#ff8800",
+      color: "#C2570C",
       letterSpacing: 2,
       marginBottom: 4
     }
@@ -3673,19 +3694,19 @@ function MCOSection() {
     value: "+71%",
     label: "BMC HealthNet",
     sub: "CEO Walsh \u2192 EOHHS Sec",
-    color: "#ff2255",
+    color: "#A81733",
     detail: "Walsh ran $27B EOHHS \u2192 BMC plan grew 71%"
   }), /*#__PURE__*/React.createElement(Stat, {
     value: "$0\u2192$1.4B",
     label: "MGB MCO",
     sub: "No competitive bid",
-    color: "#22dd88",
+    color: "#2A6B44",
     detail: "$3.25M lobby \u2192 $1.4B MCO = 430\xD7 ROI"
   }), /*#__PURE__*/React.createElement(Stat, {
     value: "-42%",
     label: "Tufts Health",
     sub: "No revolving door",
-    color: "#4488ff",
+    color: "#14558F",
     detail: "No connections \u2192 lost $1.3B share"
   })), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -5054,10 +5075,10 @@ function FraudTargetsSection() {
   const fmt = (n) => n >= 1e9 ? "$" + (n/1e9).toFixed(2) + "B" : n >= 1e6 ? "$" + (n/1e6).toFixed(1) + "M" : n >= 1e3 ? "$" + (n/1e3).toFixed(0) + "K" : "$" + n;
 
   const SUMMARY = [
-    { level: "P1 - HIGHEST", count: 32, total: 1171003724, color: "#ff0040" },
-    { level: "P2 - HIGH", count: 23, total: 309283108, color: "#ff6b35" },
-    { level: "P3 - MEDIUM-HIGH", count: 286, total: 2400487132, color: "#f59e0b" },
-    { level: "P4 - MEDIUM", count: 53, total: 1054586379, color: "#86efac" },
+    { level: "P1 - HIGHEST", count: 32, total: 1171003724, color: "#A81733" },
+    { level: "P2 - HIGH", count: 23, total: 309283108, color: "#C2570C" },
+    { level: "P3 - MEDIUM-HIGH", count: 286, total: 2400487132, color: "#A06F12" },
+    { level: "P4 - MEDIUM", count: 53, total: 1054586379, color: "#2A6B44" },
     { level: "P5 - REVIEW", count: 97, total: 10693693108, color: "#64748b" },
   ];
 
@@ -5113,10 +5134,10 @@ function FraudTargetsSection() {
   ];
 
   const typeColors = {
-    elder: { bg: "#1a0808", text: "#ff6b6b", label: "ELDER/ASAP" },
-    homecare: { bg: "#0a1a08", text: "#4ade80", label: "HOME CARE" },
-    behavioral: { bg: "#0a0820", text: "#818cf8", label: "BEHAVIORAL" },
-    transport: { bg: "#1a1808", text: "#fbbf24", label: "TRANSPORT" },
+    elder: { bg: "#fef2f2", text: "#991b1b", label: "ELDER/ASAP" },
+    homecare: { bg: "#ecfdf5", text: "#166534", label: "HOME CARE" },
+    behavioral: { bg: "#f5f3ff", text: "#5b21b6", label: "BEHAVIORAL" },
+    transport: { bg: "#fffbeb", text: "#92400e", label: "TRANSPORT" },
   };
 
   const filtered = filter === "all" ? P1 : P1.filter(t => t.type === filter);
@@ -5128,8 +5149,8 @@ function FraudTargetsSection() {
       React.createElement("h2", { style: { fontFamily: F.h, fontSize: 32, color: X.white, margin: "4px 0" } }, "491 Targets · $15.6 Billion Flagged"),
       React.createElement("div", { style: { fontSize: 12, color: X.sub } }, "Multi-entity addresses · Same-person control · Identical billing codes · Source: T-MSIS + NPPES cross-reference")
     ),
-    React.createElement("div", { style: { background: "#0a0818", border: "1px solid #1a1535", borderRadius: 8, padding: 16, marginBottom: 24 } },
-      React.createElement("div", { style: { fontFamily: F.m, fontSize: 10, color: "#818cf8", letterSpacing: 2, marginBottom: 10 } }, "WHY ARE THESE FLAGGED?"),
+    React.createElement("div", { style: { background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 8, padding: 16, marginBottom: 24 } },
+      React.createElement("div", { style: { fontFamily: F.m, fontSize: 10, color: "#6d28d9", letterSpacing: 2, marginBottom: 10 } }, "WHY ARE THESE FLAGGED?"),
       React.createElement("div", { style: { fontSize: 12, color: X.sub, lineHeight: 1.8 } },
         "These 491 addresses were flagged by cross-referencing ", React.createElement("span", { style: { color: X.white } }, "6.47 million T-MSIS claims"), " against the ", React.createElement("span", { style: { color: X.white } }, "NPPES provider registry"), ". The algorithm flags addresses where:"
       ),
@@ -5139,23 +5160,23 @@ function FraudTargetsSection() {
         React.createElement("div", null, React.createElement("span", { style: { color: X.red, fontWeight: 700 } }, "3. "), React.createElement("span", { style: { color: X.white } }, "Disproportionate billing volume"), " — Addresses where total Medicaid billing exceeds $1M+ with minimal staff or entity diversity. BSD Home Care (P1, $22.6M) has a CEO phone number with a New York 845 area code."),
         React.createElement("div", null, React.createElement("span", { style: { color: X.red, fontWeight: 700 } }, "4. "), React.createElement("span", { style: { color: X.white } }, "Cluster addresses"), " — 5+ entities operating from one location. Lawrence has three cluster addresses totaling $162M. The 140 High St, Springfield address has 23 entities.")
       ),
-      React.createElement("div", { style: { marginTop: 12, fontSize: 11, color: X.dim, fontStyle: "italic", borderTop: "1px solid #1a1535", paddingTop: 10 } },
-        "These are ", React.createElement("span", { style: { color: "#f59e0b" } }, "red flags for investigation"), ", not proof of fraud. Some flagged addresses are legitimate (hospitals, medical plazas). The MA AG Medicaid Fraud Division has 45 staff investigating a system processing tens of billions annually — this tool is designed to help prioritize where to look."
+      React.createElement("div", { style: { marginTop: 12, fontSize: 11, color: X.dim, fontStyle: "italic", borderTop: "1px solid #e2e8f0", paddingTop: 10 } },
+        "These are ", React.createElement("span", { style: { color: "#A06F12" } }, "red flags for investigation"), ", not proof of fraud. Some flagged addresses are legitimate (hospitals, medical plazas). The MA AG Medicaid Fraud Division has 45 staff investigating a system processing tens of billions annually — this tool is designed to help prioritize where to look."
       ),
       React.createElement("div", { style: { marginTop: 10, fontSize: 10, color: X.dim, fontFamily: F.m, lineHeight: 1.8 } },
-        React.createElement("span", { style: { color: "#818cf8" } }, "WHY IT STAYS HIDDEN: "),
+        React.createElement("span", { style: { color: "#6d28d9" } }, "WHY IT STAYS HIDDEN: "),
         "MGL Ch.257 auto-converts provider costs into Medicaid rates with no cap. The State Auditor found no documented rate methodology and $800M+ in reserve funds with zero tracking of the required 75% wage pass-through. MA recovers 0.063% of spending as fraud — dead last nationally. 18 investigators for 2.2M recipients. See: ",
-        React.createElement("a", { href: "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/LEGAL-FRAMEWORK.md", style: { color: "#818cf8" }, target: "_blank" }, "Legal Framework"),
+        React.createElement("a", { href: "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/LEGAL-FRAMEWORK.md", style: { color: "#6d28d9" }, target: "_blank" }, "Legal Framework"),
         " · ",
-        React.createElement("a", { href: "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/MARKUP-MATH.md", style: { color: "#818cf8" }, target: "_blank" }, "Markup Math"),
+        React.createElement("a", { href: "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/MARKUP-MATH.md", style: { color: "#6d28d9" }, target: "_blank" }, "Markup Math"),
         " · ",
-        React.createElement("a", { href: "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/INVESTIGATION_REFERENCE.md", style: { color: "#818cf8" }, target: "_blank" }, "Investigation Reference"),
+        React.createElement("a", { href: "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/INVESTIGATION_REFERENCE.md", style: { color: "#6d28d9" }, target: "_blank" }, "Investigation Reference"),
         " · ",
-        React.createElement("a", { href: "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/PAY_TO_PLAY_INVESTIGATION.md", style: { color: "#818cf8" }, target: "_blank" }, "Pay-to-Play")
+        React.createElement("a", { href: "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/PAY_TO_PLAY_INVESTIGATION.md", style: { color: "#6d28d9" }, target: "_blank" }, "Pay-to-Play")
       )
     ),
     React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginBottom: 24 } },
-      [["491", "Fraud Targets", X.red], ["$1.17B", "P1 Highest (32)", "#ff6b35"], ["$15.6B", "Total Flagged", X.red], ["49", "Elder/Home Care", "#4ade80"]].map(([v, l, c], i) =>
+      [["491", "Fraud Targets", X.red], ["$1.17B", "P1 Highest (32)", "#C2570C"], ["$15.6B", "Total Flagged", X.red], ["49", "Elder/Home Care", "#2A6B44"]].map(([v, l, c], i) =>
         React.createElement("div", { key: i, style: { background: `${X.bg}`, border: `1px solid ${X.border}`, borderRadius: 8, padding: 14, textAlign: "center" } },
           React.createElement("div", { style: { fontFamily: F.m, fontSize: 22, color: c, fontWeight: 700 } }, v),
           React.createElement("div", { style: { fontSize: 10, color: X.sub, fontFamily: F.m, marginTop: 4 } }, l)
@@ -5198,12 +5219,12 @@ function FraudTargetsSection() {
             React.createElement("span", { style: { fontFamily: F.m, fontSize: 12, color: X.white, fontWeight: 700 } }, t.name.substring(0, 35)),
             React.createElement("span", { style: { fontSize: 11, color: X.sub } }, t.city)
           ),
-          React.createElement("span", { style: { fontFamily: F.m, fontSize: 14, color: t.total > 100000000 ? X.red : t.total > 10000000 ? "#f59e0b" : X.sub, fontWeight: 700 } }, fmt(t.total))
+          React.createElement("span", { style: { fontFamily: F.m, fontSize: 14, color: t.total > 100000000 ? X.red : t.total > 10000000 ? "#A06F12" : X.sub, fontWeight: 700 } }, fmt(t.total))
         ),
         isOpen ? React.createElement("div", { style: { marginTop: 8, paddingLeft: 22, fontSize: 11, color: X.sub, lineHeight: 1.8 } },
           React.createElement("div", null, "Address: ", t.addr, ", ", t.city),
           t.person ? React.createElement("div", null, "Controller: ", React.createElement("span", { style: { color: X.white } }, t.person)) : null,
-          React.createElement("div", null, "Top codes: ", React.createElement("span", { style: { fontFamily: F.m, color: "#22d3ee" } }, t.codes)),
+          React.createElement("div", null, "Top codes: ", React.createElement("span", { style: { fontFamily: F.m, color: "#0891b2" } }, t.codes)),
           React.createElement("div", { style: { fontSize: 10, color: X.red, marginTop: 4, fontWeight: 600 } }, "Same person controls all entities · Billing identical codes")
         ) : null
       );
@@ -5223,7 +5244,7 @@ function FraudTargetsSection() {
               React.createElement("span", { style: { fontFamily: F.m, fontSize: 12, color: X.white, fontWeight: 700 } }, c.addr),
               React.createElement("span", { style: { fontSize: 11, color: X.sub } }, c.city)
             ),
-            React.createElement("span", { style: { fontFamily: F.m, fontSize: 14, color: c.total > 100000000 ? X.red : c.total > 10000000 ? "#f59e0b" : X.sub, fontWeight: 700 } }, fmt(c.total))
+            React.createElement("span", { style: { fontFamily: F.m, fontSize: 14, color: c.total > 100000000 ? X.red : c.total > 10000000 ? "#A06F12" : X.sub, fontWeight: 700 } }, fmt(c.total))
           ),
           React.createElement("div", { style: { fontSize: 11, color: X.dim, marginTop: 4 } }, c.note)
         ),
@@ -5234,7 +5255,7 @@ function FraudTargetsSection() {
               React.createElement("span", { style: { fontSize: 12, color: j === 0 ? X.white : X.sub, fontWeight: j === 0 ? 700 : 400 } }, s.name),
               s.person ? React.createElement("span", { style: { fontSize: 10, color: X.dim, marginLeft: 8 } }, s.person) : null
             ),
-            React.createElement("span", { style: { fontFamily: F.m, fontSize: 12, color: s.amt > 50000000 ? X.red : s.amt > 1000000 ? "#f59e0b" : X.sub, fontWeight: 600 } }, fmt(s.amt))
+            React.createElement("span", { style: { fontFamily: F.m, fontSize: 12, color: s.amt > 50000000 ? X.red : s.amt > 1000000 ? "#A06F12" : X.sub, fontWeight: 600 } }, fmt(s.amt))
           )),
           c.entities > 3 ? React.createElement("div", { style: { fontSize: 10, color: X.dim, fontStyle: "italic", marginTop: 6, fontFamily: F.m } }, "+ " + (c.entities - 3) + " more entities at this address") : null
         ) : null
@@ -5246,7 +5267,7 @@ function FraudTargetsSection() {
 function EnforcementSection() {
   const C = React.createElement;
   const card = (bg, border, children, extraStyle) => C("div", { style: { background: bg, border: `1px solid ${border}`, borderRadius: 8, padding: 16, ...extraStyle } }, children);
-  const heroStat = (value, label, color) => C("div", { style: { background: "#0a0818", border: `1px solid ${color}33`, borderRadius: 8, padding: "18px 14px", textAlign: "center" } },
+  const heroStat = (value, label, color) => C("div", { style: { background: "#ffffff", border: `1px solid ${color}33`, borderRadius: 8, padding: "18px 14px", textAlign: "center" } },
     C("div", { style: { fontFamily: F.m, fontSize: 26, color, fontWeight: 700, letterSpacing: 1 } }, value),
     C("div", { style: { fontSize: 10, color: X.sub, fontFamily: F.m, marginTop: 6, letterSpacing: 1.2, lineHeight: 1.4 } }, label)
   );
@@ -5260,7 +5281,7 @@ function EnforcementSection() {
 
   return C("div", { style: { padding: "20px 24px", maxWidth: 1280, margin: "0 auto" } },
     // Header banner image (politicians / social card)
-    C("div", { style: { marginBottom: 20, borderRadius: 10, overflow: "hidden", border: `1px solid ${X.border}`, boxShadow: `0 0 40px ${X.red}22` } },
+    C("div", { style: { marginBottom: 20, borderRadius: 10, overflow: "hidden", border: `1px solid ${X.border}`, boxShadow: "0 4px 12px rgba(0,0,0,.08)" } },
       C("img", { src: "social_card.png", alt: "Massachusetts DOGE Analysis - Healey, Mariano, Spilka, Campbell", style: { width: "100%", display: "block" } })
     ),
     // Update banner
@@ -5279,7 +5300,7 @@ function EnforcementSection() {
       heroStat("227M rows", "HHS DOGE Medicaid spending · 2018–2024 · provider × HCPCS × month", X.green),
     ),
     // HHS DOGE dataset hero card
-    C("div", { style: { background: "#0a1408", border: `1px solid ${X.green}44`, borderRadius: 10, padding: 20, marginBottom: 24 } },
+    C("div", { style: { background: "#ecfdf5", border: `1px solid ${X.green}44`, borderRadius: 10, padding: 20, marginBottom: 24 } },
       C("div", { style: { fontFamily: F.m, fontSize: 10, color: X.green, letterSpacing: 3, marginBottom: 6 } }, "NEW DATA · RELEASED FEB 13, 2026"),
       C("div", { style: { fontFamily: F.h, fontSize: 22, color: X.white, marginBottom: 10 } }, "HHS DOGE Medicaid Provider Spending"),
       C("div", { style: { fontSize: 13, color: X.sub, lineHeight: 1.7, marginBottom: 14 } },
@@ -5289,11 +5310,11 @@ function EnforcementSection() {
       ),
       C("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px,1fr))", gap: 10, marginBottom: 14 } },
         ["Total program spend ~$849B (2023)", "~90M enrollees", "Aggregated by NPI", "Monthly resolution"].map((t, i) =>
-          C("div", { key: i, style: { background: "#0a1810", border: `1px solid ${X.green}22`, borderRadius: 6, padding: "8px 10px", fontSize: 11, color: X.text, fontFamily: F.m } }, "✓ " + t)
+          C("div", { key: i, style: { background: "#ecfdf5", border: `1px solid ${X.green}33`, borderRadius: 6, padding: "8px 10px", fontSize: 11, color: X.text, fontFamily: F.m } }, "✓ " + t)
         )
       ),
       C("div", { style: { display: "flex", gap: 10, flexWrap: "wrap" } },
-        C("a", { href: "https://opendata.hhs.gov/datasets/medicaid-provider-spending/", target: "_blank", style: { background: X.green, color: "#0a1408", padding: "8px 14px", borderRadius: 6, fontFamily: F.m, fontSize: 11, fontWeight: 700, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "↗ opendata.hhs.gov"),
+        C("a", { href: "https://opendata.hhs.gov/datasets/medicaid-provider-spending/", target: "_blank", style: { background: X.green, color: "#ecfdf5", padding: "8px 14px", borderRadius: 6, fontFamily: F.m, fontSize: 11, fontWeight: 700, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "↗ opendata.hhs.gov"),
         C("a", { href: "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/data/fraud-detection/ingest_hhs_doge_provider_spending.py", target: "_blank", style: { border: `1px solid ${X.green}66`, color: X.green, padding: "8px 14px", borderRadius: 6, fontFamily: F.m, fontSize: 11, fontWeight: 600, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "Ingest Script")
       )
     ),
@@ -5302,7 +5323,7 @@ function EnforcementSection() {
     C("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))", gap: 12, marginBottom: 28 } },
       indictments.map((ind, i) =>
         C("a", { key: i, href: ind.url, target: "_blank", style: { textDecoration: "none" } },
-          C("div", { className: "hC", style: { background: "#1a0808", border: `1px solid ${X.red}33`, borderRadius: 8, padding: 14, height: "100%", cursor: "pointer" } },
+          C("div", { className: "hC", style: { background: "#fef2f2", border: `1px solid ${X.red}33`, borderRadius: 8, padding: 14, height: "100%", cursor: "pointer" } },
             C("div", { style: { fontFamily: F.m, fontSize: 9, color: X.red, letterSpacing: 1.5, marginBottom: 6 } }, ind.source + " · 2026"),
             C("div", { style: { fontSize: 14, color: X.white, fontWeight: 700, marginBottom: 6, lineHeight: 1.3 } }, ind.title),
             C("div", { style: { fontSize: 11, color: X.sub, marginBottom: 8 } }, ind.who),
@@ -5313,7 +5334,7 @@ function EnforcementSection() {
     ),
     // Two-column: BSI + OIG
     C("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px,1fr))", gap: 14, marginBottom: 24 } },
-      C("div", { style: { background: "#1a1408", border: `1px solid ${X.amber}44`, borderRadius: 8, padding: 16 } },
+      C("div", { style: { background: "#fffbeb", border: `1px solid ${X.amber}44`, borderRadius: 8, padding: 16 } },
         C("div", { style: { fontFamily: F.m, fontSize: 10, color: X.amber, letterSpacing: 2, marginBottom: 6 } }, "MA STATE AUDITOR · BSI FY25"),
         C("div", { style: { fontFamily: F.h, fontSize: 19, color: X.white, marginBottom: 8 } }, "DiZoglio's Bureau of Special Investigations"),
         C("div", { style: { fontSize: 12, color: X.sub, lineHeight: 1.7, marginBottom: 10 } },
@@ -5324,7 +5345,7 @@ function EnforcementSection() {
         ),
         C("a", { href: "https://www.mass.gov/news/auditor-dizoglios-bureau-of-special-investigations-identifies-nearly-12-million-in-public-benefit-fraud-in-fy25", target: "_blank", style: { color: X.amber, fontFamily: F.m, fontSize: 11, textDecoration: "none", letterSpacing: 1 } }, "↗ mass.gov BSI release")
       ),
-      C("div", { style: { background: "#0a0818", border: `1px solid ${X.purple}44`, borderRadius: 8, padding: 16 } },
+      C("div", { style: { background: "#ffffff", border: `1px solid ${X.purple}44`, borderRadius: 8, padding: 16 } },
         C("div", { style: { fontFamily: F.m, fontSize: 10, color: X.purple, letterSpacing: 2, marginBottom: 6 } }, "HHS OIG · MFCU FY2025"),
         C("div", { style: { fontFamily: F.h, fontSize: 19, color: X.white, marginBottom: 8 } }, "Medicaid Fraud Control Units · National"),
         C("div", { style: { fontSize: 12, color: X.sub, lineHeight: 1.7, marginBottom: 10 } },
@@ -5337,7 +5358,7 @@ function EnforcementSection() {
       )
     ),
     // DOJ Strike Force CTA
-    C("div", { style: { background: `linear-gradient(135deg, #1a0820, #0a0818)`, border: `2px solid ${X.cyan}66`, borderRadius: 12, padding: 24, marginBottom: 24 } },
+    C("div", { style: { background: "#f5f3ff", border: `2px solid ${X.cyan}66`, borderRadius: 12, padding: 24, marginBottom: 24 } },
       C("div", { style: { fontFamily: F.m, fontSize: 10, color: X.cyan, letterSpacing: 4, marginBottom: 8 } }, "REFERRAL ROUTING"),
       C("div", { style: { fontFamily: F.h, fontSize: 26, color: X.white, marginBottom: 6 } }, "DOJ Health Care Fraud Unit"),
       C("div", { style: { fontFamily: F.h, fontSize: 22, color: X.cyan, marginBottom: 12 } }, "→ New England Strike Force"),
@@ -5348,7 +5369,7 @@ function EnforcementSection() {
         C("span", { style: { color: X.cyan } }, "This is the right channel for an MA MassHealth fraud package — not mainline DOJ.")
       ),
       C("div", { style: { display: "flex", gap: 10, flexWrap: "wrap" } },
-        C("a", { href: "https://www.justice.gov/opa/pr/justice-department-expands-health-care-fraud-unit-target-health-care-fraud-massachusetts", target: "_blank", style: { background: X.cyan, color: "#0a0818", padding: "10px 16px", borderRadius: 6, fontFamily: F.m, fontSize: 11, fontWeight: 700, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "↗ DOJ Announcement"),
+        C("a", { href: "https://www.justice.gov/opa/pr/justice-department-expands-health-care-fraud-unit-target-health-care-fraud-massachusetts", target: "_blank", style: { background: X.cyan, color: "#ffffff", padding: "10px 16px", borderRadius: 6, fontFamily: F.m, fontSize: 11, fontWeight: 700, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "↗ DOJ Announcement"),
         C("a", { href: "https://github.com/duncanburns2013-dot/HHS-MA-DOGE/blob/gh-pages/enforcement/DOJ-ROUTING.md", target: "_blank", style: { border: `1px solid ${X.cyan}66`, color: X.cyan, padding: "10px 16px", borderRadius: 6, fontFamily: F.m, fontSize: 11, fontWeight: 600, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "Routing Guide"),
         C("a", { href: "https://oig.hhs.gov/fraud/report-fraud", target: "_blank", style: { border: `1px solid ${X.cyan}66`, color: X.cyan, padding: "10px 16px", borderRadius: 6, fontFamily: F.m, fontSize: 11, fontWeight: 600, letterSpacing: 1, textDecoration: "none", textTransform: "uppercase" } }, "OIG Hotline")
       )
@@ -5394,7 +5415,7 @@ function App() {
   }[tab] || EnforcementSection;
   return /*#__PURE__*/React.createElement("div", {
     style: {
-      background: `linear-gradient(180deg,${X.bg},#071020,${X.bg})`,
+      background: X.bg,
       color: X.white,
       minHeight: "100vh",
       fontFamily: F.b
@@ -5412,7 +5433,10 @@ function App() {
       color: X.dim,
       letterSpacing: 2
     }
-  }, "MA DOGE ANALYSIS v10 \xB7 T-MSIS \xB7 CTHRU \xB7 OCPF \xB7 ALL PUBLIC RECORD"));
+  }, "MA DOGE ANALYSIS v10 \xB7 T-MSIS \xB7 CTHRU \xB7 OCPF \xB7 ALL PUBLIC RECORD \xB7 ", /*#__PURE__*/React.createElement("a", {
+    href: "https://massachusettsdatahub.com/",
+    style: { color: X.blue, textDecoration: "none", fontWeight: 600 }
+  }, "PART OF THE MASSACHUSETTS DATA HUB")));
 }
 ReactDOM.render(React.createElement(App), document.getElementById("root"));}
 if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",bootApp)}else{bootApp()}
