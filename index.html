@@ -108,6 +108,7 @@ const CSS = `@import url('https://fonts.googleapis.com/css2?family=Instrument+Se
 @keyframes scanDown{0%{top:-100%}100%{top:200%}}
 @keyframes gridPulse{0%,100%{opacity:.02}50%{opacity:.06}}
 a{overflow-wrap:anywhere}
+@media(max-width:600px){[style*="grid-template-columns"]{grid-template-columns:1fr !important}table{display:block;overflow-x:auto;max-width:100%}}
 .hC{transition:all .2s}.hC:hover{transform:translateY(-2px);border-color:${X.red}50!important}
 `;
 function Tip({
